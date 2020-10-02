@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TaskListV2.DataAccess\TaskListV2.DataAccess.csproj" />
+  </ItemGroup>
+
 </Project>

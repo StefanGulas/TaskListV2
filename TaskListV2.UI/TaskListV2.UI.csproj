@@ -6,4 +6,9 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TaskListV2.DataAccess\TaskListV2.DataAccess.csproj" />
+    <ProjectReference Include="..\TaskListV2.Model\TaskListV2.Model.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -4,10 +4,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30320.27
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskListV2.UI", "TaskListV2.UI\TaskListV2.UI.csproj", "{77DAC166-2ACD-41E5-988B-60504AC65AB1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CCDBBD56-83BB-407F-B8AC-E5B893350C1B} = {CCDBBD56-83BB-407F-B8AC-E5B893350C1B}
+		{5691D36E-3161-42C1-BB36-7909BDE8ABD1} = {5691D36E-3161-42C1-BB36-7909BDE8ABD1}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskListV2.DataAccess", "TaskListV2.DataAccess\TaskListV2.DataAccess.csproj", "{5691D36E-3161-42C1-BB36-7909BDE8ABD1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskListV2.Model", "TaskListV2.Model\TaskListV2.Model.csproj", "{CCDBBD56-83BB-407F-B8AC-E5B893350C1B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5691D36E-3161-42C1-BB36-7909BDE8ABD1} = {5691D36E-3161-42C1-BB36-7909BDE8ABD1}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
