@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using TaskListV2.Model;
 using TaskListV2.UI.Data;
@@ -39,6 +40,14 @@ namespace TaskListV2.UI.ViewModel
                 _selectedTask = value;
                 OnPropertyChanged();
             }
+        }
+        public IList<Priority> TaskPriorities
+        {
+            get
+            {
+                return Enum.GetValues(typeof(Priority)).Cast<Priority>().ToList<Priority>();
+            }
+            set { }
         }
 
     }

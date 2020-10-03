@@ -27,9 +27,9 @@
             <Label Content="Task" Margin="10 10 10 0"/>
             <TextBox Grid.Row="1" Text="{Binding SelectedTask.TaskName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10 0 10 10"/>
             <Label Grid.Row="2" Content="Priority" Margin="10 0"/>
-            <TextBox Grid.Row="3" Text="{Binding SelectedTask.TaskPriority, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10 0 10 10"/>
+            <ComboBox Grid.Row="3" SelectedValue="{Binding SelectedTask.TaskPriority, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding TaskPriorities, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10 0 10 10"/>
             <Label Grid.Row="4" Content="Complete" Margin="10 0"/>
-            <TextBox Grid.Row="5" Text="{Binding SelectedTask.TaskComplete, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10 0 10 10"/>
+            <CheckBox Grid.Row="5" IsChecked="{Binding SelectedTask.TaskComplete, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10 0 10 10"/>
             
             
         </Grid>
