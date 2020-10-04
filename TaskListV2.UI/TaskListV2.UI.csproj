@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\TaskListV2.DataAccess\TaskListV2.DataAccess.csproj" />
     <ProjectReference Include="..\TaskListV2.Model\TaskListV2.Model.csproj" />
   </ItemGroup>
