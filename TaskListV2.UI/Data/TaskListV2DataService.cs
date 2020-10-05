@@ -9,10 +9,10 @@ namespace TaskListV2.UI.Data
         public IEnumerable<Task> GetAll()
         {
             // ToDo: load data from real database
-            yield return new Task { TaskName = "Einkaufen gehen", TaskPriority = (Priority)1 };
-            yield return new Task { TaskName = "Lernen", TaskPriority = (Priority)2, TaskComplete = true };
-            yield return new Task { TaskName = "Esse gehen", TaskPriority = (Priority)1 };
-            yield return new Task { TaskName = "Gassi gehen", TaskPriority = (Priority)0 };
+            yield return new Task { TaskName = "Einkaufen gehen", TaskCategory = (Category)1 };
+            yield return new Task { TaskName = "Lernen", IsImportant = true, TaskComplete = true };
+            yield return new Task { TaskName = "Esse gehen", IsImportant = false, TaskCategory = (Category)2 };
+            yield return new Task { TaskName = "Gassi gehen", TaskCategory = (Category)0 };
         }
 
         public static List<string> LeftMenuItems = new List<string>

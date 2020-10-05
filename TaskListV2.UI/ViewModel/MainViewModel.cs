@@ -54,14 +54,7 @@ namespace TaskListV2.UI.ViewModel
             }
         }
         
-        public IList<Priority> TaskPriorities
-        {
-            get
-            {
-                return Enum.GetValues(typeof(Priority)).Cast<Priority>().ToList<Priority>();
-            }
-            set { }
-        }
+
 
     }
 }
