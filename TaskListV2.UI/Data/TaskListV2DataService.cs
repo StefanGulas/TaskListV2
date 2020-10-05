@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using TaskListV2.Model;
 
 namespace TaskListV2.UI.Data
@@ -13,5 +14,12 @@ namespace TaskListV2.UI.Data
             yield return new Task { TaskName = "Esse gehen", TaskPriority = (Priority)1 };
             yield return new Task { TaskName = "Gassi gehen", TaskPriority = (Priority)0 };
         }
+
+        public static List<string> LeftMenuItems = new List<string>
+        {
+            "Mein Tag",
+            "Wichtig",
+            "Aufgaben"
+        };
     }
 }

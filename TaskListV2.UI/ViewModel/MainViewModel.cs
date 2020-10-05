@@ -12,10 +12,11 @@ namespace TaskListV2.UI.ViewModel
     {
         private ITaskListV2DataService _taskDataService;
         private Task _selectedTask;
-
+        private string _selectedItem;
 
         public MainViewModel(ITaskListV2DataService taskDataService)
         {
+            MenuItems = TaskListV2DataService.LeftMenuItems;
             Tasks = new ObservableCollection<Task>();
             _taskDataService = taskDataService;
         }
@@ -30,7 +31,18 @@ namespace TaskListV2.UI.ViewModel
             }
         }
 
+        public IEnumerable<string> MenuItems { get; set; }
         public ObservableCollection<Task> Tasks { get; set; }
+
+        public string SelectedItem
+        {
+            get { return _selectedItem; }
+            set { 
+                _selectedItem = value;
+                OnPropertyChanged();
+            
+            }
+        }
 
         public Task SelectedTask
         {
@@ -41,6 +53,7 @@ namespace TaskListV2.UI.ViewModel
                 OnPropertyChanged();
             }
         }
+        
         public IList<Priority> TaskPriorities
         {
             get

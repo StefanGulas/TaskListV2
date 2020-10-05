@@ -11,9 +11,8 @@
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <ListView ItemsSource="{Binding Tasks}"
-                  SelectedItem="{Binding SelectedTask}"
-                  DisplayMemberPath="TaskName"/>
+        <ListView ItemsSource="{Binding MenuItems}"
+                  SelectedItem="{Binding SelectedItem}"/>
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
