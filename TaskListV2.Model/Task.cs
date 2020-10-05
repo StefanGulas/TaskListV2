@@ -4,9 +4,11 @@ namespace TaskListV2.Model
 {
     public enum Category
     {
-        low,
-        medium,
-        high
+        Aufgaben,
+        Privat,
+        Arbeit,
+        Familie,
+        Programmieren
     }
 
     public enum Repetition
