@@ -2,12 +2,24 @@
 
 namespace TaskListV2.Model
 {
-    public enum Priority
+    public enum Category
     {
         low,
         medium,
         high
     }
+
+    public enum Repetition
+    {
+        Keine,
+        Täglich,
+        Wochentage,
+        Wöchentlich,
+        Monatlich,
+        Jährlich
+    }
+
+
     public class Task
     {
         
@@ -17,7 +29,14 @@ namespace TaskListV2.Model
 
         public bool TaskComplete { get; set; }
 
-        public Priority TaskPriority { get; set; }
+        public bool IsImportant { get; set; }
 
+        public Category TaskCategory { get; set; }
+
+        public DateTime DueDate { get; set; }
+
+        public DateTime Reminder { get; set; }
+
+        public Repetition TaskRepetition { get; set; }
     }
 }
