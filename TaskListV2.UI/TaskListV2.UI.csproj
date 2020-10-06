@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TaskListV2.DataAccess\TaskListV2.DataAccess.csproj" />
+    <ProjectReference Include="..\TaskListV2.DataAccessNew\TaskListV2.DataAccessNew.csproj" />
     <ProjectReference Include="..\TaskListV2.Model\TaskListV2.Model.csproj" />
   </ItemGroup>
 
