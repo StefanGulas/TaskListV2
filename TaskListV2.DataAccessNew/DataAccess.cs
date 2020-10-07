@@ -1,30 +1,21 @@
 ﻿using Dapper;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using TaskListV2.Model;
 
 
-namespace TaskListV2.DataAccess
+namespace TaskListV2.DataAccessNew
 {
-    public class DataAccess
+    public static class DataAccess
     {
-        public ObservableCollection<Task> GetTasks(bool showAllTasks)
+        public static IEnumerable<Task> GetTasks()
         {
             using var con = HelperDataAccess.Conn();
 
             con.Open();
 
-            string getTasks;
-
-            if (showAllTasks)
-            {
-                getTasks = "SELECT * FROM Tasks ORDER BY Complete, TaskId DESC";
-            }
-            else if (!showAllTasks)
-            {
-                getTasks = "SELECT * from Tasks WHERE Complete = 'false' ORDER BY TaskId DESC";
-            }
-            else getTasks = "";
+            string getTasks = "SELECT * FROM Tasks ORDER BY Complete, TaskId DESC";
 
             ObservableCollection<Task> taskList = new ObservableCollection<Task>(con.Query<Task>(getTasks).ToList());
 

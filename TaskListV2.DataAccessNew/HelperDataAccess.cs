@@ -5,7 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 
-namespace TaskListV2.DataAccess
+namespace TaskListV2.DataAccessNew
 {
     public class HelperDataAccess
     {
