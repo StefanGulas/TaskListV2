@@ -9,8 +9,9 @@ namespace TaskListV2.UI.Data
     {
         public IEnumerable<Task> GetAll()
         {
+            DataAccessV2 dataBase = new DataAccessV2();
 
-            return DataAccessNew.DataAccess.GetTasks();
+            return dataBase.GetTasks();
 
             //yield return new Task { TaskName = "Einkaufen gehen", TaskCategory = (Category)1 };
             //yield return new Task { TaskName = "Lernen", IsImportant = true, TaskComplete = true };

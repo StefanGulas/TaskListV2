@@ -7,17 +7,17 @@ using TaskListV2.Model;
 
 namespace TaskListV2.DataAccessNew
 {
-    public static class DataAccess
+    public class DataAccessV2
     {
-        public static IEnumerable<Task> GetTasks()
+        public IEnumerable<Task> GetTasks()
         {
             using var con = HelperDataAccess.Conn();
 
             con.Open();
 
-            string getTasks = "SELECT * FROM Tasks ORDER BY Complete, TaskId DESC";
+            string getTasks = "SELECT * FROM Tasks";
 
-            ObservableCollection<Task> taskList = new ObservableCollection<Task>(con.Query<Task>(getTasks).ToList());
+            IEnumerable<Task> taskList = new ObservableCollection<Task>(con.Query<Task>(getTasks).ToList());
 
             con.Close();
 

@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
+﻿using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Text;
 
 namespace TaskListV2.DataAccessNew
 {
-    public class HelperDataAccess
+    public static class HelperDataAccess
     {
         public static IDbConnection Conn()
         {
