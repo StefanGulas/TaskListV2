@@ -7,11 +7,20 @@ namespace TaskListV2.UI.Data
 {
     class TaskListV2DataService : ITaskListV2DataService
     {
+        private IDataAccessV2 _dataAccessV2;
+
+        public TaskListV2DataService(IDataAccessV2 dataAccessV2)
+        {
+            _dataAccessV2 = dataAccessV2;
+        }
+        
         public IEnumerable<Task> GetAll()
         {
-            DataAccessV2 dataBase = new DataAccessV2();
+            //DataAccessV2 dataBase = new DataAccessV2();
 
-            return dataBase.GetTasks();
+            //return dataBase.GetTasks();
+
+            return _dataAccessV2.GetTasks();
 
             //yield return new Task { TaskName = "Einkaufen gehen", TaskCategory = (Category)1 };
             //yield return new Task { TaskName = "Lernen", IsImportant = true, TaskComplete = true };
@@ -26,5 +35,10 @@ namespace TaskListV2.UI.Data
             "Geplant",
             "Aufgaben"
         };
+
+        public IEnumerable<Task> Wichtig()
+        {
+            return _dataAccessV2.Wichtig();
+        }
     }
 }

@@ -1,7 +1,5 @@
 ﻿using Autofac;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using TaskListV2.DataAccessNew;
 using TaskListV2.UI.Data;
 using TaskListV2.UI.ViewModel;
 
@@ -15,7 +13,7 @@ namespace TaskListV2.UI.Startup
             builder.RegisterType<MainWindow>().AsSelf();
             builder.RegisterType<MainViewModel>().AsSelf();
             builder.RegisterType<TaskListV2DataService>().As<ITaskListV2DataService>();
-
+            builder.RegisterType<DataAccessV2>().As<IDataAccessV2>();
             return builder.Build();
         }
     }

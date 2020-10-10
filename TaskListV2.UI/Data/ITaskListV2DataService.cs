@@ -7,5 +7,6 @@ namespace TaskListV2.UI.Data
     public interface ITaskListV2DataService
     {
         IEnumerable<Task> GetAll();
+        IEnumerable<Task> Wichtig();
     }
 }

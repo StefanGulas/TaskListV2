@@ -21,7 +21,7 @@ namespace TaskListV2.UI.ViewModel
             _taskDataService = taskDataService;
         }
 
-        public void Load()
+        public void Load(string dataAccessMethod = "GetAll")
         {
             var tasks = _taskDataService.GetAll();
             Tasks.Clear();
@@ -30,6 +30,7 @@ namespace TaskListV2.UI.ViewModel
                 Tasks.Add(task);
             }
         }
+        
 
         public IEnumerable<string> MenuItems { get; set; }
         public ObservableCollection<Task> Tasks { get; set; }
@@ -40,7 +41,19 @@ namespace TaskListV2.UI.ViewModel
             set { 
                 _selectedItem = value;
                 OnPropertyChanged();
-            
+                switch (_selectedItem)
+                {
+                    case: Wichtig
+                            
+                    default:
+                        break;
+                }
+                var tasks = _taskDataService.Wichtig();
+                Tasks.Clear();
+                foreach (var task in tasks)
+                {
+                    Tasks.Add(task);
+                }
             }
         }
 
