@@ -6,6 +6,8 @@ namespace TaskListV2.DataAccessNew
     public interface IDataAccessV2
     {
         IEnumerable<Task> GetTasks();
-        IEnumerable<Task> Wichtig();
+        IEnumerable<Task> Important();
+        IEnumerable<Task> Planned();
+        IEnumerable<Task> Today();
     }
 }

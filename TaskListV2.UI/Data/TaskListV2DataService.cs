@@ -13,7 +13,7 @@ namespace TaskListV2.UI.Data
         {
             _dataAccessV2 = dataAccessV2;
         }
-        
+
         public IEnumerable<Task> GetAll()
         {
             //DataAccessV2 dataBase = new DataAccessV2();
@@ -36,9 +36,23 @@ namespace TaskListV2.UI.Data
             "Aufgaben"
         };
 
-        public IEnumerable<Task> Wichtig()
+        public IEnumerable<Task> Aufgaben()
         {
-            return _dataAccessV2.Wichtig();
+            return _dataAccessV2.GetTasks();
         }
+
+        public IEnumerable<Task> Important()
+        {
+            return _dataAccessV2.Important();
+        }
+        public IEnumerable<Task> Today()
+        {
+            return _dataAccessV2.Today();
+        }
+        public IEnumerable<Task> Planned()
+        {
+            return _dataAccessV2.Planned();
+        }
+
     }
 }

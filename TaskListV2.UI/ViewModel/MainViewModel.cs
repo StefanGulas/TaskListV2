@@ -41,14 +41,25 @@ namespace TaskListV2.UI.ViewModel
             set { 
                 _selectedItem = value;
                 OnPropertyChanged();
+                IEnumerable<Task> tasks;
                 switch (_selectedItem)
                 {
-                    case: Wichtig
-                            
+                    case "Wichtig":
+                        tasks = _taskDataService.Important();
+                        break;
+                    case "Aufgaben":
+                        tasks = _taskDataService.GetAll();
+                        break;
+                    case "Mein Tag":
+                        tasks = _taskDataService.Today();
+                        break;
+                    case "Geplant":
+                        tasks = _taskDataService.Planned();
+                        break;
                     default:
+                        tasks = _taskDataService.GetAll();
                         break;
                 }
-                var tasks = _taskDataService.Wichtig();
                 Tasks.Clear();
                 foreach (var task in tasks)
                 {

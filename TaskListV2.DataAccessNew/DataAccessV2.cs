@@ -11,28 +11,37 @@ namespace TaskListV2.DataAccessNew
     {
         public IEnumerable<Task> GetTasks()
         {
-            using var con = HelperDataAccess.Conn();
-
-            con.Open();
-
             string getTasks = "SELECT * FROM Tasks";
 
-            IEnumerable<Task> taskList = new ObservableCollection<Task>(con.Query<Task>(getTasks).ToList());
-
-            con.Close();
-
-            return taskList;
+            return Connect(getTasks);
         }
 
-        public IEnumerable<Task> Wichtig()
+        public IEnumerable<Task> Important()
+        {
+            string getTasks = "SELECT * FROM Tasks WHERE IsImportant = 'true'";
+
+            return Connect(getTasks);
+        }
+        public IEnumerable<Task> Today()
+        {
+            string getTasks = "SELECT * FROM Tasks WHERE IsImportant = 'true'";
+
+            return Connect(getTasks);
+        }
+
+        public IEnumerable<Task> Planned()
+        {
+            string getTasks = "SELECT * FROM Tasks WHERE IsImportant = 'true'";
+
+            return Connect(getTasks);
+        }
+        public IEnumerable<Task> Connect(string sqlQuery)
         {
             using var con = HelperDataAccess.Conn();
 
             con.Open();
 
-            string getTasks = "SELECT * FROM Tasks WHERE IsImportant = 'true'";
-
-            IEnumerable<Task> taskList = new ObservableCollection<Task>(con.Query<Task>(getTasks).ToList());
+            IEnumerable<Task> taskList = new ObservableCollection<Task>(con.Query<Task>(sqlQuery).ToList());
 
             con.Close();
 
