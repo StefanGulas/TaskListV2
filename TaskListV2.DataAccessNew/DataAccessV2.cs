@@ -24,7 +24,7 @@ namespace TaskListV2.DataAccessNew
         }
         public IEnumerable<Task> Today()
         {
-            string getTasks = "SELECT * FROM Tasks WHERE IsImportant = 'true'";
+            string getTasks = "SELECT * FROM Tasks WHERE DueDate = CAST(CURRENT_TIMESTAMP AS DATE)"; 
 
             return Connect(getTasks);
         }
