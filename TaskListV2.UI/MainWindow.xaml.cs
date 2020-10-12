@@ -1,5 +1,6 @@
 ﻿ using System;
 using System.Windows;
+using System.Windows.Input;
 using TaskListV2.UI.ViewModel;
 
 namespace TaskListV2.UI
@@ -22,6 +23,15 @@ namespace TaskListV2.UI
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             _viewModel.Load();
+        }
+        private void ButtonFechar_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
         }
     }
 }
