@@ -16,7 +16,8 @@
          FontFamily="{DynamicResource MaterialDesignFont}">
 
     <Grid>
-            <StackPanel VerticalAlignment="Top" Margin="10,0" Background="Azure">
+<!-- Custom Frame -->
+        <StackPanel VerticalAlignment="Top" Margin="10,0" Background="Azure">
                 <Grid>
                     <StackPanel Background="AliceBlue" HorizontalAlignment="Center" Orientation="Horizontal">
                         <TextBlock Text="Task List" VerticalAlignment="Center" FontSize="16" FontFamily="Champagne &amp; Limousines" Margin="20 0"/>
