@@ -29,9 +29,15 @@ namespace TaskListV2.UI
             Application.Current.Shutdown();
         }
 
-        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+
+        private void PackIcon_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            DragMove();
+
+        }
+
+        private void PackIcon_ColorChanged(object sender, RoutedPropertyChangedEventArgs<System.Windows.Media.Color> e)
+        {
+
         }
     }
 }
