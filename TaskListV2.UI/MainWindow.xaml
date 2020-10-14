@@ -96,18 +96,24 @@
                 <StackPanel VerticalAlignment="Bottom" Height="47" Margin="15,5">
                     <Grid Background="LightGray">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <TextBox Grid.Column="0" Text="{Binding TaskName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                        <ComboBox Name="TaskPriorityComboBox" Grid.Column="1" SelectedValue="{Binding Priority, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding TaskPriorities, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                        <Button Grid.Column="4" 
+                        <TextBox Margin="10" Grid.Column="0" Background="White" Text="{Binding TaskName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}"
+                          />
+                        <ComboBox Name="TaskPriorityComboBox" Grid.Column="1" SelectedValue="{Binding Priority, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding TaskPriorities, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          Style="{StaticResource MaterialDesignComboBox}"
+                        ToolTip="MaterialDesignFloatingActionMiniAccentButton">
+
+                        </ComboBox>
+                        <Button Command="{Binding CreateTaskCommand}" CommandParameter="{Binding}" Grid.Column="4" 
                          Style="{StaticResource MaterialDesignIconButton}"
                         ToolTip="MaterialDesignFloatingActionMiniAccentButton">
                             <materialDesign:PackIcon
                             Kind="Plus"/>
+                            
                         </Button>
 
                         <Button Grid.Column="2"
