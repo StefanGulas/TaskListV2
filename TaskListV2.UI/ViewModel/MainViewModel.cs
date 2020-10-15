@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Windows.Input;
 using TaskListV2.Model;
+using TaskListV2.UI.Command;
 using TaskListV2.UI.Data;
 
 namespace TaskListV2.UI.ViewModel
@@ -77,7 +79,17 @@ namespace TaskListV2.UI.ViewModel
                 OnPropertyChanged();
             }
         }
-        
+
+        public string Name { get; set; }
+        public bool Complete { get; set; }
+        public bool Important { get; set; }
+        public int Category { get; set; }
+        public DateTime Due { get; set; }
+        public DateTime Remind { get; set; }
+
+        public ICommand CreateTaskCommand { get { return new CreateTaskCommand(_taskDataService); } }
+
+
 
 
     }

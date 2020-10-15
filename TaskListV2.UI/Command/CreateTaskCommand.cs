@@ -2,12 +2,23 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
+using TaskListV2.DataAccessNew;
 using TaskListV2.Model;
+using TaskListV2.UI.Data;
+using TaskListV2.UI.ViewModel;
 
 namespace TaskListV2.UI.Command
 {
     public class CreateTaskCommand : ICommand
     {
+        private ITaskListV2DataService _taskDataService;
+
+        public CreateTaskCommand(ITaskListV2DataService taskDataService)
+        {
+            _taskDataService = taskDataService;
+        }
+
+
         public event EventHandler CanExecuteChanged;
         public bool CanExecute(object parameter)
         {
@@ -16,12 +27,11 @@ namespace TaskListV2.UI.Command
 
         public void Execute(object parameter)
         {
-            if (parameter is TaskListViewModel taskList && taskList.TaskName != null && taskList.TaskName != "")
+            if (parameter is MainViewModel taskList && taskList.Name != null && taskList.Name != "")
             {
-                taskList.Tasks.Add(new Task() { TaskName = taskList.TaskName, IsImportant = taskList.IsImportant, TaskComplete = taskList.TaskComplete });
-                DataAccess db = new DataAccess();
-                db.AddTask(taskList.TaskName, (int)taskList.Priority, taskList.TaskIsChecked);
-                taskList.TaskName = "";
+                taskList.Tasks.Add(new Task() { TaskName = taskList.Name, IsImportant = taskList.Important, TaskComplete = taskList.Complete });
+                _taskDataService.CreateTask(taskList.Name, (int)taskList.Priority, taskList.TaskIsChecked);
+                taskList.Name = "";
 
             }
         }

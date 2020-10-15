@@ -9,5 +9,6 @@ namespace TaskListV2.UI.Data
         IEnumerable<Task> Planned();
         IEnumerable<Task> Today();
         IEnumerable<Task> Important();
+        void CreateTask(string name);
     }
 }

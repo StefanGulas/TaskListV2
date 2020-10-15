@@ -53,6 +53,10 @@ namespace TaskListV2.UI.Data
         {
             return _dataAccessV2.Planned();
         }
+        public void CreateTask(string name)
+        {
+            _dataAccessV2.CreateTask(name);
+        }
 
     }
 }

@@ -103,7 +103,7 @@
                         </Grid.ColumnDefinitions>
                         <TextBox Margin="10" Grid.Column="0" Background="White" Text="{Binding TaskName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}"
                           />
-                        <ComboBox Name="TaskPriorityComboBox" Grid.Column="1" SelectedValue="{Binding Priority, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding TaskPriorities, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        <ComboBox Name="TaskCategoryComboBox" Grid.Column="1" SelectedValue="{Binding TaskCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding TaskCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           Style="{StaticResource MaterialDesignComboBox}"
                         ToolTip="MaterialDesignFloatingActionMiniAccentButton">
 

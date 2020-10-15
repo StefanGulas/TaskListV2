@@ -9,5 +9,6 @@ namespace TaskListV2.DataAccessNew
         IEnumerable<Task> Important();
         IEnumerable<Task> Planned();
         IEnumerable<Task> Today();
+        void CreateTask(string name);
     }
 }

@@ -9,6 +9,19 @@ namespace TaskListV2.DataAccessNew
 {
     public class DataAccessV2 : IDataAccessV2
     {
+        public IEnumerable<Task> Connect(string sqlQuery)
+        {
+            using var con = HelperDataAccess.Conn();
+
+            con.Open();
+
+            IEnumerable<Task> taskList = new ObservableCollection<Task>(con.Query<Task>(sqlQuery).ToList());
+
+            con.Close();
+
+            return taskList;
+        }
+
         public IEnumerable<Task> GetTasks()
         {
             string getTasks = "SELECT * FROM Tasks";
@@ -35,18 +48,19 @@ namespace TaskListV2.DataAccessNew
 
             return Connect(getTasks);
         }
-        public IEnumerable<Task> Connect(string sqlQuery)
+
+        public void CreateTask(string name)
         {
             using var con = HelperDataAccess.Conn();
 
             con.Open();
 
-            IEnumerable<Task> taskList = new ObservableCollection<Task>(con.Query<Task>(sqlQuery).ToList());
 
-            con.Close();
+            string insertTask = "INSERT INTO dbo.[Tasks] (TaskName, IsImportant, TaskComplete) VALUES" +
+                "(@Name, @Important, @Complete)";
 
-            return taskList;
+            var affectedRows = con.Execute(insertTask, new { TaskName = name, Priority = priority, Complete = complete });
+
         }
-
     }
 }
