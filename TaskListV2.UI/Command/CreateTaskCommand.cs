@@ -27,11 +27,11 @@ namespace TaskListV2.UI.Command
 
         public void Execute(object parameter)
         {
-            if (parameter is MainViewModel taskList && taskList.Name != null && taskList.Name != "")
+            if (parameter is MainViewModel mainViewModel && mainViewModel.Name != null && mainViewModel.Name != "")
             {
-                taskList.Tasks.Add(new Task() { TaskName = taskList.Name, IsImportant = taskList.Important, TaskComplete = taskList.Complete });
-                _taskDataService.CreateTask(taskList.Name, (int)taskList.Priority, taskList.TaskIsChecked);
-                taskList.Name = "";
+                mainViewModel.Tasks.Add(new Task() { TaskName = mainViewModel.Name});
+                _taskDataService.CreateTask(mainViewModel.Name);
+                mainViewModel.Name = "";
 
             }
         }

@@ -55,11 +55,12 @@ namespace TaskListV2.DataAccessNew
 
             con.Open();
 
+            string @Name = name;
 
-            string insertTask = "INSERT INTO dbo.[Tasks] (TaskName, IsImportant, TaskComplete) VALUES" +
-                "(@Name, @Important, @Complete)";
+            string insertTask = "INSERT INTO dbo.[Tasks] (TaskName) VALUES" +
+                "(@Name)";
 
-            var affectedRows = con.Execute(insertTask, new { TaskName = name, Priority = priority, Complete = complete });
+            var affectedRows = con.Execute(insertTask, new { TaskName = name });
 
         }
     }
