@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.SqlClient;
 using System.Linq;
 using TaskListV2.Model;
 
@@ -55,10 +56,8 @@ namespace TaskListV2.DataAccessNew
 
             con.Open();
 
-            string @Name = name;
-
             string insertTask = "INSERT INTO dbo.[Tasks] (TaskName) VALUES" +
-                "(@Name)";
+                "(@TaskName)";
 
             var affectedRows = con.Execute(insertTask, new { TaskName = name });
 
