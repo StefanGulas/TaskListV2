@@ -17,9 +17,9 @@
 
     <Grid>
         <!-- Custom Frame -->
-        <StackPanel VerticalAlignment="Top" Margin="10,0" Background="Azure">
+        <StackPanel VerticalAlignment="Top" Margin="10,0" Background="Azure" MouseDown="StackPanel_MouseDown">
             <Grid>
-                <StackPanel Background="AliceBlue" HorizontalAlignment="Center" Orientation="Horizontal">
+                <StackPanel Background="Azure" HorizontalAlignment="Center" Orientation="Horizontal">
                     <TextBlock Text="Task List" VerticalAlignment="Center" FontSize="16" FontFamily="Champagne &amp; Limousines" Margin="20 0"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0">
