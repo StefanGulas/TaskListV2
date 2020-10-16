@@ -86,6 +86,7 @@ namespace TaskListV2.UI.ViewModel
         public int Category { get; set; }
         public DateTime Due { get; set; }
         public DateTime Remind { get; set; }
+        public int Repetition { get; set; }
 
         public ICommand CreateTaskCommand { get { return new CreateTaskCommand(_taskDataService); } }
 
