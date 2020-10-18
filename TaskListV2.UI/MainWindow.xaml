@@ -40,7 +40,7 @@
 
 
         <!--GridColumnDefinitions-->
-        <Grid Margin="15,30,15,15">
+        <Grid Margin="15,40,15,30">
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="180"/>
@@ -53,7 +53,7 @@
             <!--TaskColumn-->
 
             <Grid Grid.Column="1" materialDesign:ColorZoneAssist.Background="Blue" >
-                <ScrollViewer Grid.Row="2" Opacity="1"              HorizontalScrollBarVisibility="Hidden">
+                <ScrollViewer Grid.Row="2" Opacity="1"           HorizontalScrollBarVisibility="Hidden">
                     <ItemsControl Margin="15,5,15,0" x:Name="list" ItemsSource="{Binding Tasks}" >
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
@@ -98,8 +98,11 @@
                 </ScrollViewer>
 
 
-                <StackPanel VerticalAlignment="Bottom" Height="47" Margin="15,5">
-                    <Grid Background="LightGray">
+                <!--<StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="47" Margin="25,5" Background="AliceBlue" Visibility="Visible">
+                    <Grid Background="AliceBlue" Visibility="Visible" Cursor="Hand">
+                        <Grid.Effect>
+                            <DropShadowEffect/>
+                        </Grid.Effect>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
@@ -108,8 +111,8 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBox VerticalAlignment="Bottom" Margin="10" Grid.Column="0" Background="White" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" ToolTip="ToDo"
+                        </Grid.ColumnDefinitions>-->
+                <!--<TextBox VerticalAlignment="Bottom" Margin="10" Grid.Column="0" Background="White" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" ToolTip="ToDo"
                           />
                         <ComboBox Name="TaskCategoryComboBox" Grid.Column="1" SelectedValue="{Binding Category, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding TaskCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           Style="{StaticResource MaterialDesignComboBox}"
@@ -136,30 +139,63 @@
                         ToolTip="MaterialDesignFloatingActionMiniAccentButton">
                             <materialDesign:PackIcon
                             Kind="Alarm"/>
-                        </Button>
-                        <Button Command="{Binding CreateTaskCommand}" CommandParameter="{Binding}" Grid.Column="6" 
+                        </Button>-->
+                <!--<Button x:Name="CreateTaskCommandButton" Command="{Binding CreateTaskCommand}" Background="AliceBlue" CommandParameter="{Binding}" Grid.Column="6" 
                          Style="{StaticResource MaterialDesignIconButton}"
-                        ToolTip="ToDo hinzufügen">
+                        ToolTip="ToDo hinzufügen" Click="PopUpDisappear_Click" Visibility="Visible" ClickMode="Press">
                             <materialDesign:PackIcon
+                            Kind="Plus" Background="{DynamicResource PrimaryHueDarkForegroundBrush}"/>
+
+                        </Button>-->
+                <Button VerticalAlignment="Bottom" HorizontalAlignment="Right"      x:Name="PopUpOpenButton" Background="#FF363636"  Grid.Column="6" 
+                         Margin="0 0 25 15"
+                                Style="{StaticResource MaterialDesignIconButton}"
+                        ToolTip="ToDo hinzufügen" Click="PopUpOpenButton_Click" Visibility="Visible">
+                    <materialDesign:PackIcon
                             Kind="Plus"/>
 
-                        </Button>
+                </Button>
 
 
-                    </Grid>
-                </StackPanel>
+                <!--</Grid>
+                </StackPanel>-->
             </Grid>
         </Grid>
-                        <Popup x:Name="AddTaskPopUp" Placement="Center" Margin="10,10,0,13" HorizontalAlignment="Left"  
-                            VerticalAlignment="Top" Width="194" Height="200" IsOpen="True">
-                            <StackPanel Background="AliceBlue">
-                                <TextBlock Name="McTextBlock"   
-                                Background="LightBlue" >  
-                                    This is popup text
-                                    Hey Hey Hey
-                                </TextBlock>
-                                <Button x:Name="PopUpDisappear" Content="This is button on a Pupup" Click="PopUpDisappear_Click"/>
-                            </StackPanel>
-                        </Popup>
+        <Popup x:Name="AddTaskPopUp" Placement="RelativePoint" VerticalOffset="200" HorizontalOffset="300" Margin="10,10,0,13" HorizontalAlignment="Left"  
+                            VerticalAlignment="Top" Width="194" Height="200" >
+            <Grid Background="AliceBlue">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBox VerticalAlignment="Bottom" Margin="10" Grid.Row="0" Background="White" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" ToolTip="ToDo"
+                          />
+                        <ComboBox Name="TaskCategoryComboBox" Grid.Row="1" SelectedValue="{Binding Category, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding TaskCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          Style="{StaticResource MaterialDesignComboBox}"
+                        ToolTip="ToDo-Liste auswählen">
+
+                        </ComboBox>
+
+                        <DatePicker Grid.Row="2" Margin="4 4" ToolTip="Fälligkeitsdatum hinzufügen">
+
+                        </DatePicker>
+                        <ComboBox Name="ReminderComboBox" Grid.Row="3" SelectedValue="{Binding Reminder, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding ReminderList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          Style="{StaticResource MaterialDesignComboBox}"
+                        ToolTip="Erinnerung">
+                        </ComboBox>
+
+                        <ComboBox Name="RepetitionComboBox" Grid.Row="4" SelectedValue="{Binding Category, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding TaskCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          Style="{StaticResource MaterialDesignComboBox}"
+                        ToolTip="ToDo-Liste auswählen">
+
+                        </ComboBox>
+
+                <Button x:Name="PopUpDisappear" Content="This is button on a Pupup" Click="PopUpDisappear_Click"/>
+            </Grid>
+        </Popup>
     </Grid>
 </Window>

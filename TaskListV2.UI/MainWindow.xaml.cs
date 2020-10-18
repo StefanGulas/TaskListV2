@@ -47,7 +47,12 @@ namespace TaskListV2.UI
 
         private void PopUpDisappear_Click(object sender, RoutedEventArgs e)
         {
-            AddTaskPopUp.IsOpen = false;
+               AddTaskPopUp.IsOpen = false;
+        }
+
+        private void PopUpOpenButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddTaskPopUp.IsOpen = true;
         }
     }
 }
