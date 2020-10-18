@@ -21,6 +21,15 @@ namespace TaskListV2.Model
         Jährlich
     }
 
+    public enum Reminder
+    {
+        Keine,
+        Eine_Stunde_vorher,
+        Zwei_Stunden_vorher,
+        Ein_Tag_vorher,
+        Zwei_Tage_vorher
+    }
+
 
     public class Task
     {
@@ -37,7 +46,7 @@ namespace TaskListV2.Model
 
         public DateTime DueDate { get; set; }
 
-        public DateTime Reminder { get; set; }
+        public Reminder Reminder { get; set; }
 
         public Repetition TaskRepetition { get; set; }
     }

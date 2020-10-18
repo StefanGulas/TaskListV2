@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using TaskListV2.Model;
 using TaskListV2.DataAccessNew;
+using System;
 
 namespace TaskListV2.UI.Data
 {
@@ -53,7 +54,7 @@ namespace TaskListV2.UI.Data
         {
             return _dataAccessV2.Planned();
         }
-        public void CreateTask(string name)
+        public void CreateTask(string name, bool Complete, bool Important, DateTime Due, DateTime )
         {
             _dataAccessV2.CreateTask(name);
         }

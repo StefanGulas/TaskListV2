@@ -12,12 +12,13 @@
          TextElement.FontSize="13"
          TextOptions.TextFormattingMode="Ideal"
          TextOptions.TextRenderingMode="Auto"
-         Background="{DynamicResource MaterialDesignPaper}"
-         FontFamily="{DynamicResource MaterialDesignFont}">
+         FontFamily="./#Resources/Roboto"
+         Background="{DynamicResource MaterialDesignPaper}">
+    <!--FontFamily="{DynamicResource MaterialDesignFont}"> -->
 
     <Grid>
         <!-- Custom Frame -->
-        <StackPanel VerticalAlignment="Top" Margin="10,0" Background="Azure" MouseDown="StackPanel_MouseDown">
+        <StackPanel VerticalAlignment="Top" Margin="10,0" MouseDown="StackPanel_MouseDown">
             <Grid>
                 <StackPanel Background="Azure" HorizontalAlignment="Center" Orientation="Horizontal">
                     <TextBlock Text="Task List" VerticalAlignment="Center" FontSize="16" FontFamily="Champagne &amp; Limousines" Margin="20 0"/>
@@ -46,11 +47,12 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <!--MenuColumn-->
-            <ListView Grid.Column="0" Background="AliceBlue" materialDesign:ColorZoneAssist.Foreground="Azure" FontSize="14" ItemsSource="{Binding MenuItems}"
+            <ListView Grid.Column="0" materialDesign:ColorZoneAssist.Foreground="Azure" FontSize="14" ItemsSource="{Binding MenuItems}"
                   SelectedItem="{Binding SelectedItem, UpdateSourceTrigger=PropertyChanged}" />
 
             <!--TaskColumn-->
-            <Grid Grid.Column="1" Background="DeepSkyBlue">
+            
+            <Grid Grid.Column="1" materialDesign:ColorZoneAssist.Background="CornflowerBlue" >
                 <ItemsControl Margin="15,5,15,0" x:Name="list" ItemsSource="{Binding Tasks}" >
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
@@ -101,7 +103,7 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <TextBox Margin="10" Grid.Column="0" Background="White" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}"
+                        <TextBox VerticalAlignment="Bottom" Margin="10" Grid.Column="0" Background="White" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}"
                           />
                         <ComboBox Name="TaskCategoryComboBox" Grid.Column="1" SelectedValue="{Binding Category, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding TaskCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           Style="{StaticResource MaterialDesignComboBox}"

@@ -80,10 +80,29 @@ namespace TaskListV2.UI.ViewModel
             }
         }
 
+        public IList<Category> TaskCategory        {
+            get
+            {
+                return Enum.GetValues(typeof(Category)).Cast<Category>().ToList<Category>();
+            }
+            set { }
+        }
+
+        private Category _category;
+        public Category Category
+        {
+            get { return _category; }
+            set
+            {
+                _category = value;
+                OnPropertyChanged();
+            }
+
+        }
+
         public string Name { get; set; }
         public bool Complete { get; set; }
         public bool Important { get; set; }
-        public int Category { get; set; }
         public DateTime Due { get; set; }
         public DateTime Remind { get; set; }
         public int Repetition { get; set; }
