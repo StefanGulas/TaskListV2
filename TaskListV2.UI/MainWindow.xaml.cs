@@ -49,6 +49,14 @@ namespace TaskListV2.UI
         private void PopUpOpenButton_Click(object sender, RoutedEventArgs e)
         {
             SlideGridAddTask.Width = 150;
+            PopUpOpenButton.Visibility = Visibility.Hidden;
+        }
+
+        private void CreateTaskButton_Click(object sender, RoutedEventArgs e)
+        {
+            SlideGridAddTask.Width = 0;
+            PopUpOpenButton.Visibility = Visibility.Visible;
+
         }
     }
 }
