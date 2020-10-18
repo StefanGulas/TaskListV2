@@ -54,9 +54,9 @@ namespace TaskListV2.UI.Data
         {
             return _dataAccessV2.Planned();
         }
-        public void CreateTask(string name, bool Complete, bool Important, DateTime Due, DateTime )
+        public void CreateTask(string name, bool Complete, bool Important, DateTime Due, Reminder Reminder, Category Category, Repetition Repetition )
         {
-            _dataAccessV2.CreateTask(name);
+            _dataAccessV2.CreateTask(name, Complete, Important, Due, Reminder, Category, Repetition);
         }
 
     }

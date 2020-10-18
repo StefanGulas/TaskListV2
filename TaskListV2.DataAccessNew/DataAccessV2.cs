@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
@@ -38,7 +39,7 @@ namespace TaskListV2.DataAccessNew
         }
         public IEnumerable<Task> Today()
         {
-            string getTasks = "SELECT * FROM Tasks WHERE DueDate = CAST(CURRENT_TIMESTAMP AS DATE)"; 
+            string getTasks = "SELECT * FROM Tasks WHERE DueDate = CAST(CURRENT_TIMESTAMP AS DATE)";
 
             return Connect(getTasks);
         }
@@ -50,17 +51,16 @@ namespace TaskListV2.DataAccessNew
             return Connect(getTasks);
         }
 
-        public void CreateTask(string name)
+        public void CreateTask(string name, bool Complete, bool Important, DateTime Due, Reminder Reminder, Category Category, Repetition Repetition)
         {
             using var con = HelperDataAccess.Conn();
 
             con.Open();
 
-            string insertTask = "INSERT INTO dbo.[Tasks] (TaskName) VALUES" +
-                "(@TaskName)";
+            string insertTask = "INSERT INTO dbo.[Tasks] (TaskName, TaskComplete, IsImportant, TaskCategory, DueDate, Reminder, TaskRepetition) VALUES" +
+                "(@TaskName, @TaskComplete, @IsImportant, @TaskCategory, @DueDate, @Reminder, @TaskRepetition)";
 
-            var affectedRows = con.Execute(insertTask, new { TaskName = name });
-
+            var affectedRows = con.Execute(insertTask, new { TaskName = name, TaskComplete = Complete, IsImportant = Important, TaskCategory = Category, DueDate = Due, Reminder = Reminder, TaskRepetition = Repetition });
         }
     }
 }

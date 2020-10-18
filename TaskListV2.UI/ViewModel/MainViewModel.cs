@@ -100,12 +100,32 @@ namespace TaskListV2.UI.ViewModel
 
         }
 
+        public IList<Reminder> ReminderList
+        {
+            get
+            {
+                return Enum.GetValues(typeof(Reminder)).Cast<Reminder>().ToList<Reminder>();
+            }
+            set { }
+        }
+
+        private Reminder _reminder;
+        public Reminder Reminder
+        {
+            get { return _reminder; }
+            set
+            {
+                _reminder = value;
+                OnPropertyChanged();
+            }
+
+        }
+
         public string Name { get; set; }
         public bool Complete { get; set; }
         public bool Important { get; set; }
         public DateTime Due { get; set; }
-        public DateTime Remind { get; set; }
-        public int Repetition { get; set; }
+        public Repetition Repetition { get; set; }
 
         public ICommand CreateTaskCommand { get { return new CreateTaskCommand(_taskDataService); } }
 

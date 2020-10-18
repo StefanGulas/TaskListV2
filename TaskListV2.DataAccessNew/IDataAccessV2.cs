@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using TaskListV2.Model;
 
 namespace TaskListV2.DataAccessNew
@@ -9,6 +10,6 @@ namespace TaskListV2.DataAccessNew
         IEnumerable<Task> Important();
         IEnumerable<Task> Planned();
         IEnumerable<Task> Today();
-        void CreateTask(string name);
+        void CreateTask(string name, bool Complete, bool Important, DateTime Due, Reminder Reminder, Category Category, Repetition Repetition);
     }
 }

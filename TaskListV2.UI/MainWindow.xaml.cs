@@ -44,5 +44,10 @@ namespace TaskListV2.UI
         {
             this.DragMove();
         }
+
+        private void PopUpDisappear_Click(object sender, RoutedEventArgs e)
+        {
+            AddTaskPopUp.IsOpen = false;
+        }
     }
 }

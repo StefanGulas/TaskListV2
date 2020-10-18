@@ -46,7 +46,7 @@ namespace TaskListV2.Model
 
         public DateTime DueDate { get; set; }
 
-        public Reminder Reminder { get; set; }
+        public Reminder TaskReminder { get; set; }
 
         public Repetition TaskRepetition { get; set; }
     }

@@ -29,7 +29,7 @@ namespace TaskListV2.UI.Command
         {
             if (parameter is MainViewModel mainViewModel && mainViewModel.Name != null && mainViewModel.Name != "")
             {
-                _taskDataService.CreateTask(mainViewModel.Name, mainViewModel.Complete, mainViewModel.Important, mainViewModel.Due, mainViewModel.Remind, mainViewModel.Category, mainViewModel.Repetition);
+                _taskDataService.CreateTask(mainViewModel.Name, mainViewModel.Complete, mainViewModel.Important, mainViewModel.Due, mainViewModel.Reminder, mainViewModel.Category, mainViewModel.Repetition);
                 mainViewModel.Name = "";
 
             }
