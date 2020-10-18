@@ -18,6 +18,7 @@ namespace TaskListV2.UI
             _viewModel = viewModel;
             DataContext = _viewModel;
             Loaded += MainWindow_Loaded;
+            SlideGridAddTask.Width = 0;
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -45,14 +46,9 @@ namespace TaskListV2.UI
             this.DragMove();
         }
 
-        private void PopUpDisappear_Click(object sender, RoutedEventArgs e)
-        {
-               AddTaskPopUp.IsOpen = false;
-        }
-
         private void PopUpOpenButton_Click(object sender, RoutedEventArgs e)
         {
-            AddTaskPopUp.IsOpen = true;
+            SlideGridAddTask.Width = 150;
         }
     }
 }
