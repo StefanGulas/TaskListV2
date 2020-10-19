@@ -14,8 +14,8 @@
          TextOptions.TextRenderingMode="Auto"
          FontFamily="./#Resources/Roboto"
          Background="{DynamicResource MaterialDesignPaper}">
-    <!--FontFamily="{DynamicResource MaterialDesignFont}"> -->
 
+    <!--FontFamily="{DynamicResource MaterialDesignFont}"> -->
     <Grid Background="CornflowerBlue">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
