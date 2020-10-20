@@ -121,9 +121,9 @@
                             </Grid>
                         </Grid>
             </Grid>
-    <Grid x:Name="SlideGridAddTask" HorizontalAlignment="Right" Width="200">
-        <Grid Width="120" HorizontalAlignment="Right" Margin="10,10,0,13"  
-                            VerticalAlignment="Top" >
+    <Grid x:Name="SlideGridAddTask" HorizontalAlignment="Right">
+        <Grid Width="150" HorizontalAlignment="Right" Margin="10"  
+                            VerticalAlignment="Center" >
             <Grid Grid.Column="2" Background="AliceBlue" Margin="5 0 5 5">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
