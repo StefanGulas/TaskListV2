@@ -15,14 +15,18 @@
          FontFamily="./#Resources/Roboto"
          Background="{DynamicResource MaterialDesignPaper}">
 
-    <!--FontFamily="{DynamicResource MaterialDesignFont}"> -->
+<!-- Start -->
     <Grid Background="CornflowerBlue">
-            <Grid.RowDefinitions>
+
+
+        <Grid>
+            
+        <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <!-- Custom Frame -->
+<!-- Custom Frame -->
 
             <Grid Grid.Row="0" Margin="15,5,12,5">
                 <StackPanel VerticalAlignment="Top" Margin="10,0" MouseDown="StackPanel_MouseDown">
@@ -45,28 +49,20 @@
                 </StackPanel>
                     </Grid>
 
-
-
-                <!--GridColumnDefinitions-->
-                <Grid Grid.Row="1" >
-                    <Grid Margin="15,5,15,30">
+<!--Body-->
+            <Grid Grid.Row="1"  Background="{StaticResource MaterialDesignBody}">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
 
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="180"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <!--MenuColumn-->
-                            <ListView Grid.Column="0" Foreground="AntiqueWhite" Margin="0 15" materialDesign:ColorZoneAssist.Foreground="AntiqueWhite"  Background="AliceBlue" FontSize="14" ItemsSource="{Binding MenuItems}"
+<!--MenuColumn-->
+                 <ListView Grid.Column="0" Foreground="AntiqueWhite" Margin="0 15" materialDesign:ColorZoneAssist.Foreground="AntiqueWhite"  Background="AliceBlue" FontSize="14" ItemsSource="{Binding MenuItems}"
                   SelectedItem="{Binding SelectedItem, UpdateSourceTrigger=PropertyChanged}" />
 
-                            <!--TaskColumn-->
 
-                            <Grid Grid.Column="1" materialDesign:ColorZoneAssist.Background="Blue" >
+<!--TaskColumn-->
+                 <Grid Grid.Column="1" materialDesign:ColorZoneAssist.Background="Blue" >
                                 <ScrollViewer Grid.Row="2" Opacity="1"           HorizontalScrollBarVisibility="Hidden">
                                     <ItemsControl Margin="15,5,15,0" x:Name="list" ItemsSource="{Binding Tasks}" >
                                         <ItemsControl.ItemsPanel>
@@ -112,55 +108,7 @@
                                 </ScrollViewer>
 
 
-                                <!--<StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="47" Margin="25,5" Background="AliceBlue" Visibility="Visible">
-                    <Grid Background="AliceBlue" Visibility="Visible" Cursor="Hand">
-                        <Grid.Effect>
-                            <DropShadowEffect/>
-                        </Grid.Effect>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>-->
-                                <!--<TextBox VerticalAlignment="Bottom" Margin="10" Grid.Column="0" Background="White" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" ToolTip="ToDo"
-                          />
-                        <ComboBox Name="TaskCategoryComboBox" Grid.Column="1" SelectedValue="{Binding Category, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding TaskCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                          Style="{StaticResource MaterialDesignComboBox}"
-                        ToolTip="ToDo-Liste auswählen">
-
-                        </ComboBox>
-
-                        <DatePicker Grid.Column="2" Margin="4 4" ToolTip="Fälligkeitsdatum hinzufügen">
-
-                        </DatePicker>
-                        <ComboBox Name="ReminderComboBox" Grid.Column="3" SelectedValue="{Binding Reminder, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding ReminderList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                          Style="{StaticResource MaterialDesignComboBox}"
-                        ToolTip="Erinnerung">
-                        </ComboBox>
-
-                        <ComboBox Name="RepetitionComboBox" Grid.Column="4" SelectedValue="{Binding Category, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding TaskCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                          Style="{StaticResource MaterialDesignComboBox}"
-                        ToolTip="ToDo-Liste auswählen">
-
-                        </ComboBox>
-
-                        <Button Grid.Column="8"
-                        Style="{StaticResource MaterialDesignIconButton}"
-                        ToolTip="MaterialDesignFloatingActionMiniAccentButton">
-                            <materialDesign:PackIcon
-                            Kind="Alarm"/>
-                        </Button>-->
-                                <!--<Button x:Name="CreateTaskCommandButton" Command="{Binding CreateTaskCommand}" Background="AliceBlue" CommandParameter="{Binding}" Grid.Column="6" 
-                         Style="{StaticResource MaterialDesignIconButton}"
-                        ToolTip="ToDo hinzufügen" Click="PopUpDisappear_Click" Visibility="Visible" ClickMode="Press">
-                            <materialDesign:PackIcon
-                            Kind="Plus" Background="{DynamicResource PrimaryHueDarkForegroundBrush}"/>
-
-                        </Button>-->
+ 
                                 <Button VerticalAlignment="Bottom" HorizontalAlignment="Right"      x:Name="PopUpOpenButton" Background="#FF363636"  Grid.Column="6" 
                          Margin="0 0 25 15" Click="PopUpOpenButton_Click" 
                                 Style="{StaticResource MaterialDesignIconButton}"
@@ -172,53 +120,52 @@
 
                             </Grid>
                         </Grid>
-                        <Grid x:Name="SlideGridAddTask" Grid.Column="1" >
-                            <DockPanel Width="120" HorizontalAlignment="Right" Margin="10,10,0,13"  
+            </Grid>
+    <Grid x:Name="SlideGridAddTask" HorizontalAlignment="Right" Width="200">
+        <Grid Width="120" HorizontalAlignment="Right" Margin="10,10,0,13"  
                             VerticalAlignment="Top" >
-                                <Grid Background="AliceBlue" Margin="5 0 5 5">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="*"/>
-                                    </Grid.RowDefinitions>
-                                    <TextBox VerticalAlignment="Bottom" Margin="0 10" Grid.Row="0" Background="White" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" ToolTip="ToDo"
+            <Grid Grid.Column="2" Background="AliceBlue" Margin="5 0 5 5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBox VerticalAlignment="Bottom" Margin="0 10" Grid.Row="0" Background="White" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" ToolTip="ToDo"
                           />
-                                    <ComboBox Name="TaskCategoryComboBox" Grid.Row="1" Margin="0 10" SelectedValue="{Binding Category, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding TaskCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                <ComboBox Name="TaskCategoryComboBox" Grid.Row="1" Margin="0 10" SelectedValue="{Binding Category, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding TaskCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           Style="{StaticResource MaterialDesignComboBox}"
                         ToolTip="ToDo-Liste auswählen">
 
-                                    </ComboBox>
+                </ComboBox>
 
-                                    <DatePicker Grid.Row="2" Margin="4 4" ToolTip="Fälligkeitsdatum hinzufügen">
+                <DatePicker Grid.Row="2" Margin="4 4" ToolTip="Fälligkeitsdatum hinzufügen">
 
-                                    </DatePicker>
-                                    <ComboBox Name="ReminderComboBox" Grid.Row="3" SelectedValue="{Binding Reminder, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding ReminderList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                </DatePicker>
+                <ComboBox Name="ReminderComboBox" Grid.Row="3" SelectedValue="{Binding Reminder, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding ReminderList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           Style="{StaticResource MaterialDesignComboBox}"
                         ToolTip="Erinnerung">
-                                    </ComboBox>
+                </ComboBox>
 
-                                    <ComboBox Name="RepetitionComboBox" Grid.Row="4" SelectedValue="{Binding Category, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding TaskCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                <ComboBox Name="RepetitionComboBox" Grid.Row="4" SelectedValue="{Binding Category, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding TaskCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           Style="{StaticResource MaterialDesignComboBox}"
                         ToolTip="ToDo-Liste auswählen">
 
-                                    </ComboBox>
-                            <Label Grid.Row="5" Background="AliceBlue" Margin="10"/>
-                            <Button VerticalAlignment="Bottom" HorizontalAlignment="Right"      x:Name="CreateTaskButton" Background="#FF363636"  Grid.Row="6" 
+                </ComboBox>
+                <Label Grid.Row="5" Background="AliceBlue" Margin="10"/>
+                <Button VerticalAlignment="Bottom" HorizontalAlignment="Right"      x:Name="CreateTaskButton" Background="#FF363636"  Grid.Row="6" 
                          Margin="0 0 25 15" Click="CreateTaskButton_Click"
                                 Style="{StaticResource MaterialDesignIconButton}"
                         ToolTip="ToDo hinzufügen" Visibility="Visible">
-                                <materialDesign:PackIcon
+                    <materialDesign:PackIcon
                             Kind="Plus"/>
-                            </Button>
-                        </Grid>
-                            </DockPanel>
+                </Button>
+            </Grid>
 
-                        </Grid>
-                        </Grid>
-                        </Grid>
-                        </Grid>
+        </Grid>
+        </Grid>
+    </Grid>
 </Window>
