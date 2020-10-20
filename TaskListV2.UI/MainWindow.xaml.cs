@@ -43,6 +43,7 @@ namespace TaskListV2.UI
 
         private void StackPanel_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            base.OnMouseLeftButtonDown(e);
             this.DragMove();
         }
 

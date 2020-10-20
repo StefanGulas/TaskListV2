@@ -29,7 +29,7 @@
 <!-- Custom Frame -->
 
             <Grid Grid.Row="0" Margin="15,5,12,5">
-                <StackPanel VerticalAlignment="Top" Margin="10,0" MouseDown="StackPanel_MouseDown">
+                <StackPanel VerticalAlignment="Top" Margin="10,0" MouseLeftButtonDown="StackPanel_MouseDown">
                     <Grid>
                         <StackPanel Background="AliceBlue" HorizontalAlignment="Center" Orientation="Horizontal">
                             <TextBlock Text="Task List" VerticalAlignment="Center" FontSize="16" FontFamily="Champagne &amp; Limousines" Margin="20 0"/>
@@ -52,7 +52,7 @@
 <!--Body-->
             <Grid Grid.Row="1"  Background="{StaticResource MaterialDesignBody}">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="150"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
@@ -121,51 +121,40 @@
                             </Grid>
                         </Grid>
             </Grid>
-    <Grid x:Name="SlideGridAddTask" HorizontalAlignment="Right">
-        <Grid Width="150" HorizontalAlignment="Right" Margin="10"  
-                            VerticalAlignment="Center" >
-            <Grid Grid.Column="2" Background="AliceBlue" Margin="5 0 5 5">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <TextBox VerticalAlignment="Bottom" Margin="0 10" Grid.Row="0" Background="White" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" ToolTip="ToDo"
+    <DockPanel x:Name="SlideGridAddTask" HorizontalAlignment="Right" Background="{StaticResource MaterialDesignDarkBackground}" Margin="0 40 0 0">
+            <StackPanel Width="180" Margin="10"  
+                            VerticalAlignment="Bottom" >
+                <TextBox Margin="10" Background="White" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" ToolTip="ToDo"
                           />
-                <ComboBox Name="TaskCategoryComboBox" Grid.Row="1" Margin="0 10" SelectedValue="{Binding Category, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding TaskCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                <ComboBox Name="TaskCategoryComboBox" Margin="10" SelectedValue="{Binding Category, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding TaskCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           Style="{StaticResource MaterialDesignComboBox}"
                         ToolTip="ToDo-Liste auswählen">
 
                 </ComboBox>
 
-                <DatePicker Grid.Row="2" Margin="4 4" ToolTip="Fälligkeitsdatum hinzufügen">
+                <DatePicker Margin="10" ToolTip="Fälligkeitsdatum hinzufügen">
 
                 </DatePicker>
-                <ComboBox Name="ReminderComboBox" Grid.Row="3" SelectedValue="{Binding Reminder, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding ReminderList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                <ComboBox Name="ReminderComboBox" SelectedValue="{Binding Reminder, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding ReminderList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           Style="{StaticResource MaterialDesignComboBox}"
                         ToolTip="Erinnerung">
                 </ComboBox>
 
-                <ComboBox Name="RepetitionComboBox" Grid.Row="4" SelectedValue="{Binding Category, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding TaskCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                <ComboBox Margin="10" Name="RepetitionComboBox" SelectedValue="{Binding Category, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding TaskCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           Style="{StaticResource MaterialDesignComboBox}"
                         ToolTip="ToDo-Liste auswählen">
 
                 </ComboBox>
-                <Label Grid.Row="5" Background="AliceBlue" Margin="10"/>
-                <Button VerticalAlignment="Bottom" HorizontalAlignment="Right"      x:Name="CreateTaskButton" Background="#FF363636"  Grid.Row="6" 
-                         Margin="0 0 25 15" Click="CreateTaskButton_Click"
+                <Label VerticalAlignment="Bottom" Margin="10"/>
+                <Button VerticalAlignment="Bottom"      x:Name="CreateTaskButton" Background="#FF363636"  Grid.Row="6" 
+                         Margin="25" Click="CreateTaskButton_Click"
                                 Style="{StaticResource MaterialDesignIconButton}"
                         ToolTip="ToDo hinzufügen" Visibility="Visible">
                     <materialDesign:PackIcon
                             Kind="Plus"/>
                 </Button>
-            </Grid>
+            </StackPanel>
 
-        </Grid>
-        </Grid>
+        </DockPanel>
     </Grid>
 </Window>
