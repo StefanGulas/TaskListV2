@@ -34,6 +34,7 @@
                         <StackPanel Background="AliceBlue" HorizontalAlignment="Center" Orientation="Horizontal">
                             <TextBlock Text="Task List" VerticalAlignment="Center" FontSize="16" FontFamily="Champagne &amp; Limousines" Margin="20 0"/>
                         </StackPanel>
+                        <materialDesign:MaterialDateDisplay  Margin="0"/>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0">
                             <Button Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray">
                                 <materialDesign:PackIcon Kind="BellOutline" Foreground="{DynamicResource MaterialDesignPaper}"/>
@@ -121,8 +122,8 @@
                             </Grid>
                         </Grid>
             </Grid>
-    <DockPanel x:Name="SlideGridAddTask" HorizontalAlignment="Right" Background="{StaticResource MaterialDesignDarkBackground}" Margin="0 40 0 0">
-            <StackPanel Width="180" Margin="10"  
+    <DockPanel x:Name="SlideGridAddTask" HorizontalAlignment="Right" Background="{StaticResource MaterialDesignDarkBackground}" Width="360" Margin="0 65 0 0">
+            <StackPanel Margin="10"  
                             VerticalAlignment="Bottom" >
                 <TextBox Margin="10" Background="White" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" ToolTip="ToDo"
                           />
@@ -131,11 +132,9 @@
                         ToolTip="ToDo-Liste auswählen">
 
                 </ComboBox>
-
-                <DatePicker Margin="10" ToolTip="Fälligkeitsdatum hinzufügen">
-
-                </DatePicker>
-                <ComboBox Name="ReminderComboBox" SelectedValue="{Binding Reminder, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding ReminderList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                <DatePicker/>
+                <DatePicker Margin="10" Background="AliceBlue" Name="dt_StartDateFrom"   ToolTip="Fälligkeitsdatum hinzufügen" FirstDayOfWeek="Monday" />
+                <ComboBox Margin="10" Name="ReminderComboBox" SelectedValue="{Binding Reminder, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding ReminderList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           Style="{StaticResource MaterialDesignComboBox}"
                         ToolTip="Erinnerung">
                 </ComboBox>

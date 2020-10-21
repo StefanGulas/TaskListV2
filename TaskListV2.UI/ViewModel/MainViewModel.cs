@@ -130,6 +130,10 @@ namespace TaskListV2.UI.ViewModel
         public ICommand CreateTaskCommand { get { return new CreateTaskCommand(_taskDataService); } }
 
 
+        public DateTime DisplayTaskDateStart
+        {
+            get { return DateTime.Today; }
+        }
 
 
     }
