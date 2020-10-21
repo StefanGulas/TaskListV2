@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TaskListV2.UI"
         mc:Ignorable="d"
-        Title="ToDoList" Height="600" Width="850" MinHeight="300" MinWidth="600" FontSize="20" WindowStyle="None" WindowStartupLocation="CenterScreen"
+        Title="ToDoList" Height="600" Width="850" MinHeight="300" MinWidth="600" FontSize="20"         WindowStyle="None" WindowStartupLocation="CenterScreen"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
          TextElement.Foreground="{DynamicResource MaterialDesignBody}"
          TextElement.FontWeight="Regular"
@@ -13,7 +13,7 @@
          TextOptions.TextFormattingMode="Ideal"
          TextOptions.TextRenderingMode="Auto"
          FontFamily="./#Resources/Roboto"
-         Background="{DynamicResource MaterialDesignPaper}">
+         Background="{DynamicResource MaterialDesignPaper MaterialDesignBackground}">
 
 <!-- Start -->
     <Grid Background="CornflowerBlue">
@@ -28,13 +28,14 @@
 
 <!-- Custom Frame -->
 
-            <Grid Grid.Row="0" Margin="15,5,12,5">
+            <DockPanel Grid.Row="0" Margin="15,5,12,5" Background="CornflowerBlue">
                 <StackPanel VerticalAlignment="Top" Margin="10,0" MouseLeftButtonDown="StackPanel_MouseDown">
                     <Grid>
-                        <StackPanel Background="AliceBlue" HorizontalAlignment="Center" Orientation="Horizontal">
-                            <TextBlock Text="Task List" VerticalAlignment="Center" FontSize="16" FontFamily="Champagne &amp; Limousines" Margin="20 0"/>
-                        </StackPanel>
-                        <materialDesign:MaterialDateDisplay  Margin="0"/>
+                        <materialDesign:MaterialDateDisplay Foreground="AntiqueWhite" Background="CornflowerBlue" HorizontalAlignment="Left"/>
+
+                        <TextBlock Background="CornflowerBlue" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" FontFamily="Champagne &amp; Limousines" Foreground="AntiqueWhite">
+                           ToDo List 
+                        </TextBlock>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0">
                             <Button Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray">
                                 <materialDesign:PackIcon Kind="BellOutline" Foreground="{DynamicResource MaterialDesignPaper}"/>
@@ -48,7 +49,7 @@
                         </StackPanel>
                     </Grid>
                 </StackPanel>
-                    </Grid>
+                    </DockPanel>
 
 <!--Body-->
             <Grid Grid.Row="1"  Background="{StaticResource MaterialDesignBody}">
@@ -125,21 +126,20 @@
     <DockPanel x:Name="SlideGridAddTask" HorizontalAlignment="Right" Background="{StaticResource MaterialDesignDarkBackground}" Width="360" Margin="0 65 0 0">
             <StackPanel Margin="10"  
                             VerticalAlignment="Bottom" >
-                <TextBox Margin="10" Background="White" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" ToolTip="ToDo"
+                <TextBox Margin="10" Height="35" Background="White" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" ToolTip="ToDo"
                           />
-                <ComboBox Name="TaskCategoryComboBox" Margin="10" SelectedValue="{Binding Category, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding TaskCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                <ComboBox Background="AliceBlue" Name="TaskCategoryComboBox" Margin="10" SelectedValue="{Binding Category, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding TaskCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           Style="{StaticResource MaterialDesignComboBox}"
                         ToolTip="ToDo-Liste auswählen">
 
                 </ComboBox>
-                <DatePicker/>
                 <DatePicker Margin="10" Background="AliceBlue" Name="dt_StartDateFrom"   ToolTip="Fälligkeitsdatum hinzufügen" FirstDayOfWeek="Monday" />
-                <ComboBox Margin="10" Name="ReminderComboBox" SelectedValue="{Binding Reminder, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding ReminderList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                <ComboBox Background="AliceBlue" Height="35" Margin="10" Name="ReminderComboBox" SelectedValue="{Binding Reminder, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding ReminderList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           Style="{StaticResource MaterialDesignComboBox}"
                         ToolTip="Erinnerung">
                 </ComboBox>
 
-                <ComboBox Margin="10" Name="RepetitionComboBox" SelectedValue="{Binding Category, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding TaskCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                <ComboBox Background="AliceBlue" Height="35" Margin="10" Name="RepetitionComboBox" SelectedValue="{Binding Category, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding TaskCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           Style="{StaticResource MaterialDesignComboBox}"
                         ToolTip="ToDo-Liste auswählen">
 
