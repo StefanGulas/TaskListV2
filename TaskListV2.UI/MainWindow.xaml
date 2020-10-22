@@ -13,13 +13,13 @@
          TextOptions.TextFormattingMode="Ideal"
          TextOptions.TextRenderingMode="Auto"
          FontFamily="./#Resources/Roboto"
-         Background="{DynamicResource MaterialDesignPaper MaterialDesignBackground}">
+         Background="{DynamicResource MaterialDesignPaper MaterialDesignDarkBackground}">
 
 <!-- Start -->
     <Grid Background="CornflowerBlue">
 
 
-        <Grid>
+        <Grid Background="CornflowerBlue">
             
         <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -28,7 +28,7 @@
 
 <!-- Custom Frame -->
 
-            <DockPanel Grid.Row="0" Margin="15,5,12,5" Background="CornflowerBlue">
+            <DockPanel Grid.Row="0" Background="CornflowerBlue">
                 <StackPanel VerticalAlignment="Top" Margin="10,0" MouseLeftButtonDown="StackPanel_MouseDown">
                     <Grid>
                         <materialDesign:MaterialDateDisplay Foreground="AntiqueWhite" Background="CornflowerBlue" HorizontalAlignment="Left"/>
@@ -123,8 +123,8 @@
                             </Grid>
                         </Grid>
             </Grid>
-    <DockPanel x:Name="SlideGridAddTask" HorizontalAlignment="Right" Background="{StaticResource MaterialDesignDarkBackground}" Width="360" Margin="0 65 0 0">
-            <StackPanel Margin="10"  
+    <Grid x:Name="SlideGridAddTask" HorizontalAlignment="Right" Background="{StaticResource MaterialDesignDarkBackground}" Width="400" Margin="0 55 0 0">
+            <StackPanel Margin="15 10"  
                             VerticalAlignment="Bottom" >
                 <TextBox Margin="10" Height="35" Background="White" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" ToolTip="ToDo"
                           />
@@ -145,15 +145,17 @@
 
                 </ComboBox>
                 <Label VerticalAlignment="Bottom" Margin="10"/>
-                <Button VerticalAlignment="Bottom"      x:Name="CreateTaskButton" Background="#FF363636"  Grid.Row="6" 
+                <Button VerticalAlignment="Bottom"      x:Name="CreateTaskButton" Background="DimGray"  
                          Margin="25" Click="CreateTaskButton_Click"
                                 Style="{StaticResource MaterialDesignIconButton}"
-                        ToolTip="ToDo hinzufügen" Visibility="Visible">
+                        ToolTip="ToDo hinzufügen" Cursor="Hand">
                     <materialDesign:PackIcon
                             Kind="Plus"/>
+                    
                 </Button>
             </StackPanel>
 
-        </DockPanel>
+        </Grid>
+
     </Grid>
 </Window>

@@ -1,6 +1,7 @@
 ﻿ using System;
 using System.Windows;
 using System.Windows.Input;
+using TaskListV2.UI.Command;
 using TaskListV2.UI.ViewModel;
 
 namespace TaskListV2.UI
@@ -49,14 +50,18 @@ namespace TaskListV2.UI
 
         private void PopUpOpenButton_Click(object sender, RoutedEventArgs e)
         {
-            SlideGridAddTask.Width = 150;
+            SlideGridAddTask.Width = 400;
             PopUpOpenButton.Visibility = Visibility.Hidden;
+
         }
 
         private void CreateTaskButton_Click(object sender, RoutedEventArgs e)
         {
             SlideGridAddTask.Width = 0;
             PopUpOpenButton.Visibility = Visibility.Visible;
+            var createTaskCommand = new CreateTaskCommand();
+            CreateTaskButton.Command = CreateTaskCommand;
+            CreateTaskButton.SetBinding(CreateTaskButton.CommandProperty, new Binding("SaveReservationCommand"));
 
         }
     }

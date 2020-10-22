@@ -22,8 +22,8 @@ namespace TaskListV2.UI
             var bootstrapper = new Bootstrapper();
             var container = bootstrapper.Bootstrap();
 
-            var mainWindow = container.Resolve<MainWindow>();
-            mainWindow.Show();
+            var window = container.Resolve<MainWindow>();
+            window.Show();
         }
     }
 }
