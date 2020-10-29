@@ -141,7 +141,8 @@
 
                 <ComboBox Background="AliceBlue" Height="35" Margin="10" Name="RepetitionComboBox" SelectedValue="{Binding Category, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding TaskCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           Style="{StaticResource MaterialDesignComboBox}"
-                        ToolTip="ToDo-Liste auswählen">
+                        ToolTip="ToDo-Liste auswählen"
+                          SelectedValue="{Binding Category, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding TaskCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
 
                 </ComboBox>
                 <Label VerticalAlignment="Bottom" Margin="10"/>
