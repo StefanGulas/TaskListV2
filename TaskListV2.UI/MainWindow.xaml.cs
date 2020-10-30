@@ -1,5 +1,6 @@
 ﻿ using System;
 using System.Windows;
+using System.Windows.Data;
 using System.Windows.Input;
 using TaskListV2.UI.Command;
 using TaskListV2.UI.ViewModel;
@@ -21,7 +22,9 @@ namespace TaskListV2.UI
             Loaded += MainWindow_Loaded;
             SlideGridAddTask.Width = 0;
 
-
+            //Binding binding = new Binding("Text");
+            //binding.Source = CreateTaskCommand;
+            //lblValue.SetBinding(TextBlock.TextProperty, binding);
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
