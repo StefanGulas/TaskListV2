@@ -11,7 +11,7 @@ namespace TaskListV2.UI
     /// </summary>
     public partial class MainWindow : Window
     {
-        private MainViewModel _viewModel;
+        private readonly MainViewModel _viewModel;
 
         public MainWindow(MainViewModel viewModel)
         {
@@ -20,6 +20,8 @@ namespace TaskListV2.UI
             DataContext = _viewModel;
             Loaded += MainWindow_Loaded;
             SlideGridAddTask.Width = 0;
+
+
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -59,9 +61,8 @@ namespace TaskListV2.UI
         {
             SlideGridAddTask.Width = 0;
             PopUpOpenButton.Visibility = Visibility.Visible;
-            var createTaskCommand = new CreateTaskCommand();
-            CreateTaskButton.Command = CreateTaskCommand;
-            CreateTaskButton.SetBinding(CreateTaskButton.CommandProperty, new Binding("SaveReservationCommand"));
+
+ 
 
         }
     }

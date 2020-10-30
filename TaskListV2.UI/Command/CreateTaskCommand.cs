@@ -11,7 +11,7 @@ namespace TaskListV2.UI.Command
 {
     public class CreateTaskCommand : ICommand
     {
-        private ITaskListV2DataService _taskDataService;
+        private readonly ITaskListV2DataService _taskDataService;
 
         public CreateTaskCommand(ITaskListV2DataService taskDataService)
         {

@@ -12,7 +12,7 @@ namespace TaskListV2.UI.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
-        private ITaskListV2DataService _taskDataService;
+        private readonly ITaskListV2DataService _taskDataService;
         private Task _selectedTask;
         private string _selectedItem;
 
