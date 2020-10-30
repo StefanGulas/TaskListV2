@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TaskListV2.UI"
         mc:Ignorable="d"
         Title="ToDoList" Height="600" Width="850" MinHeight="300" MinWidth="600" FontSize="20"         WindowStyle="None" WindowStartupLocation="CenterScreen"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -15,18 +14,18 @@
          FontFamily="./#Resources/Roboto"
          Background="{DynamicResource MaterialDesignPaper MaterialDesignDarkBackground}">
 
-<!-- Start -->
+    <!-- Start -->
     <Grid Background="CornflowerBlue">
 
 
         <Grid Background="CornflowerBlue">
-            
-        <Grid.RowDefinitions>
+
+            <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-<!-- Custom Frame -->
+            <!-- Custom Frame -->
 
             <DockPanel Grid.Row="0" Background="CornflowerBlue">
                 <StackPanel VerticalAlignment="Top" Margin="10,0" MouseLeftButtonDown="StackPanel_MouseDown">
@@ -34,7 +33,7 @@
                         <materialDesign:MaterialDateDisplay Foreground="AntiqueWhite" Background="CornflowerBlue" HorizontalAlignment="Left"/>
 
                         <TextBlock Background="CornflowerBlue" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" FontFamily="Champagne &amp; Limousines" Foreground="AntiqueWhite">
-                           ToDo List 
+                           ToDo List
                         </TextBlock>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0">
                             <Button Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray">
@@ -49,86 +48,86 @@
                         </StackPanel>
                     </Grid>
                 </StackPanel>
-                    </DockPanel>
+            </DockPanel>
 
-<!--Body-->
+            <!--Body-->
             <Grid Grid.Row="1"  Background="{StaticResource MaterialDesignBody}">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="150"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-<!--MenuColumn-->
-                 <ListView Grid.Column="0" Foreground="AntiqueWhite" Margin="0 15" materialDesign:ColorZoneAssist.Foreground="AntiqueWhite"  Background="AliceBlue" FontSize="14" ItemsSource="{Binding MenuItems}"
+                <!--MenuColumn-->
+                <ListView Grid.Column="0" Foreground="AntiqueWhite" Margin="0 15" materialDesign:ColorZoneAssist.Foreground="AntiqueWhite"  Background="AliceBlue" FontSize="14" ItemsSource="{Binding MenuItems}"
                   SelectedItem="{Binding SelectedItem, UpdateSourceTrigger=PropertyChanged}" />
 
 
-<!--TaskColumn-->
-                 <Grid Grid.Column="1" materialDesign:ColorZoneAssist.Background="Blue" >
-                                <ScrollViewer Grid.Row="2" Opacity="1"           HorizontalScrollBarVisibility="Hidden">
-                                    <ItemsControl Margin="15,5,15,0" x:Name="list" ItemsSource="{Binding Tasks}" >
-                                        <ItemsControl.ItemsPanel>
-                                            <ItemsPanelTemplate>
-                                                <VirtualizingStackPanel Orientation="Vertical"/>
-                                            </ItemsPanelTemplate>
-                                        </ItemsControl.ItemsPanel>
+                <!--TaskColumn-->
+                <Grid Grid.Column="1" materialDesign:ColorZoneAssist.Background="Blue" >
+                    <ScrollViewer Grid.Row="2" Opacity="1"           HorizontalScrollBarVisibility="Hidden">
+                        <ItemsControl Margin="15,5,15,0" x:Name="list" ItemsSource="{Binding Tasks}" >
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <VirtualizingStackPanel Orientation="Vertical"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
 
-                                        <ItemsControl.ItemTemplate>
-                                            <DataTemplate>
-                                                <Grid Background="White" Margin="5,5,5,5" HorizontalAlignment="Stretch" Height="40">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Background="White" Margin="5,5,5,5" HorizontalAlignment="Stretch" Height="40">
 
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="4*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <CheckBox Margin="10,0" IsChecked="{Binding TaskComplete, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0"/>
+                                        <Grid Grid.Column="1" MinHeight="40">
+                                            <Grid VerticalAlignment="Center" MinHeight="20">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="*"/>
+                                                    <RowDefinition Height="*"/>
+                                                </Grid.RowDefinitions>
+                                                <TextBlock FontWeight="Bold" FontSize="14" Grid.Row="0" Text="{Binding TaskName}"/>
+                                                <Grid Margin="5,0" Grid.Row="1" HorizontalAlignment="Left" MinWidth="100">
                                                     <Grid.ColumnDefinitions>
                                                         <ColumnDefinition Width="*"/>
-                                                        <ColumnDefinition Width="4*"/>
+                                                        <ColumnDefinition Width="*"/>
                                                         <ColumnDefinition Width="*"/>
                                                     </Grid.ColumnDefinitions>
-                                                    <CheckBox Margin="10,0" IsChecked="{Binding TaskComplete, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0"/>
-                                                    <Grid Grid.Column="1" MinHeight="40">
-                                                        <Grid VerticalAlignment="Center" MinHeight="20">
-                                                            <Grid.RowDefinitions>
-                                                                <RowDefinition Height="*"/>
-                                                                <RowDefinition Height="*"/>
-                                                            </Grid.RowDefinitions>
-                                                            <TextBlock FontWeight="Bold" FontSize="14" Grid.Row="0" Text="{Binding TaskName}"/>
-                                                            <Grid Margin="5,0" Grid.Row="1" HorizontalAlignment="Left" MinWidth="100">
-                                                                <Grid.ColumnDefinitions>
-                                                                    <ColumnDefinition Width="*"/>
-                                                                    <ColumnDefinition Width="*"/>
-                                                                    <ColumnDefinition Width="*"/>
-                                                                </Grid.ColumnDefinitions>
-                                                                <TextBlock Margin="5,0,20,0" Grid.Column="0" Text="{Binding TaskCategory}"/>
-                                                                <TextBlock Grid.Column="1" Text="{Binding DueDate}"/>
-                                                                <TextBlock Grid.Column="2" Text="{Binding DueDate}"/>
-                                                            </Grid>
-                                                        </Grid>
-                                                    </Grid>
-                                                    <CheckBox Grid.Column="2" IsChecked="{Binding IsImportant}"/>
+                                                    <TextBlock Margin="5,0,20,0" Grid.Column="0" Text="{Binding TaskCategory}"/>
+                                                    <TextBlock Grid.Column="1" Text="{Binding DueDate}"/>
+                                                    <TextBlock Grid.Column="2" Text="{Binding DueDate}"/>
                                                 </Grid>
-                                            </DataTemplate>
-                                        </ItemsControl.ItemTemplate>
-                                    </ItemsControl>
-                                </ScrollViewer>
+                                            </Grid>
+                                        </Grid>
+                                        <CheckBox Grid.Column="2" IsChecked="{Binding IsImportant}"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
 
 
- 
-                                <Button VerticalAlignment="Bottom" HorizontalAlignment="Right"      x:Name="PopUpOpenButton" Background="#FF363636"  Grid.Column="6" 
+
+                    <Button VerticalAlignment="Bottom" HorizontalAlignment="Right"      x:Name="PopUpOpenButton" Background="#FF363636"  Grid.Column="6" 
                          Margin="0 0 25 15" Click="PopUpOpenButton_Click" 
                                 Style="{StaticResource MaterialDesignIconButton}"
                         ToolTip="ToDo hinzufügen" >
-                                    <materialDesign:PackIcon
+                        <materialDesign:PackIcon
                             Kind="Plus"/>
 
-                                </Button>
+                    </Button>
 
-                            </Grid>
-                        </Grid>
+                </Grid>
             </Grid>
-    <Grid x:Name="SlideGridAddTask" HorizontalAlignment="Right" Background="{StaticResource MaterialDesignDarkBackground}" Width="400" Margin="0 55 0 0">
+        </Grid>
+        <Grid x:Name="SlideGridAddTask" HorizontalAlignment="Right" Background="{StaticResource MaterialDesignDarkBackground}" Width="400" Margin="0 55 0 0">
             <StackPanel Margin="15 10"  
                             VerticalAlignment="Bottom" >
-                <TextBox Margin="10" Height="35" Background="White" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" ToolTip="ToDo"
+                <TextBox x:Name="TaskNameTextBox" Margin="10" Height="35" Background="White" Text="{Binding Name, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" ToolTip="ToDo"
                           />
-                <ComboBox Background="AliceBlue" Name="TaskCategoryComboBox" Margin="10" SelectedValue="{Binding Category, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding TaskCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                <ComboBox SelectedIndex="0" Background="AliceBlue" Name="TaskCategoryComboBox" Margin="10" SelectedValue="{Binding Category, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding TaskCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           Style="{StaticResource MaterialDesignComboBox}"
                         ToolTip="ToDo-Liste auswählen">
 
@@ -152,7 +151,7 @@
                         ToolTip="ToDo hinzufügen" Cursor="Hand">
                     <materialDesign:PackIcon
                             Kind="Plus"/>
-                    
+
                 </Button>
             </StackPanel>
 
