@@ -146,6 +146,7 @@
                 <Label VerticalAlignment="Bottom" Margin="10"/>
                 <Button VerticalAlignment="Bottom"      x:Name="CreateTaskButton" Background="DimGray"  
                          Margin="25" Command="{Binding CreateTaskCommand}"
+                        CommandParameter="{Binding}" IsDefault="True"
                         Click="CreateTaskButton_Click"
                                 Style="{StaticResource MaterialDesignIconButton}"
                         ToolTip="ToDo hinzufügen" Cursor="Hand">
