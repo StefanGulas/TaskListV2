@@ -18,10 +18,10 @@ namespace TaskListV2.UI.Command
 
         }
         
-        public CreateTaskCommand(ITaskListV2DataService taskDataService)
-        {
-            _taskDataService = taskDataService;
-        }
+        //public CreateTaskCommand(ITaskListV2DataService taskDataService)
+        //{
+        //    _taskDataService = taskDataService;
+        //}
 
 
         public event EventHandler CanExecuteChanged;
@@ -32,10 +32,11 @@ namespace TaskListV2.UI.Command
 
         public void Execute(object parameter)
         {
-            if (parameter is MainViewModel mainViewModel && mainViewModel.Name != null && mainViewModel.Name != "")
+            if (parameter is MainViewModel taskList && taskList.Name != null && taskList.Name != "")
             {
-                _taskDataService.CreateTask(mainViewModel.Name, mainViewModel.Complete, mainViewModel.Important, mainViewModel.Due, mainViewModel.Reminder, mainViewModel.Category, mainViewModel.Repetition);
-                mainViewModel.Name = "";
+                taskList.Tasks.Add(new Task() { taskList.Name, taskList.Complete, taskList.Important, taskList.Due, taskList.Reminder, taskList.Category, taskList.Repetition});
+                
+                taskList.Name = "";
 
             }
         }

@@ -136,7 +136,7 @@ namespace TaskListV2.UI.ViewModel
         public DateTime Due { get; set; }
         public Repetition Repetition { get; set; }
 
-        public ICommand CreateTaskCommand { get { return new CreateTaskCommand(_taskDataService); } }
+        public ICommand createTaskCommand { get { return new CreateTaskCommand(/*_taskDataService*/); } }
 
 
         public DateTime DisplayTaskDateStart
