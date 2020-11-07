@@ -126,7 +126,7 @@
         <Grid x:Name="SlideGridAddTask" HorizontalAlignment="Right" Background="{StaticResource MaterialDesignDarkBackground}" Width="400" Margin="0 55 0 0">
             <StackPanel Margin="15 10"  
                             VerticalAlignment="Bottom" >
-                <TextBox x:Name="TaskNameTextBox" Margin="10" Height="35" Background="White" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" ToolTip="ToDo"
+                <TextBox x:Name="TaskNameTextBox" Margin="10" Height="35" Background="White" Text="{Binding Name, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" ToolTip="ToDo"
                           />
                 <ComboBox SelectedIndex="0" Background="AliceBlue" Name="TaskCategoryComboBox" Margin="10" SelectedValue="{Binding Category, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding TaskCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           Style="{StaticResource MaterialDesignComboBox}"
@@ -147,7 +147,7 @@
                 <Label VerticalAlignment="Bottom" Margin="10"/>
                 <Button VerticalAlignment="Bottom"      x:Name="CreateTaskButton" Background="DimGray"  
                          Margin="25" Command="{Binding CreateTaskCommand}"
-                        CommandParameter="{Binding}" IsDefault="True"
+                        CommandParameter="{Binding ElementName=CreateTaskButton, Path=Content}" IsDefault="True"
                         Click="CreateTaskButton_Click"
                                 Style="{StaticResource MaterialDesignIconButton}"
                         ToolTip="ToDo hinzufügen" Cursor="Hand">

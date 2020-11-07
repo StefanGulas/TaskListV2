@@ -22,6 +22,7 @@ namespace TaskListV2.UI.ViewModel
             MenuItems = TaskListV2DataService.LeftMenuItems;
             Tasks = new ObservableCollection<Task>();
             _taskDataService = taskDataService;
+            createTaskCommand = new CreateTaskCommand();
         }
 
         public void Load(string dataAccessMethod = "GetAll")
@@ -136,7 +137,8 @@ namespace TaskListV2.UI.ViewModel
         public DateTime Due { get; set; }
         public Repetition Repetition { get; set; }
 
-        public ICommand createTaskCommand { get { return new CreateTaskCommand(/*_taskDataService*/); } }
+        //public ICommand createTaskCommand { get { return new CreateTaskCommand(/*_taskDataService*/); } }
+        public CreateTaskCommand createTaskCommand { get; private set; }
 
 
         public DateTime DisplayTaskDateStart
