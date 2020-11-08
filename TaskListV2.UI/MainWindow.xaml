@@ -65,7 +65,7 @@
 <!--TaskColumn-->
                  <Grid Grid.Column="1" materialDesign:ColorZoneAssist.Background="Blue" >
                                 <ScrollViewer Grid.Row="2" Opacity="1"           HorizontalScrollBarVisibility="Hidden">
-                        <ItemsControl Margin="15,5,15,0" x:Name="list" ItemsSource="{Binding Tasks, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  >
+                        <ItemsControl Margin="15,5,15,0" x:Name="list" ItemsSource="{Binding Tasks}"  >
                                         <ItemsControl.ItemsPanel>
                                             <ItemsPanelTemplate>
                                                 <VirtualizingStackPanel Orientation="Vertical"/>
@@ -81,7 +81,7 @@
                                                         <ColumnDefinition Width="4*"/>
                                                         <ColumnDefinition Width="*"/>
                                                     </Grid.ColumnDefinitions>
-                                                    <CheckBox Margin="10,0" IsChecked="{Binding TaskComplete, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0"/>
+                                                    <CheckBox Margin="10,0" IsChecked="{Binding Complete, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Grid.Column="0"/>
                                                     <Grid Grid.Column="1" MinHeight="40">
                                                         <Grid VerticalAlignment="Center" MinHeight="20">
                                                             <Grid.RowDefinitions>
@@ -97,11 +97,11 @@
                                                                 </Grid.ColumnDefinitions>
                                                     <TextBlock Margin="5,0,20,0" Grid.Column="0" Text="{Binding TaskCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                                                     <TextBlock Grid.Column="1" Text="{Binding DueDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                                    <TextBlock Grid.Column="2" Text="{Binding DueDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                                    <TextBlock Grid.Column="2" Text="{Binding Reminder, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                                                             </Grid>
                                                         </Grid>
                                                     </Grid>
-                                        <CheckBox Grid.Column="2" IsChecked="{Binding IsImportant, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                        <CheckBox Grid.Column="2" IsChecked="{Binding IsChecked, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                                                 </Grid>
                                             </DataTemplate>
                                         </ItemsControl.ItemTemplate>

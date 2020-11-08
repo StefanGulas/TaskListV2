@@ -152,7 +152,21 @@ namespace TaskListV2.UI.ViewModel
                 OnPropertyChanged();
             }
         }
-        public bool Complete { get; set; }
+
+        private bool _complete;
+
+        public bool Complete
+        {
+            get { return _complete; }
+            set 
+            { 
+                _complete = value;
+                OnPropertyChanged();
+                _taskDataService.IsComplete(Name, Complete);
+            }
+        }
+
+        public bool iComplete { get; set; }
         public bool Important { get; set; }
         public DateTime Due { get; set; }
         public Repetition Repetition { get; set; }

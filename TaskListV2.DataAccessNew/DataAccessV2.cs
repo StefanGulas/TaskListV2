@@ -61,6 +61,18 @@ namespace TaskListV2.DataAccessNew
                 "(@TaskName, @TaskComplete, @IsImportant, @TaskCategory, @DueDate, @Reminder, @TaskRepetition)";
 
             var affectedRows = con.Execute(insertTask, new { TaskName = name, TaskComplete = Complete, IsImportant = Important, TaskCategory = Category, DueDate = Due, Reminder = Reminder, TaskRepetition = Repetition });
+
+            con.Close();
+        }
+        public void IsComplete(string name, bool complete)
+        {
+            using var con = HelperDataAccess.Conn();
+
+            con.Open();
+
+            String dapperChecked = "UPDATE Tasks SET Complete = @Complete WHERE TaskName = @TaskName";
+
+            var affectedRows = con.Execute(dapperChecked, new { TaskComplete = complete, TaskName = name });
         }
     }
 }
