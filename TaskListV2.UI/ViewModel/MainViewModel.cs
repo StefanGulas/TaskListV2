@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Windows.Input;
 using TaskListV2.Model;
 using TaskListV2.UI.Command;
@@ -32,41 +31,61 @@ namespace TaskListV2.UI.ViewModel
                 Tasks.Add(task);
             }
         }
-        
+
 
         public IEnumerable<string> MenuItems { get; set; }
-        public ObservableCollection<Task> Tasks { get; set; }
+
+        private ObservableCollection<Task> _tasks;
+
+
 
         public string SelectedItem
         {
             get { return _selectedItem; }
-            set { 
+            set
+            {
                 _selectedItem = value;
                 OnPropertyChanged();
-                IEnumerable<Task> tasks;
-                switch (_selectedItem)
-                {
-                    case "Wichtig":
-                        tasks = _taskDataService.Important();
-                        break;
-                    case "Aufgaben":
-                        tasks = _taskDataService.GetAll();
-                        break;
-                    case "Mein Tag":
-                        tasks = _taskDataService.Today();
-                        break;
-                    case "Geplant":
-                        tasks = _taskDataService.Planned();
-                        break;
-                    default:
-                        tasks = _taskDataService.GetAll();
-                        break;
-                }
-                Tasks.Clear();
-                foreach (var task in tasks)
-                {
-                    Tasks.Add(task);
-                }
+                RefreshTasks();
+            }
+        }
+        public void RefreshTasks()
+        {
+            IEnumerable<Task> tasks;
+            switch (SelectedItem)
+            {
+                case "Wichtig":
+                    tasks = _taskDataService.Important();
+                    break;
+                case "Aufgaben":
+                    tasks = _taskDataService.GetAll();
+                    break;
+                case "Mein Tag":
+                    tasks = _taskDataService.Today();
+                    break;
+                case "Geplant":
+                    tasks = _taskDataService.Planned();
+                    break;
+                default:
+                    tasks = _taskDataService.GetAll();
+                    break;
+            }
+            Tasks.Clear();
+            foreach (var task in tasks)
+            {
+                Tasks.Add(task);
+            }
+        }
+
+        public ObservableCollection<Task> Tasks
+
+        {
+            get { return _tasks; }
+            set
+            {
+                _tasks = value;
+                OnPropertyChanged();
+                //RefreshTasks(SelectedItem);
             }
         }
 
@@ -80,7 +99,8 @@ namespace TaskListV2.UI.ViewModel
             }
         }
 
-        public IList<Category> TaskCategory        {
+        public IList<Category> TaskCategory
+        {
             get
             {
                 return Enum.GetValues(typeof(Category)).Cast<Category>().ToList<Category>();
@@ -134,7 +154,8 @@ namespace TaskListV2.UI.ViewModel
         {
             get { return DateTime.Today; }
         }
-
-
     }
+
+
+
 }

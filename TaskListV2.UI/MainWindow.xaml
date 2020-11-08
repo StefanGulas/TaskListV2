@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TaskListV2.UI"
         mc:Ignorable="d"
         Title="ToDoList" Height="600" Width="850" MinHeight="300" MinWidth="600" FontSize="20"         WindowStyle="None" WindowStartupLocation="CenterScreen"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -66,7 +65,7 @@
 <!--TaskColumn-->
                  <Grid Grid.Column="1" materialDesign:ColorZoneAssist.Background="Blue" >
                                 <ScrollViewer Grid.Row="2" Opacity="1"           HorizontalScrollBarVisibility="Hidden">
-                                    <ItemsControl Margin="15,5,15,0" x:Name="list" ItemsSource="{Binding Tasks}" >
+                        <ItemsControl Margin="15,5,15,0" x:Name="list" ItemsSource="{Binding Tasks, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  >
                                         <ItemsControl.ItemsPanel>
                                             <ItemsPanelTemplate>
                                                 <VirtualizingStackPanel Orientation="Vertical"/>
@@ -89,20 +88,20 @@
                                                                 <RowDefinition Height="*"/>
                                                                 <RowDefinition Height="*"/>
                                                             </Grid.RowDefinitions>
-                                                            <TextBlock FontWeight="Bold" FontSize="14" Grid.Row="0" Text="{Binding TaskName}"/>
+                                                            <TextBlock FontWeight="Bold" FontSize="14" Grid.Row="0" Text="{Binding TaskName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                                                             <Grid Margin="5,0" Grid.Row="1" HorizontalAlignment="Left" MinWidth="100">
                                                                 <Grid.ColumnDefinitions>
                                                                     <ColumnDefinition Width="*"/>
                                                                     <ColumnDefinition Width="*"/>
                                                                     <ColumnDefinition Width="*"/>
                                                                 </Grid.ColumnDefinitions>
-                                                                <TextBlock Margin="5,0,20,0" Grid.Column="0" Text="{Binding TaskCategory}"/>
-                                                                <TextBlock Grid.Column="1" Text="{Binding DueDate}"/>
-                                                                <TextBlock Grid.Column="2" Text="{Binding DueDate}"/>
+                                                    <TextBlock Margin="5,0,20,0" Grid.Column="0" Text="{Binding TaskCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                                    <TextBlock Grid.Column="1" Text="{Binding DueDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                                    <TextBlock Grid.Column="2" Text="{Binding DueDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                                                             </Grid>
                                                         </Grid>
                                                     </Grid>
-                                                    <CheckBox Grid.Column="2" IsChecked="{Binding IsImportant}"/>
+                                        <CheckBox Grid.Column="2" IsChecked="{Binding IsImportant, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                                                 </Grid>
                                             </DataTemplate>
                                         </ItemsControl.ItemTemplate>
@@ -133,8 +132,8 @@
                         ToolTip="ToDo-Liste auswählen">
 
                 </ComboBox>
-                <DatePicker Margin="10" Background="AliceBlue" Name="dt_StartDateFrom"   ToolTip="Fälligkeitsdatum hinzufügen" FirstDayOfWeek="Monday" />
-                <ComboBox Background="AliceBlue" Height="35" Margin="10" Name="ReminderComboBox" SelectedValue="{Binding Reminder, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding ReminderList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                <DatePicker Margin="10" Background="AliceBlue" Name="dt_StartDateFrom"   ToolTip="Fälligkeitsdatum hinzufügen" FirstDayOfWeek="Monday" SelectedDate="{Binding Due}" />
+                <ComboBox Background="AliceBlue" Height="35" Margin="10" Name="ReminderComboBox" SelectedValue="{Binding Reminder, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding ReminderList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           Style="{StaticResource MaterialDesignComboBox}"
                         ToolTip="Erinnerung">
                 </ComboBox>
@@ -145,7 +144,7 @@
 
                 </ComboBox>
                 <Label VerticalAlignment="Bottom" Margin="10"/>
-                <Button VerticalAlignment="Bottom"      x:Name="CreateTaskButton" Background="DimGray"  
+                <Button VerticalAlignment="Bottom"      x:Name="CreateTaskButton" Background="DimGray"  Command="{Binding CreateTaskCommand}" CommandParameter="{Binding}"
                          Margin="25" Click="CreateTaskButton_Click"
                                 Style="{StaticResource MaterialDesignIconButton}"
                         ToolTip="ToDo hinzufügen" Cursor="Hand">

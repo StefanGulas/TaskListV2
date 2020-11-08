@@ -59,9 +59,7 @@ namespace TaskListV2.UI
         {
             SlideGridAddTask.Width = 0;
             PopUpOpenButton.Visibility = Visibility.Visible;
-            var createTaskCommand = new CreateTaskCommand();
-            CreateTaskButton.Command = CreateTaskCommand;
-            CreateTaskButton.SetBinding(CreateTaskButton.CommandProperty, new Binding("SaveReservationCommand"));
+
 
         }
     }
