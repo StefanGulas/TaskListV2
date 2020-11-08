@@ -43,7 +43,7 @@ namespace TaskListV2.UI.Command
                 _execute?.Invoke(parameter as Task);
                 
                 mainViewModel.Tasks.Add(new Task() { TaskName = mainViewModel.Name, TaskComplete = mainViewModel.Complete, IsImportant = mainViewModel.Important, DueDate = mainViewModel.Due, TaskReminder = mainViewModel.Reminder, TaskCategory = mainViewModel.Category, TaskRepetition = mainViewModel.Repetition});
-                
+                _taskDataService.CreateTask(mainViewModel.Name, mainViewModel.Complete, mainViewModel.Important, mainViewModel.Due, mainViewModel.Reminder, mainViewModel.Category, mainViewModel.Repetition);
                 mainViewModel.Name = "";
                 mainViewModel.RefreshTasks();
 

@@ -144,7 +144,7 @@
 
                 </ComboBox>
                 <Label VerticalAlignment="Bottom" Margin="10"/>
-                <Button VerticalAlignment="Bottom"      x:Name="CreateTaskButton" Background="DimGray"  Command="{Binding CreateTaskCommand}" CommandParameter="{Binding}"
+                <Button VerticalAlignment="Bottom"      x:Name="CreateTaskButton" Background="DimGray"  Command="{Binding createTaskCommand}" CommandParameter="{Binding}"
                          Margin="25" Click="CreateTaskButton_Click"
                                 Style="{StaticResource MaterialDesignIconButton}"
                         ToolTip="ToDo hinzufügen" Cursor="Hand">
