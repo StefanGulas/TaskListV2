@@ -14,12 +14,14 @@ namespace TaskListV2.UI.ViewModel
         private ITaskListV2DataService _taskDataService;
         private Task _selectedTask;
         private string _selectedItem;
+        private string _name;
 
         public MainViewModel(ITaskListV2DataService taskDataService)
         {
             MenuItems = TaskListV2DataService.LeftMenuItems;
             Tasks = new ObservableCollection<Task>();
             _taskDataService = taskDataService;
+            //createTaskCommand = new CreateTaskCommand();
         }
 
         public void Load(string dataAccessMethod = "GetAll")
@@ -140,14 +142,23 @@ namespace TaskListV2.UI.ViewModel
             }
 
         }
-
-        public string Name { get; set; }
+        
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                _name = value;
+                OnPropertyChanged();
+            }
+        }
         public bool Complete { get; set; }
         public bool Important { get; set; }
         public DateTime Due { get; set; }
         public Repetition Repetition { get; set; }
 
-        public ICommand CreateTaskCommand { get { return new CreateTaskCommand(_taskDataService); } }
+        public ICommand createTaskCommand { get { return new CreateTaskCommand(); } }
+        //public CreateTaskCommand createTaskCommand { get; private set; }
 
 
         public DateTime DisplayTaskDateStart
