@@ -38,7 +38,7 @@ namespace TaskListV2.Model
 
         public string TaskName { get; set; }
 
-        public bool TaskComplete {  get; set; }
+        public bool TaskComplete { get; set; }
 
         public bool IsImportant { get; set; }
 

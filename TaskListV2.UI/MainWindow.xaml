@@ -125,9 +125,9 @@
     <Grid x:Name="SlideGridAddTask" HorizontalAlignment="Right" Background="{StaticResource MaterialDesignDarkBackground}" Width="400" Margin="0 55 0 0">
             <StackPanel Margin="15 10"  
                             VerticalAlignment="Bottom" >
-                <TextBox Margin="10" Height="35" Background="White" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" ToolTip="ToDo"
+                <TextBox Margin="10" Padding="10 0" Height="35" FontSize="18" VerticalContentAlignment="Center"  Background="White" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" ToolTip="ToDo"
                           />
-                <ComboBox Background="AliceBlue" Name="TaskCategoryComboBox" Margin="10" SelectedValue="{Binding Category, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding TaskCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                <ComboBox Background="AliceBlue" Name="TaskCategoryComboBox" Margin="10" SelectedValue="{Binding Category, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding TaskCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           Style="{StaticResource MaterialDesignComboBox}"
                         ToolTip="ToDo-Liste auswählen">
 
