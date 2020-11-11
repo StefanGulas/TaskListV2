@@ -101,7 +101,7 @@ namespace TaskListV2.UI.ViewModel
             }
         }
 
-        public IList<Category> TaskCategory
+        public IList<Category> TaskCategories
         {
             get
             {
