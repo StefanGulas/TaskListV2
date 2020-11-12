@@ -142,7 +142,29 @@ namespace TaskListV2.UI.ViewModel
             }
 
         }
-        
+
+        public IList<Repetition> RepetitionList
+        {
+            get
+            {
+                return Enum.GetValues(typeof(Repetition)).Cast<Repetition>().ToList<Repetition>();
+            }
+            set { }
+        }
+
+        private Repetition _repetition;
+        public Repetition Repetition
+        {
+            get { return _repetition; }
+            set
+            {
+                _repetition = value;
+                OnPropertyChanged();
+            }
+
+        }
+
+
         public string Name
         {
             get { return _name; }
@@ -168,7 +190,6 @@ namespace TaskListV2.UI.ViewModel
 
         public bool Important { get; set; }
         public DateTime Due { get; set; }
-        public Repetition Repetition { get; set; }
 
         public ICommand createTaskCommand { get { return new CreateTaskCommand(_taskDataService); } }
         public ICommand completeTaskCommand { get { return new CompleteTaskCommand(_taskDataService); } }

@@ -20,6 +20,10 @@ namespace TaskListV2.UI
             DataContext = _viewModel;
             Loaded += MainWindow_Loaded;
             SlideGridAddTask.Width = 0;
+            TaskCategoryComboBox.SelectedIndex = 0;
+            ReminderComboBox.SelectedIndex = 0;
+            RepetitionComboBox.SelectedIndex = 0;
+            dt_StartDateFrom.SelectedDate = DateTime.Now;
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)

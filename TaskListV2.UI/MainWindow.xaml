@@ -132,13 +132,13 @@
                         ToolTip="ToDo-Liste auswählen">
 
                 </ComboBox>
-                <DatePicker Margin="10" Background="AliceBlue" Name="dt_StartDateFrom"   ToolTip="Fälligkeitsdatum hinzufügen" FirstDayOfWeek="Monday" SelectedDate="{Binding Due}" />
-                <ComboBox Background="AliceBlue" Height="35" Margin="10" Name="ReminderComboBox" SelectedValue="{Binding Reminder, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding ReminderList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                <DatePicker Margin="10" Padding="10 0" Background="AliceBlue" Name="dt_StartDateFrom"   ToolTip="Fälligkeitsdatum hinzufügen" FirstDayOfWeek="Monday" SelectedDate="{Binding Due}" />
+                <ComboBox Background="AliceBlue" Height="35" Margin="10"  Padding="10 0" Name="ReminderComboBox" SelectedValue="{Binding Reminder, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding ReminderList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           Style="{StaticResource MaterialDesignComboBox}"
                         ToolTip="Erinnerung">
                 </ComboBox>
 
-                <ComboBox Background="AliceBlue" Height="35" Margin="10" Name="RepetitionComboBox" SelectedValue="{Binding Category, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding TaskCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                <ComboBox Background="AliceBlue" Height="35" Margin="10"  Padding="10 0" Name="RepetitionComboBox" SelectedValue="{Binding Repetition, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding RepetitionList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           Style="{StaticResource MaterialDesignComboBox}"
                         ToolTip="ToDo-Liste auswählen">
 
