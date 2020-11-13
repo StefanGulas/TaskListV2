@@ -124,8 +124,16 @@
                         </Grid>
             </Grid>
     <Grid x:Name="SlideGridAddTask" HorizontalAlignment="Right" Background="{StaticResource MaterialDesignDarkBackground}" Width="400" Margin="0 55 0 0">
-            <StackPanel Margin="15 10"   
+            <StackPanel Margin="0 15"   
                             VerticalAlignment="Bottom" >
+                <Button Grid.Column="0" HorizontalAlignment="Left"     x:Name="SlideGridBackButton"   Command="{Binding createTaskCommand}" CommandParameter="{Binding}"
+                             Margin="0 35" Click="SlideGridBackButton_Click"
+                                    Style="{StaticResource MaterialDesignIconButton}"
+                            Cursor="Hand">
+                    <materialDesign:PackIcon
+                                Kind="ArrowRight"/>
+
+                </Button>
                 <Label Content="ToDo" Margin="15 5 15 0" Foreground="AntiqueWhite"/>
                 <TextBox Margin="10 0" Padding="10 0" Height="30" FontSize="16" VerticalContentAlignment="Bottom"  Background="White" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" ToolTip="ToDo"
                           />
@@ -137,7 +145,7 @@
                 </ComboBox>
                 <Label Content="Fällig" Margin="15 5 15 0" Foreground="AntiqueWhite"/>
 
-                <DatePicker Height="30" Margin="10 0" Padding="10 0" Background="AliceBlue" Name="dt_StartDateFrom" FontSize="16"  ToolTip="Fälligkeitsdatum hinzufügen" FirstDayOfWeek="Monday" 
+                <DatePicker Height="30" Margin="10 0" Padding="100 0" Background="AliceBlue" Name="dt_StartDateFrom" FontSize="16"  ToolTip="Fälligkeitsdatum hinzufügen" FirstDayOfWeek="Monday" 
                   SelectedDate="{Binding Due, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" />
                 <Label Content="Erinnerung" Margin="15 5 15 0" Foreground="AntiqueWhite"/>
                 <ComboBox Background="AliceBlue" Height="30" Margin="10 0"  Padding="10 0" VerticalContentAlignment="Center" FontSize="16"  Name="ReminderComboBox" SelectedValue="{Binding Reminder, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding ReminderList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
@@ -152,14 +160,23 @@
 
                 </ComboBox>
                 <Label VerticalAlignment="Bottom" Margin="10"/>
-                <Button VerticalAlignment="Bottom"      x:Name="CreateTaskButton" Background="DimGray"  Command="{Binding createTaskCommand}" CommandParameter="{Binding}"
-                         Margin="25" Click="CreateTaskButton_Click"
-                                Style="{StaticResource MaterialDesignIconButton}"
-                        ToolTip="ToDo hinzufügen" Cursor="Hand">
-                    <materialDesign:PackIcon
-                            Kind="Plus"/>
+                
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        
+                    </Grid.ColumnDefinitions>
                     
-                </Button>
+                    <Button Grid.Column="1" VerticalAlignment="Bottom"      x:Name="CreateTaskButton" Background="DimGray"  Command="{Binding createTaskCommand}" CommandParameter="{Binding}"
+                             Margin="25" Click="CreateTaskButton_Click"
+                                    Style="{StaticResource MaterialDesignIconButton}"
+                            ToolTip="ToDo hinzufügen" Cursor="Hand">
+                        <materialDesign:PackIcon
+                                Kind="Plus"/>
+                    
+                    </Button>
+                </Grid>
             </StackPanel>
 
         </Grid>

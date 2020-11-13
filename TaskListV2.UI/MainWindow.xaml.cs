@@ -66,5 +66,11 @@ namespace TaskListV2.UI
 
 
         }
+
+        private void SlideGridBackButton_Click(object sender, RoutedEventArgs e)
+        {
+            SlideGridAddTask.Width = 0;
+            PopUpOpenButton.Visibility = Visibility.Visible;
+        }
     }
 }
