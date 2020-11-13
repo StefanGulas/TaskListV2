@@ -78,5 +78,12 @@ namespace TaskListV2.UI
             SlideGridAddTask.Width = 0;
             PopUpOpenButton.Visibility = Visibility.Visible;
         }
+
+        private void ScrollViewer_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            SlideGridAddTask.Width = 400;
+            PopUpOpenButton.Visibility = Visibility.Hidden;
+            ToDoTextBox.Text = _viewModel.Name;
+        }
     }
 }

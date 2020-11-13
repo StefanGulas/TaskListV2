@@ -64,9 +64,9 @@
 
 
 <!--TaskColumn-->
-                 <Grid Grid.Column="1" materialDesign:ColorZoneAssist.Background="Blue" >
-                                <ScrollViewer Grid.Row="2" Opacity="1"           HorizontalScrollBarVisibility="Hidden">
-                        <ItemsControl Margin="15,5,15,0" x:Name="list" ItemsSource="{Binding Tasks}"  >
+                 <Grid  Grid.Column="1" materialDesign:ColorZoneAssist.Background="Blue" >
+                                <ScrollViewer  Grid.Row="2" Opacity="1"           HorizontalScrollBarVisibility="Hidden">
+                        <ItemsControl MouseDown="ScrollViewer_MouseDown" Margin="15,5,15,0" x:Name="list" ItemsSource="{Binding Tasks}"  >
                                         <ItemsControl.ItemsPanel>
                                             <ItemsPanelTemplate>
                                                 <VirtualizingStackPanel Orientation="Vertical"/>
@@ -135,7 +135,7 @@
 
                 </Button>
                 <Label Content="ToDo" Margin="15 5 15 0" Foreground="AntiqueWhite"/>
-                <TextBox Margin="10 0" Padding="10 0" Height="30" FontSize="16" VerticalContentAlignment="Bottom"  Background="White" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" ToolTip="ToDo"
+                <TextBox x:Name="ToDoTextBox" Margin="10 0" Padding="10 0" Height="30" FontSize="16" VerticalContentAlignment="Bottom"  Background="White" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" ToolTip="ToDo"
                           />
                 <Label Content="Kategorie" Margin="15 5 15 0" Foreground="AntiqueWhite"/>
                 <ComboBox Background="AliceBlue" Name="TaskCategoryComboBox" Height="30" Margin="10 0" Padding="10 0" FontSize="16" VerticalContentAlignment="Center" SelectedValue="{Binding Category, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding TaskCategories, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
