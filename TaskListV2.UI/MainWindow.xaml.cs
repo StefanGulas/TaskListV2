@@ -20,6 +20,11 @@ namespace TaskListV2.UI
             DataContext = _viewModel;
             Loaded += MainWindow_Loaded;
             SlideGridAddTask.Width = 0;
+            RefreshAddNewTaskFields();
+        }
+
+        private void RefreshAddNewTaskFields()
+        {
             TaskCategoryComboBox.SelectedIndex = 0;
             ReminderComboBox.SelectedIndex = 0;
             RepetitionComboBox.SelectedIndex = 0;
@@ -63,6 +68,7 @@ namespace TaskListV2.UI
         {
             SlideGridAddTask.Width = 0;
             PopUpOpenButton.Visibility = Visibility.Visible;
+            RefreshAddNewTaskFields();
 
 
         }
