@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:system="clr-namespace:System;assembly=System.Runtime"
         mc:Ignorable="d"
         Title="ToDoList" Height="600" Width="850" MinHeight="300" MinWidth="600" FontSize="20"         WindowStyle="None" WindowStartupLocation="CenterScreen"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -135,7 +136,9 @@
 
                 </ComboBox>
                 <Label Content="Fällig" Margin="15 5 15 0" Foreground="AntiqueWhite"/>
-                <DatePicker Height="30" Margin="10 0" Padding="10 0" Background="AliceBlue" Name="dt_StartDateFrom" FontSize="16"  ToolTip="Fälligkeitsdatum hinzufügen" FirstDayOfWeek="Monday" SelectedDate="{Binding Due}" />
+
+                <DatePicker Height="30" Margin="10 0" Padding="10 0" Background="AliceBlue" Name="dt_StartDateFrom" FontSize="16"  ToolTip="Fälligkeitsdatum hinzufügen" FirstDayOfWeek="Monday" 
+                  SelectedDate="{Binding Due, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" />
                 <Label Content="Erinnerung" Margin="15 5 15 0" Foreground="AntiqueWhite"/>
                 <ComboBox Background="AliceBlue" Height="30" Margin="10 0"  Padding="10 0" VerticalContentAlignment="Center" FontSize="16"  Name="ReminderComboBox" SelectedValue="{Binding Reminder, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding ReminderList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           Style="{StaticResource MaterialDesignComboBox}"

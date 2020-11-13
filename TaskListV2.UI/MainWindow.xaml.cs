@@ -23,7 +23,7 @@ namespace TaskListV2.UI
             TaskCategoryComboBox.SelectedIndex = 0;
             ReminderComboBox.SelectedIndex = 0;
             RepetitionComboBox.SelectedIndex = 0;
-            dt_StartDateFrom.DisplayDate = DateTime.Now;
+            dt_StartDateFrom.SelectedDate = DateTime.Today;
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)

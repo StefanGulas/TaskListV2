@@ -189,7 +189,11 @@ namespace TaskListV2.UI.ViewModel
         }
 
         public bool Important { get; set; }
-        public DateTime Due { get; set; }
+        public DateTime Due 
+        {
+            get;
+            set;
+        }
 
         public ICommand createTaskCommand { get { return new CreateTaskCommand(_taskDataService); } }
         public ICommand completeTaskCommand { get { return new CompleteTaskCommand(_taskDataService); } }
