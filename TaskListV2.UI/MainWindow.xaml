@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:system="clr-namespace:System;assembly=System.Runtime"
         mc:Ignorable="d"
-        Title="ToDoList" Height="600" Width="850" MinHeight="300" MinWidth="600" FontSize="20"         WindowStyle="None" WindowStartupLocation="CenterScreen"
+        Title="ToDoList" Height="600" Width="850" MinHeight="600" MinWidth="600" FontSize="20"         WindowStyle="None" WindowStartupLocation="CenterScreen"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
          TextElement.Foreground="{DynamicResource MaterialDesignBody}"
          TextElement.FontWeight="Regular"
@@ -127,7 +127,7 @@
             <StackPanel Margin="0 15"   
                             VerticalAlignment="Bottom" >
                 <Button Grid.Column="0" HorizontalAlignment="Left"     x:Name="SlideGridBackButton"   Command="{Binding createTaskCommand}" CommandParameter="{Binding}"
-                             Margin="0 35" Click="SlideGridBackButton_Click"
+                             Margin="3 34" Click="SlideGridBackButton_Click"
                                     Style="{StaticResource MaterialDesignIconButton}"
                             Cursor="Hand">
                     <materialDesign:PackIcon
