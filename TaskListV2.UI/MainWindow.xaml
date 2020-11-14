@@ -96,8 +96,8 @@
                                                                     <ColumnDefinition Width="*"/>
                                                                     <ColumnDefinition Width="*"/>
                                                                 </Grid.ColumnDefinitions>
-                                                    <TextBlock Margin="5,0,20,0" Grid.Column="0" Text="{Binding TaskCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                                    <TextBlock Grid.Column="1" Text="{Binding DueDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                                    <TextBlock Margin="5,0,20,0" Grid.Column="0" Text="{Binding Category, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                                    <TextBlock Grid.Column="1" Text="{Binding Due, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                                                     <TextBlock Grid.Column="2" Text="{Binding TaskReminder, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                                                             </Grid>
                                                         </Grid>

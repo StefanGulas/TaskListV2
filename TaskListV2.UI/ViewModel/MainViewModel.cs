@@ -24,7 +24,7 @@ namespace TaskListV2.UI.ViewModel
             //createTaskCommand = new CreateTaskCommand();
         }
 
-        public void Load(string dataAccessMethod = "GetAll")
+        public void Load()
         {
             var tasks = _taskDataService.GetAll();
             Tasks.Clear();
@@ -100,7 +100,7 @@ namespace TaskListV2.UI.ViewModel
                 OnPropertyChanged();
             }
         }
-
+         
         public IList<Category> TaskCategories
         {
             get
