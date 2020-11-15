@@ -89,14 +89,14 @@
                                                                 <RowDefinition Height="*"/>
                                                                 <RowDefinition Height="*"/>
                                                             </Grid.RowDefinitions>
-                                                            <TextBlock FontWeight="Bold" FontSize="14" Grid.Row="0" Text="{Binding TaskName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                                            <TextBlock FontWeight="Bold" FontSize="16" Grid.Row="0" Text="{Binding TaskName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                                                             <Grid Margin="5,0" Grid.Row="1" HorizontalAlignment="Left" MinWidth="100">
                                                                 <Grid.ColumnDefinitions>
                                                                     <ColumnDefinition Width="*"/>
                                                                     <ColumnDefinition Width="*"/>
                                                                     <ColumnDefinition Width="*"/>
                                                                 </Grid.ColumnDefinitions>
-                                                    <TextBlock Grid.Column="0" Text="{Binding DueDate, StringFormat=\{0:dd.MM.yyyy\}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5 0 20 0"/>
+                                                    <TextBlock Grid.Column="0" Text="{Binding DueDate, StringFormat=\{0:dd. MMM yyyy\}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5 0 20 0"/>
                                                     <TextBlock Margin="20 0" Grid.Column="1" Text="{Binding TaskCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                                                     <TextBlock Grid.Column="2" Text="{Binding TaskReminder, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="20 0"/>
                                                             </Grid>
