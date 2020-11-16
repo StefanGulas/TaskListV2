@@ -189,10 +189,14 @@ namespace TaskListV2.UI.ViewModel
         }
 
         public bool Important { get; set; }
+        private DateTime _due = DateTime.Now;
         public DateTime Due 
         {
-            get;
-            set;
+            get { return _due; }
+            set { _due = value;
+                OnPropertyChanged();
+
+            }
         }
 
         public ICommand createTaskCommand { get { return new CreateTaskCommand(_taskDataService); } }
