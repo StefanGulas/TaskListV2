@@ -110,7 +110,7 @@ namespace TaskListV2.UI.ViewModel
             set { }
         }
 
-        private Category _category;
+        private Category _category = 0;
         public Category Category
         {
             get { return _category; }
@@ -131,7 +131,7 @@ namespace TaskListV2.UI.ViewModel
             set { }
         }
 
-        private Reminder _reminder;
+        private Reminder _reminder = 0;
         public Reminder Reminder
         {
             get { return _reminder; }
@@ -152,7 +152,7 @@ namespace TaskListV2.UI.ViewModel
             set { }
         }
 
-        private Repetition _repetition;
+        private Repetition _repetition = 0;
         public Repetition Repetition
         {
             get { return _repetition; }

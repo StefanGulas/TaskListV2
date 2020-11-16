@@ -148,13 +148,13 @@
                 <DatePicker Height="30" Margin="10 0" Padding="100 0" Background="AliceBlue" Name="dt_StartDateFrom" FontSize="16"  ToolTip="Fälligkeitsdatum hinzufügen" FirstDayOfWeek="Monday" 
                   SelectedDate="{Binding Due, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 <Label Content="Erinnerung" Margin="15 5 15 0" Foreground="AntiqueWhite"/>
-                <ComboBox Background="AliceBlue" Height="30" Margin="10 0"  Padding="10 0" VerticalContentAlignment="Center" FontSize="16"  Name="ReminderComboBox" SelectedValue="{Binding Reminder, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding ReminderList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                <ComboBox Background="AliceBlue" Height="30" Margin="10 0"  Padding="10 0" VerticalContentAlignment="Center" FontSize="16"  Name="ReminderComboBox" SelectedValue="{Binding Reminder, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding ReminderList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           Style="{StaticResource MaterialDesignComboBox}"
                         ToolTip="Wann erinnern?">
                 </ComboBox>
 
                 <Label Content="Wiederholen" Margin="15 5 15 0" Foreground="AntiqueWhite"/>
-                <ComboBox Background="AliceBlue" Height="30" Margin="10 0"  Padding="10 0" VerticalContentAlignment="Center" FontSize="16" Name="RepetitionComboBox" SelectedValue="{Binding Repetition, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding RepetitionList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                <ComboBox Background="AliceBlue" Height="30" Margin="10 0"  Padding="10 0" VerticalContentAlignment="Center" FontSize="16" Name="RepetitionComboBox" SelectedValue="{Binding Repetition, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding RepetitionList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           Style="{StaticResource MaterialDesignComboBox}"
                         ToolTip="Wiederholung auswählen">
 
