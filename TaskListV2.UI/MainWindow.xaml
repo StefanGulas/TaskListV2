@@ -160,7 +160,10 @@
                         ToolTip="Wiederholung auswählen">
 
                 </ComboBox>
-                <Label VerticalAlignment="Bottom" Margin="10"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 10">
+                <CheckBox Margin="15 0 10 0" Background="AliceBlue" Style="{StaticResource MaterialDesignActionAccentToggleButton}" IsChecked="{Binding Important, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Cursor="Hand"/>
+                <Label HorizontalAlignment="Right" Content="Wichtig"  Foreground="AntiqueWhite"/>
+                </StackPanel>
                 
                 <Grid>
                     <Grid.ColumnDefinitions>
