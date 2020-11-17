@@ -46,7 +46,6 @@ namespace TaskListV2.UI.Command
                 _taskDataService.CreateTask(mainViewModel.Name, mainViewModel.Complete, mainViewModel.Important, mainViewModel.Due, mainViewModel.Reminder, mainViewModel.Category, mainViewModel.Repetition);
                 mainViewModel.Name = "";
                 mainViewModel.Category = 0;
-                mainViewModel.RefreshTasks();
 
             }
         }
