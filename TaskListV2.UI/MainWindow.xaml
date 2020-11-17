@@ -127,8 +127,8 @@
     <Grid x:Name="SlideGridAddTask" HorizontalAlignment="Right" Background="{StaticResource MaterialDesignDarkBackground}" Width="400" Margin="0 55 0 0">
             <StackPanel Margin="0 15"   
                             VerticalAlignment="Bottom" >
-                <Button Grid.Column="0" HorizontalAlignment="Left"     x:Name="SlideGridBackButton"   Command="{Binding createTaskCommand}" CommandParameter="{Binding}"
-                             Margin="3 34" Click="SlideGridBackButton_Click"
+                <Button Width="25" Height="25" Grid.Column="0" HorizontalAlignment="Left"     x:Name="SlideGridBackButton"   Command="{Binding createTaskCommand}" CommandParameter="{Binding}"
+                             Margin="8 20" Click="SlideGridBackButton_Click"
                                     Style="{StaticResource MaterialDesignIconButton}"
                             Cursor="Hand">
                     <materialDesign:PackIcon
@@ -161,7 +161,7 @@
 
                 </ComboBox>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 10">
-                <CheckBox Margin="15 0 10 0" Background="AliceBlue" Style="{StaticResource MaterialDesignActionAccentToggleButton}" IsChecked="{Binding Important, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Cursor="Hand"/>
+                <CheckBox Margin="15 0 10 0" Background="AliceBlue" Height="25" Width="25" Style="{StaticResource MaterialDesignActionAccentToggleButton}" IsChecked="{Binding Important, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Cursor="Hand"/>
                 <Label HorizontalAlignment="Right" Content="Wichtig"  Foreground="AntiqueWhite"/>
                 </StackPanel>
                 
