@@ -57,14 +57,31 @@
                             <ColumnDefinition Width="150"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                    
+            </Grid.RowDefinitions>
 
 <!--MenuColumn-->
                  <ListView Grid.Column="0" Foreground="AntiqueWhite" Margin="0 15" materialDesign:ColorZoneAssist.Foreground="AntiqueWhite"  Background="AliceBlue" FontSize="14" ItemsSource="{Binding MenuItems}"
                   SelectedItem="{Binding SelectedItem, UpdateSourceTrigger=PropertyChanged}" />
+                
+                
+<!--Header for Tasks-->
+                <Grid Grid.Column="1" Grid.Row="0" materialDesign:ColorZoneAssist.Background="Blue" Margin="15,5,5,5"  HorizontalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4.5*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" materialDesign:ColorZoneAssist.Background="Blue" Foreground="GhostWhite" FontStyle="Italic" Margin="13,0,16,0">   Task</TextBlock>
+                    <TextBlock Grid.Column="1" materialDesign:ColorZoneAssist.Background="Blue" Foreground="GhostWhite" FontStyle="Italic" Margin="10,0">Priority</TextBlock>
+                    <TextBlock Grid.Column="2" materialDesign:ColorZoneAssist.Background="Blue" Foreground="GhostWhite" FontStyle="Italic" Margin="10,0">Finished</TextBlock>
+                </Grid>
 
-
-<!--TaskColumn-->
-                 <Grid  Grid.Column="1" materialDesign:ColorZoneAssist.Background="Blue" >
+                <!--TaskColumn-->
+                 <Grid  Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" materialDesign:ColorZoneAssist.Background="Blue" >
                                 <ScrollViewer  Grid.Row="2" Opacity="1"           HorizontalScrollBarVisibility="Hidden">
                         <ItemsControl Margin="15,5,15,0" x:Name="list" ItemsSource="{Binding Tasks}"  >
                                         <ItemsControl.ItemsPanel>
