@@ -86,7 +86,7 @@
                                             <ColumnDefinition Width="50"/>
                                         </Grid.ColumnDefinitions>
                                         <CheckBox Background="AliceBlue" Margin="10 0"
-                                                 Style="{StaticResource MaterialDesignActionAccentToggleButton}" IsChecked="{Binding TaskComplete, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Grid.Column="0"/>
+                                                 Style="{StaticResource MaterialDesignActionAccentToggleButton}" Command="{Binding completeTaskCommand, Mode=TwoWay}" CommandParameter="{Binding IsChecked, RelativeSource={RelativeSource Self}, Mode=TwoWay}"  Grid.Column="0"/>
                                         <Grid Grid.Column="1" Height="40">
                                             <Grid VerticalAlignment="Center">
                                                 <Grid.RowDefinitions>
@@ -94,7 +94,7 @@
                                                     <RowDefinition Height="*"/>
                                                 </Grid.RowDefinitions>
                                                 <TextBlock Foreground="White" FontSize="15" Grid.Row="0" Text="{Binding TaskName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                                <Grid Margin="5 4 0 2" Grid.Row="1" HorizontalAlignment="Left" MinWidth="100">
+                                                <Grid Margin="5 4 0 0" Grid.Row="1" HorizontalAlignment="Left" MinWidth="100">
                                                     <Grid.ColumnDefinitions>
                                                         <ColumnDefinition Width="*"/>
                                                         <ColumnDefinition Width="*"/>
@@ -105,10 +105,10 @@
                                                         <ColumnDefinition Width="*"/>
                                                     </Grid.ColumnDefinitions>
                                                     <materialDesign:PackIcon Grid.Column="0" Kind="Calendar" Foreground="{DynamicResource MaterialDesignPaper}"/>
-                                                    <TextBlock Width="80" Grid.Column="1" Text="{Binding DueDate, StringFormat=\{0:dd. MMM yyyy\},  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5 0 10 0"/>
+                                                    <TextBlock Width="100" Grid.Column="1" Text="{Binding DueDate, StringFormat=\{0:dd. MMM yyyy\},  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5 0 10 0"/>
                                                   
                                                     <materialDesign:PackIcon Grid.Column="2" Kind="Category" Foreground="White"/>
-                                                    <TextBlock Margin="5 0 10 0" Grid.Column="3" Width="80" Text="{Binding TaskCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                                    <TextBlock Margin="5 0 10 0" Grid.Column="3" Width="70" Text="{Binding TaskCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                                                     <materialDesign:PackIcon Grid.Column="4" Kind="BellOutline" Foreground="{DynamicResource MaterialDesignPaper}"/>
                                                     <TextBlock Grid.Column="5" Width="80" Text="{Binding TaskReminder, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5 0 10 0"/>
                                                    <materialDesign:PackIcon Grid.Column="6" Kind="Repeat" Foreground="{DynamicResource MaterialDesignPaper}"/>
