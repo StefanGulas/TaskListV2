@@ -199,7 +199,16 @@ namespace TaskListV2.UI.ViewModel
             }
         }
 
-        public ICommand createTaskCommand { get { return new CreateTaskCommand(_taskDataService); } }
+    private string _isVisible;
+
+    public string IsVisible
+    {
+      get { return _isVisible; }
+      set { _isVisible = "Hidden"; }
+    }
+
+
+    public ICommand createTaskCommand { get { return new CreateTaskCommand(_taskDataService); } }
         public ICommand completeTaskCommand { get { return new CompleteTaskCommand(_taskDataService); } }
         //public CreateTaskCommand createTaskCommand { get; private set; }
 

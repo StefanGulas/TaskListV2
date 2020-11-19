@@ -21,14 +21,15 @@ namespace TaskListV2.UI
             Loaded += MainWindow_Loaded;
             SlideGridAddTask.Width = 0;
             RefreshAddNewTaskFields();
+            
         }
 
         private void RefreshAddNewTaskFields()
         {
-            //TaskCategoryComboBox.SelectedIndex = 0;
-            //ReminderComboBox.SelectedIndex = 0;
-            //RepetitionComboBox.SelectedIndex = 0;
-            //dt_StartDateFrom.SelectedDate = DateTime.Today;
+      //TaskCategoryComboBox.SelectedIndex = 0;
+      //ReminderComboBox.SelectedIndex = 0;
+      //RepetitionComboBox.SelectedIndex = 0;
+      //dt_StartDateFrom.SelectedDate = DateTime.Today;
             
         }
 

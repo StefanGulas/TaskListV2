@@ -78,22 +78,23 @@
 
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <Grid Background="LightBlue" Margin="5,5,5,5" HorizontalAlignment="Stretch" Height="40">
+                                    <Grid Background="LightBlue" Margin="5,5,5,5" HorizontalAlignment="Stretch" Height="50">
 
                                         <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="70"/>
                                             <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="4*"/>
-                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="50"/>
                                         </Grid.ColumnDefinitions>
-                                        <CheckBox Margin="10,0" IsChecked="{Binding TaskComplete, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Grid.Column="0"/>
-                                        <Grid Grid.Column="1" MinHeight="40">
-                                            <Grid VerticalAlignment="Center" MinHeight="20">
+                                        <CheckBox Background="AliceBlue" Margin="10 0"
+                                                 Style="{StaticResource MaterialDesignActionAccentToggleButton}" IsChecked="{Binding TaskComplete, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Grid.Column="0"/>
+                                        <Grid Grid.Column="1" Height="40">
+                                            <Grid VerticalAlignment="Center">
                                                 <Grid.RowDefinitions>
                                                     <RowDefinition Height="*"/>
                                                     <RowDefinition Height="*"/>
                                                 </Grid.RowDefinitions>
-                                                <TextBlock FontWeight="Bold" FontSize="16" Grid.Row="0" Text="{Binding TaskName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                                <Grid Margin="5,0" Grid.Row="1" HorizontalAlignment="Left" MinWidth="100">
+                                                <TextBlock Foreground="White" FontSize="15" Grid.Row="0" Text="{Binding TaskName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                                <Grid Margin="5 4 0 2" Grid.Row="1" HorizontalAlignment="Left" MinWidth="100">
                                                     <Grid.ColumnDefinitions>
                                                         <ColumnDefinition Width="*"/>
                                                         <ColumnDefinition Width="*"/>
@@ -103,21 +104,21 @@
                                                         <ColumnDefinition Width="*"/>
                                                         <ColumnDefinition Width="*"/>
                                                     </Grid.ColumnDefinitions>
-                                                    <Button Background="{x:Null}" BorderBrush="{x:Null}" Padding="0"  Width="15" Grid.Column="0"></Button><materialDesign:PackIcon Kind="Calendar" Foreground="{DynamicResource MaterialDesignPaper}"/>
-                                                    <TextBlock Grid.Column="1" Text="{Binding DueDate, StringFormat=\{0:dd. MMM yyyy\}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5 0 20 0"/>
-                                                    <Button Background="{x:Null}" BorderBrush="{x:Null}" Padding="0"  Width="15" Grid.Column="2"></Button>
-                                                    <materialDesign:PackIcon Kind="Category" Foreground="White"/>
-                                                    <TextBlock Margin="20 0" Grid.Column="3" Text="{Binding TaskCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                                    <Button Background="{x:Null}" BorderBrush="{x:Null}" Padding="0"  Width="15" Grid.Column="4"></Button>
-                                                    <materialDesign:PackIcon Kind="BellOutline" Foreground="{DynamicResource MaterialDesignPaper}"/>
-                                                    <TextBlock Grid.Column="5" Text="{Binding TaskReminder, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="20 0"/>
-                                                    <Button Background="{x:Null}" BorderBrush="{x:Null}" Padding="0"  Width="15" Grid.Column="6"></Button>
-                                                    <materialDesign:PackIcon Kind="Repeat" Foreground="{DynamicResource MaterialDesignPaper}"/>
-                                                    <TextBlock Grid.Column="7" Text="{Binding TaskRepetition, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="20 0"/>
+                                                    <materialDesign:PackIcon Grid.Column="0" Kind="Calendar" Foreground="{DynamicResource MaterialDesignPaper}"/>
+                                                    <TextBlock Width="80" Grid.Column="1" Text="{Binding DueDate, StringFormat=\{0:dd. MMM yyyy\},  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5 0 10 0"/>
+                                                  
+                                                    <materialDesign:PackIcon Grid.Column="2" Kind="Category" Foreground="White"/>
+                                                    <TextBlock Margin="5 0 10 0" Grid.Column="3" Width="80" Text="{Binding TaskCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                                    <materialDesign:PackIcon Grid.Column="4" Kind="BellOutline" Foreground="{DynamicResource MaterialDesignPaper}"/>
+                                                    <TextBlock Grid.Column="5" Width="80" Text="{Binding TaskReminder, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5 0 10 0"/>
+                                                   <materialDesign:PackIcon Grid.Column="6" Kind="Repeat" Foreground="{DynamicResource MaterialDesignPaper}"/>
+                                                    <TextBlock Grid.Column="7" Width="80" Text="{Binding TaskRepetition, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="20 0"/>
                                                 </Grid>
                                             </Grid>
                                         </Grid>
-                                        <CheckBox Grid.Column="2" IsChecked="{Binding IsImportant, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                        <materialDesign:PackIcon VerticalAlignment="Center" x:Name="IsImportantStar" Grid.Column="2" Kind="StarBorder" Foreground="White" Visibility="{Binding Important}"/>
+                                        
+                                        
                                     </Grid>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
@@ -141,7 +142,7 @@
         <Grid x:Name="SlideGridAddTask" HorizontalAlignment="Right" Background="{StaticResource MaterialDesignDarkBackground}" Width="400" Margin="0 55 0 0">
             <StackPanel Margin="0 15"   
                             VerticalAlignment="Bottom" >
-                    
+
                 <Button Width="25" Height="25" Grid.Column="0" HorizontalAlignment="Left"     x:Name="SlideGridBackButton"   Command="{Binding createTaskCommand}" CommandParameter="{Binding}"
                              Margin="8 20" Click="SlideGridBackButton_Click"
                                     Style="{StaticResource MaterialDesignIconButton}"
@@ -149,10 +150,10 @@
                     <materialDesign:PackIcon
                                 Kind="ArrowRight"/>
                 </Button>
-                
+
                 <StackPanel Orientation="Horizontal">
-                <materialDesign:PackIcon Margin="15 0" VerticalAlignment="Center" Kind="ToDo" Foreground="{DynamicResource MaterialDesignPaper}"/>
-                <Label Content="ToDo" Margin="0 5 15 0" Foreground="AntiqueWhite"/>
+                    <materialDesign:PackIcon Margin="15 0" VerticalAlignment="Center" Kind="ToDo" Foreground="{DynamicResource MaterialDesignPaper}"/>
+                    <Label Content="ToDo" Margin="0 5 15 0" Foreground="AntiqueWhite"/>
                 </StackPanel>
                 <TextBox x:Name="ToDoTextBox" Margin="10 0" Padding="10 0" Height="30" FontSize="16" VerticalContentAlignment="Bottom"  Background="White" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" ToolTip="ToDo"
                           />
@@ -167,27 +168,27 @@
                         ToolTip="Kategorie auswählen">
 
                 </ComboBox>
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Margin="15 0" VerticalAlignment="Center" Kind="CalendarDay" Foreground="{DynamicResource MaterialDesignPaper}"/>
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Margin="15 0" VerticalAlignment="Center" Kind="CalendarDay" Foreground="{DynamicResource MaterialDesignPaper}"/>
 
-                <Label Content="Fällig" Margin="0 5 15 0" Foreground="AntiqueWhite"/>
+                    <Label Content="Fällig" Margin="0 5 15 0" Foreground="AntiqueWhite"/>
                 </StackPanel>
 
                 <DatePicker Height="30" Margin="10 0" Padding="100 0" Background="AliceBlue" Name="dt_StartDateFrom" FontSize="16"  ToolTip="Fälligkeitsdatum hinzufügen" FirstDayOfWeek="Monday" 
                   SelectedDate="{Binding Due, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Margin="15 0" VerticalAlignment="Center" Kind="BellOutline" Foreground="{DynamicResource MaterialDesignPaper}"/>
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Margin="15 0" VerticalAlignment="Center" Kind="BellOutline" Foreground="{DynamicResource MaterialDesignPaper}"/>
 
-                <Label Content="Erinnerung" Margin="0 5 15 0" Foreground="AntiqueWhite"/>
+                    <Label Content="Erinnerung" Margin="0 5 15 0" Foreground="AntiqueWhite"/>
                 </StackPanel>
                 <ComboBox Background="AliceBlue" Height="30" Margin="10 0"  Padding="10 0" VerticalContentAlignment="Center" FontSize="16"  Name="ReminderComboBox" SelectedValue="{Binding Reminder, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding ReminderList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           Style="{StaticResource MaterialDesignComboBox}"
                         ToolTip="Wann erinnern?">
                 </ComboBox>
-                            <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Margin="15 0" VerticalAlignment="Center" Kind="Repeat" Foreground="{DynamicResource MaterialDesignPaper}"/>
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Margin="15 0" VerticalAlignment="Center" Kind="Repeat" Foreground="{DynamicResource MaterialDesignPaper}"/>
 
-                <Label Content="Wiederholen" Margin="0 5 15 0" Foreground="AntiqueWhite"/>
+                    <Label Content="Wiederholen" Margin="0 5 15 0" Foreground="AntiqueWhite"/>
                 </StackPanel>
                 <ComboBox Background="AliceBlue" Height="30" Margin="10 0"  Padding="10 0" VerticalContentAlignment="Center" FontSize="16" Name="RepetitionComboBox" SelectedValue="{Binding Repetition, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding RepetitionList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           Style="{StaticResource MaterialDesignComboBox}"
