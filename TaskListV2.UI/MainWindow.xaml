@@ -72,22 +72,22 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <ListView x:Name="ListViewTaskList" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Row="0"  Margin="0 15" FontSize="14" ItemsSource="{Binding Tasks}"
-                  SelectedItem="{Binding SelectedTask, UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="TaskName" Foreground="White" Background="Blue">
+                  SelectedItem="{Binding SelectedTask, UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="TaskName" >
                         <ListView.ItemContainerStyle>
                             <Style TargetType="{x:Type ListViewItem}">
                                 <Style.Resources>
                                     <!-- Foreground for Selected ListViewItem -->
-                                    <SolidColorBrush x:Key="Black" 
+                                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" 
                                  Color="Black"/>
                                     <!-- Background for Selected ListViewItem -->
                                     <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}"
-                                 Color="Black"/>
+                                 Color="Green"/>
                                 </Style.Resources>
                             </Style>
                         </ListView.ItemContainerStyle>
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="{materialDesign:PackIcon Kind=Check, Size=25}">
+                                <GridViewColumn >
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate >
 
@@ -95,11 +95,11 @@
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
-                                <GridViewColumn DisplayMemberBinding="{Binding TaskName}" Header="{materialDesign:PackIcon Kind=ToDo, Size=25}"/>
-                                <GridViewColumn DisplayMemberBinding="{Binding TaskCategory}" Header="{materialDesign:PackIcon Kind=Category, Size=25}"/>
-                                <GridViewColumn DisplayMemberBinding="{Binding DueDate}" Header="{materialDesign:PackIcon Kind=Calendar, Size=25}"/>
-                                <GridViewColumn DisplayMemberBinding="{Binding TaskName}" Header="{materialDesign:PackIcon Kind=Repeat, Size=25}"/>
-                                <GridViewColumn DisplayMemberBinding="{Binding IsImportant}" Header="{materialDesign:PackIcon Kind=ImportantDevices, Size=25}"/>
+                                <GridViewColumn DisplayMemberBinding="{Binding TaskName}" />
+                                <GridViewColumn DisplayMemberBinding="{Binding TaskCategory}" />
+                                <GridViewColumn DisplayMemberBinding="{Binding DueDate}" />
+                                <GridViewColumn DisplayMemberBinding="{Binding TaskName}" />
+                                <GridViewColumn DisplayMemberBinding="{Binding IsImportant}" />
                                    
                                     
                             </GridView>
