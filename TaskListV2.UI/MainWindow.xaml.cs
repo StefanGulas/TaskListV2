@@ -81,12 +81,13 @@ namespace TaskListV2.UI
             PopUpOpenButton.Visibility = Visibility.Visible;
         }
 
-        //ToDo: Popup change tasks
-        //private void ScrollViewer_MouseDown(object sender, MouseButtonEventArgs e)
-        //{
-        //    SlideGridAddTask.Width = 400;
-        //    PopUpOpenButton.Visibility = Visibility.Hidden;
-        //    ToDoTextBox.Text = _viewModel.Name;
-        //}
-    }
+
+    //ToDo: Popup change tasks
+    //private void ScrollViewer_MouseDown(object sender, MouseButtonEventArgs e)
+    //{
+    //    SlideGridAddTask.Width = 400;
+    //    PopUpOpenButton.Visibility = Visibility.Hidden;
+    //    ToDoTextBox.Text = _viewModel.Name;
+    //}
+  }
 }
