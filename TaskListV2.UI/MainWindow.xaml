@@ -14,7 +14,6 @@
          TextOptions.TextRenderingMode="Auto"
          FontFamily="./#Resources/Roboto"
          Background="{DynamicResource MaterialDesignPaper MaterialDesignDarkBackground}">
-
     <!-- Start -->
     <Grid Background="CornflowerBlue">
 
@@ -28,7 +27,7 @@
 
             <!-- Custom Frame -->
 
-            <DockPanel Grid.Row="0" Background="Blue">
+            <DockPanel Grid.Row="0" Background="DeepSkyBlue">
                 <StackPanel VerticalAlignment="Top" Margin="10,0" MouseLeftButtonDown="StackPanel_MouseDown">
                     <Grid>
                         <materialDesign:MaterialDateDisplay Foreground="AntiqueWhite" Background="{x:Null}" HorizontalAlignment="Left"/>
@@ -68,7 +67,33 @@
 
                 <!--TaskColumn-->
                 <Grid  Grid.Column="1" Grid.Row="1" materialDesign:ColorZoneAssist.Background="Blue" >
-                    <ScrollViewer  Grid.Row="2" Opacity="1"           HorizontalScrollBarVisibility="Hidden">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <ListView Grid.Row="0" Foreground="AntiqueWhite" Margin="0 15" materialDesign:ColorZoneAssist.Foreground="AntiqueWhite"  Background="AliceBlue" FontSize="14" ItemsSource="{Binding Tasks}"
+                  SelectedItem="{Binding SelectedTask, UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="TaskName" >
+                        <ListView.View>
+                            <GridView>
+                                <GridView.Columns>
+                                    <GridViewColumn>
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <CheckBox Tag="{Binding TaskComplete}" IsChecked="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListViewItem}}, Path=IsSelected}" />
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn DisplayMemberBinding="{Binding TaskName}" Header="Name"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding DueDate}" Header="Fällig"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding TaskCategory}" Header="Kategorie"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding TaskName}" Header="Name"/>
+                                    
+                                </GridView.Columns>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <ScrollViewer  Grid.Row="1" Opacity="1"           HorizontalScrollBarVisibility="Hidden">
+
                         <ItemsControl Margin="15,25,15,0" x:Name="list" ItemsSource="{Binding Tasks}"  >
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
@@ -85,8 +110,8 @@
                                             <ColumnDefinition Width="*"/>
                                             <ColumnDefinition Width="50"/>
                                         </Grid.ColumnDefinitions>
-                                        <CheckBox Background="AliceBlue" Margin="10 0"
-                                                 Style="{StaticResource MaterialDesignActionAccentToggleButton}" Command="{Binding completeTaskCommand, Mode=TwoWay}" CommandParameter="{Binding IsChecked, RelativeSource={RelativeSource Self}, Mode=TwoWay}"  Grid.Column="0"/>
+                                        <CheckBox Name="CheckCommand" Background="AliceBlue" Margin="10 0"
+                                                 Style="{StaticResource MaterialDesignActionAccentToggleButton}" Command="{Binding completeTaskCommand, Mode=TwoWay}" CommandParameter="{Binding ElementName=CheckCommand}"  Grid.Column="0"/>
                                         <Grid Grid.Column="1" Height="40">
                                             <Grid VerticalAlignment="Center">
                                                 <Grid.RowDefinitions>
@@ -106,19 +131,19 @@
                                                     </Grid.ColumnDefinitions>
                                                     <materialDesign:PackIcon Grid.Column="0" Kind="Calendar" Foreground="{DynamicResource MaterialDesignPaper}"/>
                                                     <TextBlock Width="100" Grid.Column="1" Text="{Binding DueDate, StringFormat=\{0:dd. MMM yyyy\},  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5 0 10 0"/>
-                                                  
+
                                                     <materialDesign:PackIcon Grid.Column="2" Kind="Category" Foreground="White"/>
                                                     <TextBlock Margin="5 0 10 0" Grid.Column="3" Width="70" Text="{Binding TaskCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                                                     <materialDesign:PackIcon Grid.Column="4" Kind="BellOutline" Foreground="{DynamicResource MaterialDesignPaper}"/>
                                                     <TextBlock Grid.Column="5" Width="80" Text="{Binding TaskReminder, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5 0 10 0"/>
-                                                   <materialDesign:PackIcon Grid.Column="6" Kind="Repeat" Foreground="{DynamicResource MaterialDesignPaper}"/>
+                                                    <materialDesign:PackIcon Grid.Column="6" Kind="Repeat" Foreground="{DynamicResource MaterialDesignPaper}"/>
                                                     <TextBlock Grid.Column="7" Width="80" Text="{Binding TaskRepetition, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="20 0"/>
                                                 </Grid>
                                             </Grid>
                                         </Grid>
                                         <materialDesign:PackIcon VerticalAlignment="Center" x:Name="IsImportantStar" Grid.Column="2" Kind="StarBorder" Foreground="White" Visibility="{Binding Important}"/>
-                                        
-                                        
+
+
                                     </Grid>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
