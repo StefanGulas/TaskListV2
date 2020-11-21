@@ -104,7 +104,7 @@ namespace TaskListV2.UI.ViewModel
       {
         _selectedTask = value;
         OnPropertyChanged();
-        LoadTaskEdit();
+        if(_selectedTask != null) LoadTaskEdit();
       }
     }
 
