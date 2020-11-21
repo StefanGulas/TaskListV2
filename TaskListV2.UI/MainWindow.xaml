@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:system="clr-namespace:System;assembly=System.Runtime"
         mc:Ignorable="d"
-        Title="ToDoList" Height="600" Width="850" MinHeight="600" MinWidth="600" FontSize="20"         WindowStyle="None" WindowStartupLocation="CenterScreen"
+        Title="ToDoList" Height="600" Width="900" MinHeight="600" MinWidth="900" FontSize="20"         WindowStyle="None" WindowStartupLocation="CenterScreen"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
          TextElement.Foreground="{DynamicResource MaterialDesignBody}"
          TextElement.FontWeight="Regular"
@@ -32,8 +32,8 @@
                     <Grid>
                         <materialDesign:MaterialDateDisplay Foreground="White" Background="{x:Null}" HorizontalAlignment="Left"/>
 
-                        <TextBlock Background="{x:Null}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="34" FontFamily="Champagne &amp; Limousines" Foreground="White" >
-                           <materialDesign:PackIcon Margin="15 0" Height="40" Width="40" VerticalAlignment="Bottom" Kind="ToDo" Foreground="{DynamicResource MaterialDesignPaper}"/>
+                        <TextBlock Background="{x:Null}"  VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="34" FontFamily="Champagne &amp; Limousines" Foreground="White" Text="ToDo">
+                           <materialDesign:PackIcon Margin="25 10 0 -10" Height="40" Width="40" VerticalAlignment="Bottom" Kind="ToDo" Foreground="{DynamicResource MaterialDesignPaper}"/>
                         </TextBlock>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0">
                             <Button Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray">
@@ -59,7 +59,7 @@
 
 
                 <!--MenuColumn-->
-                <ListView Grid.Column="0" Foreground="AntiqueWhite" Margin="0 15" materialDesign:ColorZoneAssist.Foreground="AntiqueWhite"  Background="AliceBlue" FontSize="14" ItemsSource="{Binding MenuItems}"
+                <ListView Grid.Column="0" Foreground="White" Margin="0 38"  FontSize="16" ItemsSource="{Binding MenuItems}"
                   SelectedItem="{Binding SelectedItem, UpdateSourceTrigger=PropertyChanged}" />
 
 
@@ -71,37 +71,41 @@
                         <RowDefinition/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <ListView x:Name="ListViewTaskList" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Row="0"  Margin="0 15" FontSize="14" ItemsSource="{Binding Tasks}"
+                    <ListView x:Name="ListViewTaskList" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="White" Grid.Row="0"  Margin="10 0 0 0" FontSize="14" ItemsSource="{Binding Tasks}"
                   SelectedItem="{Binding SelectedTask, UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="TaskName" >
-                        <ListView.ItemContainerStyle>
-                            <Style TargetType="{x:Type ListViewItem}">
-                                <Style.Resources>
-                                    <!-- Foreground for Selected ListViewItem -->
-                                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" 
-                                 Color="Black"/>
-                                    <!-- Background for Selected ListViewItem -->
-                                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}"
-                                 Color="Green"/>
-                                </Style.Resources>
-                            </Style>
-                        </ListView.ItemContainerStyle>
+
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn >
                                         <GridViewColumn.CellTemplate>
-                                            <DataTemplate >
+                                            <DataTemplate>
 
-                                            <CheckBox VerticalAlignment="Center" Margin="15 0 10 0" Background="#FF1f3c88" Foreground="White" Height="30" Width="30" Style="{StaticResource MaterialDesignActionAccentToggleButton}"  Tag="{Binding TaskComplete}" IsChecked="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListViewItem}}, Path=Is}" />
-                                            </DataTemplate>
+                                                                       <CheckBox VerticalAlignment="Top" Margin="15 0 10 0" Background="#FF0f4c75" Foreground="White" Height="30" Width="30" IsChecked="{Binding TaskComplete, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MaterialDesignActionAccentToggleButton}" Command="{Binding completeTaskCommand}" CommandParameter="{Binding}"/>
+
+                                                
+                                            
+                                        </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
                                 <GridViewColumn DisplayMemberBinding="{Binding TaskName}" />
-                                <GridViewColumn DisplayMemberBinding="{Binding TaskCategory}" />
-                                <GridViewColumn DisplayMemberBinding="{Binding DueDate}" />
+                                <GridViewColumn DisplayMemberBinding="{Binding TaskCategory}"/>
+                                <GridViewColumn DisplayMemberBinding="{Binding DueString}" />
                                 <GridViewColumn DisplayMemberBinding="{Binding TaskName}" />
-                                <GridViewColumn DisplayMemberBinding="{Binding IsImportant}" />
-                                   
-                                    
+
+                                <GridViewColumn>
+
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate >
+                                            <materialDesign:PackIcon VerticalAlignment="Center" x:Name="IsImportantStar" Grid.Column="2" Kind="Star" Foreground="White" Visibility="{Binding ImportantStar}"/>
+                                            <!--<CheckBox VerticalAlignment="Top" Margin="15 0 10 0" Background="Blue" Foreground="Gray" Height="20" Width="20" IsChecked="{Binding IsImportant, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MaterialDesignLightCheckBox}" />-->
+
+
+
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+
+                                </GridViewColumn>
+
                             </GridView>
                         </ListView.View>
                     </ListView>
@@ -154,7 +158,7 @@
                                                 </Grid>
                                             </Grid>
                                         </Grid>
-                                        <materialDesign:PackIcon VerticalAlignment="Center" x:Name="IsImportantStar" Grid.Column="2" Kind="StarBorder" Foreground="White" Visibility="{Binding Important}"/>
+                                        <materialDesign:PackIcon VerticalAlignment="Center" x:Name="IsImportantStar" Grid.Column="2" Kind="StarBorder" Foreground="White" Visibility="{Binding ImportantStar}"/>
 
 
                                     </Grid>

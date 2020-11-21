@@ -31,11 +31,13 @@ namespace TaskListV2.UI.ViewModel
             foreach (var task in tasks)
             {
                 Tasks.Add(task);
+        if (task.IsImportant) task.ImportantStar = "Visible";
+        else task.ImportantStar = "Hidden";
             }
         }
+//    public string ImportantStar { get; set; }
 
-
-        public IEnumerable<string> MenuItems { get; set; }
+    public IEnumerable<string> MenuItems { get; set; }
 
         private ObservableCollection<Task> _tasks;
 
