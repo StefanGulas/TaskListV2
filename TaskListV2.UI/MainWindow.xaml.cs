@@ -80,6 +80,8 @@ namespace TaskListV2.UI
             SlideGridAddTask.Width = 0;
             PopUpOpenButton.Visibility = Visibility.Visible;
         }
+        
+        
 
 
     //ToDo: Popup change tasks

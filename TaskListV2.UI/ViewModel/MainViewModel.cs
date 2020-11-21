@@ -104,10 +104,20 @@ namespace TaskListV2.UI.ViewModel
       {
         _selectedTask = value;
         OnPropertyChanged();
-
+        LoadTaskEdit();
       }
     }
 
+    void LoadTaskEdit()
+    {
+      Name = _selectedTask.TaskName;
+      Category = _selectedTask.TaskCategory;
+      Due = _selectedTask.DueDate;
+      Reminder = _selectedTask.Reminder;
+      Repetition = _selectedTask.TaskRepetition;
+      Important = _selectedTask.IsImportant;
+      //SlideGridAddTask.Width = 400;
+    }
     public IList<Category> TaskCategories
     {
       get
