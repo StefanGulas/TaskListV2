@@ -90,12 +90,27 @@
                                 <GridViewColumn DisplayMemberBinding="{Binding TaskName}" />
                                 <GridViewColumn DisplayMemberBinding="{Binding TaskCategory}"/>
                                 <GridViewColumn DisplayMemberBinding="{Binding DueString}" />
-                                <GridViewColumn 
+                          
                                 <GridViewColumn>
 
                                     <GridViewColumn.CellTemplate>
-                                        < >
+                                        <DataTemplate >
                                             <materialDesign:PackIcon VerticalAlignment="Center" x:Name="IsImportantStar" Grid.Column="2" Kind="Star" Foreground="White" Visibility="{Binding ImportantStar}"/>
+                                            <!--Style="{StaticResource MaterialDesignLightCheckBox}" />-->
+
+
+
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+
+                                </GridViewColumn>
+
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    
+
+
 
                     <Button VerticalAlignment="Bottom" HorizontalAlignment="Right"      x:Name="PopUpOpenButton" Background="#FF363636"  Grid.Column="6" 
                          Margin="0 0 25 15" Click="PopUpOpenButton_Click" 
