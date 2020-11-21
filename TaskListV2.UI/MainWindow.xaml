@@ -90,84 +90,12 @@
                                 <GridViewColumn DisplayMemberBinding="{Binding TaskName}" />
                                 <GridViewColumn DisplayMemberBinding="{Binding TaskCategory}"/>
                                 <GridViewColumn DisplayMemberBinding="{Binding DueString}" />
-                                <GridViewColumn DisplayMemberBinding="{Binding TaskName}" />
-
+                                <GridViewColumn 
                                 <GridViewColumn>
 
                                     <GridViewColumn.CellTemplate>
-                                        <DataTemplate >
+                                        < >
                                             <materialDesign:PackIcon VerticalAlignment="Center" x:Name="IsImportantStar" Grid.Column="2" Kind="Star" Foreground="White" Visibility="{Binding ImportantStar}"/>
-                                            <!--<CheckBox VerticalAlignment="Top" Margin="15 0 10 0" Background="Blue" Foreground="Gray" Height="20" Width="20" IsChecked="{Binding IsImportant, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MaterialDesignLightCheckBox}" />-->
-
-
-
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-
-                                </GridViewColumn>
-
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
-                    <!--<ScrollViewer  Grid.Row="1" Opacity="1"           HorizontalScrollBarVisibility="Hidden">
-
-                        <ItemsControl Margin="15,25,15,0" x:Name="list" ItemsSource="{Binding Tasks}"  >
-                            <ItemsControl.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <VirtualizingStackPanel Orientation="Vertical"/>
-                                </ItemsPanelTemplate>
-                            </ItemsControl.ItemsPanel>
-
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <Grid Background="LightBlue" Margin="5,5,5,5" HorizontalAlignment="Stretch" Height="50">
-
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="70"/>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="50"/>
-                                        </Grid.ColumnDefinitions>
-                                        <CheckBox Name="CheckCommand" Background="AliceBlue" Margin="10 0"
-                                                 Style="{StaticResource MaterialDesignActionAccentToggleButton}" Command="{Binding completeTaskCommand, Mode=TwoWay}" CommandParameter="{Binding ElementName=CheckCommand}"  Grid.Column="0"/>
-                                        <Grid Grid.Column="1" Height="40">
-                                            <Grid VerticalAlignment="Center">
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition Height="*"/>
-                                                    <RowDefinition Height="*"/>
-                                                </Grid.RowDefinitions>
-                                                <TextBlock Foreground="White" FontSize="15" Grid.Row="0" Text="{Binding TaskName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                                <Grid Margin="5 4 0 0" Grid.Row="1" HorizontalAlignment="Left" MinWidth="100">
-                                                    <Grid.ColumnDefinitions>
-                                                        <ColumnDefinition Width="*"/>
-                                                        <ColumnDefinition Width="*"/>
-                                                        <ColumnDefinition Width="*"/>
-                                                        <ColumnDefinition Width="*"/>
-                                                        <ColumnDefinition Width="*"/>
-                                                        <ColumnDefinition Width="*"/>
-                                                        <ColumnDefinition Width="*"/>
-                                                    </Grid.ColumnDefinitions>
-                                                    <materialDesign:PackIcon Grid.Column="0" Kind="Calendar" Foreground="{DynamicResource MaterialDesignPaper}"/>
-                                                    <TextBlock Width="100" Grid.Column="1" Text="{Binding DueDate, StringFormat=\{0:dd. MMM yyyy\},  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5 0 10 0"/>
-
-                                                    <materialDesign:PackIcon Grid.Column="2" Kind="Category" Foreground="White"/>
-                                                    <TextBlock Margin="5 0 10 0" Grid.Column="3" Width="70" Text="{Binding TaskCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                                    <materialDesign:PackIcon Grid.Column="4" Kind="BellOutline" Foreground="{DynamicResource MaterialDesignPaper}"/>
-                                                    <TextBlock Grid.Column="5" Width="80" Text="{Binding TaskReminder, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5 0 10 0"/>
-                                                    <materialDesign:PackIcon Grid.Column="6" Kind="Repeat" Foreground="{DynamicResource MaterialDesignPaper}"/>
-                                                    <TextBlock Grid.Column="7" Width="80" Text="{Binding TaskRepetition, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="20 0"/>
-                                                </Grid>
-                                            </Grid>
-                                        </Grid>
-                                        <materialDesign:PackIcon VerticalAlignment="Center" x:Name="IsImportantStar" Grid.Column="2" Kind="StarBorder" Foreground="White" Visibility="{Binding ImportantStar}"/>
-
-
-                                    </Grid>
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
-                    </ScrollViewer>-->
-
-
 
                     <Button VerticalAlignment="Bottom" HorizontalAlignment="Right"      x:Name="PopUpOpenButton" Background="#FF363636"  Grid.Column="6" 
                          Margin="0 0 25 15" Click="PopUpOpenButton_Click" 

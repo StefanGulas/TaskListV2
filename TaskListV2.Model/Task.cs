@@ -34,12 +34,7 @@ namespace TaskListV2.Model
   public class Task
   {
 
-    //public Task()
-    //{
-    //  if (_isImportant) ImportantStar = "Visible";
-    //  else if(!_isImportant) ImportantStar = "Hidden";
-    //}
-    
+
     public int TaskId { get; set; }
 
     public string TaskName { get; set; }
@@ -47,10 +42,10 @@ namespace TaskListV2.Model
     public bool TaskComplete { get; set; }
 
     private bool _isImportant;
-    public bool IsImportant 
+    public bool IsImportant
     {
       get { return _isImportant; }
-      set { _isImportant = value; } 
+      set { _isImportant = value; }
     }
 
     public Category TaskCategory { get; set; }
@@ -65,8 +60,8 @@ namespace TaskListV2.Model
     public Reminder TaskReminder { get; set; }
 
     public Repetition TaskRepetition { get; set; }
-    
-    public string DueString 
+
+    public string DueString
     {
       get { return _dueDate.Date.ToString("dd. MMM. yyyy"); }
       set {; }
