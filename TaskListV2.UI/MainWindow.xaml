@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:system="clr-namespace:System;assembly=System.Runtime"
         mc:Ignorable="d"
-        Title="ToDoList" Height="600" Width="900" MinHeight="600" MinWidth="900" FontSize="20"         WindowStyle="None" WindowStartupLocation="CenterScreen"
+        Title="ToDoList" Height="600" Width="900" MinHeight="600" MinWidth="1100" FontSize="20"         WindowStyle="None" WindowStartupLocation="CenterScreen"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
          TextElement.Foreground="{DynamicResource MaterialDesignBody}"
          TextElement.FontWeight="Regular"
@@ -59,7 +59,7 @@
 
 
                 <!--MenuColumn-->
-                <ListView Grid.Column="0" Foreground="White" Margin="0 38"  FontSize="16" ItemsSource="{Binding MenuItems}"
+                <ListView Grid.Column="0" Foreground="White" Margin="10 38"  FontSize="16" ItemsSource="{Binding MenuItems}"
                   SelectedItem="{Binding SelectedItem, UpdateSourceTrigger=PropertyChanged}" />
 
 
@@ -72,7 +72,7 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <ListView x:Name="ListViewTaskList" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="White" Grid.Row="0"  Margin="10 0 0 0" FontSize="14" ItemsSource="{Binding Tasks}"
-                  SelectedItem="{Binding SelectedTask, UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="TaskName" >
+                  SelectedItem="{Binding SelectedTask, UpdateSourceTrigger=PropertyChanged}" >
 
                         <ListView.View>
                             <GridView>
@@ -87,15 +87,18 @@
                                         </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
-                                <GridViewColumn DisplayMemberBinding="{Binding TaskName}" />
-                                <GridViewColumn DisplayMemberBinding="{Binding TaskCategory}"/>
-                                <GridViewColumn DisplayMemberBinding="{Binding DueString}" />
+                           
+                                <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding TaskName}" />
+                                <GridViewColumn Width="140" DisplayMemberBinding="{Binding TaskCategory}"/>
+                                <GridViewColumn Width="120" DisplayMemberBinding="{Binding DueString}" />
+                                <GridViewColumn Width="180" DisplayMemberBinding="{Binding Reminder}" />
+                                <GridViewColumn Width="100" DisplayMemberBinding="{Binding TaskRepetition}" />
                           
                                 <GridViewColumn>
 
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate >
-                                            <materialDesign:PackIcon VerticalAlignment="Center" x:Name="IsImportantStar" Grid.Column="2" Kind="Star" Foreground="White" Visibility="{Binding ImportantStar}"/>
+                                            <materialDesign:PackIcon Width="80" VerticalAlignment="Center" x:Name="IsImportantStar" Grid.Column="2" Kind="Star" Foreground="White" Visibility="{Binding ImportantStar}"/>
                                             <!--Style="{StaticResource MaterialDesignLightCheckBox}" />-->
 
 
@@ -115,7 +118,7 @@
                     <Button VerticalAlignment="Bottom" HorizontalAlignment="Right"      x:Name="PopUpOpenButton" Background="#FF363636"  Grid.Column="6" 
                          Margin="0 0 25 15" Click="PopUpOpenButton_Click" 
                                 Style="{StaticResource MaterialDesignIconButton}"
-                        ToolTip="ToDo hinzufügen" >
+                        ToolTip="ToDo hinzufügen" Cursor="Hand" >
                         <materialDesign:PackIcon
                             Kind="Plus"/>
 

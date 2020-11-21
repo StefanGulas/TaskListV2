@@ -26,12 +26,12 @@ namespace TaskListV2.UI
 
         private void RefreshAddNewTaskFields()
         {
-      //TaskCategoryComboBox.SelectedIndex = 0;
-      //ReminderComboBox.SelectedIndex = 0;
-      //RepetitionComboBox.SelectedIndex = 0;
-      //dt_StartDateFrom.SelectedDate = DateTime.Today;
-            
-        }
+          TaskCategoryComboBox.SelectedIndex = 0;
+          ReminderComboBox.SelectedIndex = 0;
+          RepetitionComboBox.SelectedIndex = 0;
+          dt_StartDateFrom.SelectedDate = DateTime.Today;
+
+    }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {

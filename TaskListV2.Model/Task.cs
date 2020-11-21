@@ -57,7 +57,7 @@ namespace TaskListV2.Model
       set { _dueDate = value.Date; }
     }
 
-    public Reminder TaskReminder { get; set; }
+    public Reminder Reminder { get; set; }
 
     public Repetition TaskRepetition { get; set; }
 

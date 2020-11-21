@@ -6,6 +6,8 @@ using System.Windows.Input;
 using TaskListV2.Model;
 using TaskListV2.UI.Command;
 using TaskListV2.UI.Data;
+using System.Windows;
+using TaskListV2.UI.ViewModel;
 
 namespace TaskListV2.UI.ViewModel
 {
@@ -28,12 +30,14 @@ namespace TaskListV2.UI.ViewModel
     {
       var tasks = _taskDataService.GetAll();
       Tasks.Clear();
+  
       foreach (var task in tasks)
       {
         Tasks.Add(task);
         if (task.IsImportant) task.ImportantStar = "Visible";
         else task.ImportantStar = "Hidden";
       }
+
     }
 
     public IEnumerable<string> MenuItems { get; set; }
@@ -77,6 +81,8 @@ namespace TaskListV2.UI.ViewModel
       foreach (var task in tasks)
       {
         Tasks.Add(task);
+        if (task.IsImportant) task.ImportantStar = "Visible";
+        else task.ImportantStar = "Hidden";
       }
     }
 
@@ -98,6 +104,7 @@ namespace TaskListV2.UI.ViewModel
       {
         _selectedTask = value;
         OnPropertyChanged();
+
       }
     }
 
@@ -189,6 +196,7 @@ namespace TaskListV2.UI.ViewModel
     }
 
     public bool Important { get; set; }
+
     private DateTime _due = DateTime.Now;
     public DateTime Due
     {
