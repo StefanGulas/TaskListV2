@@ -62,7 +62,7 @@ namespace TaskListV2.UI
 
     private void PopUpOpenButton_Click(object sender, RoutedEventArgs e)
     {
-      SlideGridAddTask.Width = 400;
+      SlideGridAddTask.Width = 1100;
       PopUpOpenButton.Visibility = Visibility.Hidden;
 
     }
@@ -85,7 +85,7 @@ namespace TaskListV2.UI
 
     private void ListViewTaskList_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
     {
-      SlideGridEditTask.Width = 400;
+      SlideGridEditTask.Width = 1100;
       PopUpOpenButton.Visibility = Visibility.Hidden;
 
     }
@@ -102,6 +102,18 @@ namespace TaskListV2.UI
       PopUpOpenButton.Visibility = Visibility.Visible;
       RefreshAddNewTaskFields();
 
+    }
+
+    private void GrayEditArea_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+    {
+      SlideGridEditTask.Width = 0;
+      PopUpOpenButton.Visibility = Visibility.Visible;
+    }
+
+    private void GrayCreateArea_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+    {
+      SlideGridAddTask.Width = 0;
+      PopUpOpenButton.Visibility = Visibility.Visible;
     }
 
 
