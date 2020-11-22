@@ -8,7 +8,7 @@ namespace TaskListV2.Model
     Privat = 1,
     Arbeit = 2,
     Familie = 3,
-    Programmieren = 4
+    Fitness = 4
   }
 
   public enum Repetition
@@ -24,10 +24,10 @@ namespace TaskListV2.Model
   public enum Reminder
   {
     Keine,
-    Eine_Stunde_vorher,
-    Zwei_Stunden_vorher,
-    Ein_Tag_vorher,
-    Zwei_Tage_vorher
+    Eine_Stunde,
+    Zwei_Stunden,
+    Ein_Tag,
+    Zwei_Tage
   }
 
 
