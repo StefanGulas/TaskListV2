@@ -149,7 +149,7 @@
             <StackPanel Margin="0 15"   
                             VerticalAlignment="Bottom" >
 
-                <Button Width="30" Height="30" Grid.Column="0" HorizontalAlignment="Left"     x:Name="SlideGridBackButton"   Command="{Binding createTaskCommand}" CommandParameter="{Binding}"
+                <Button Width="30" Height="30" Grid.Column="0" HorizontalAlignment="Left"     x:Name="SlideGridBackButton"   Command="{Binding}" CommandParameter="{Binding}"
                              Margin="8 20" Click="SlideGridBackButton_Click"
                                     Style="{StaticResource MaterialDesignIconButton}"
                             Cursor="Hand">
