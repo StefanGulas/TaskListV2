@@ -200,7 +200,7 @@ namespace TaskListV2.UI.ViewModel
       set
       {
         _complete = value;
-        OnPropertyChanged();
+        //OnPropertyChanged();
         _taskDataService.IsComplete(Name, Complete);
       }
     }

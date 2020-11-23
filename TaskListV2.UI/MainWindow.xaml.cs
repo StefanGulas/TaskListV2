@@ -27,6 +27,7 @@ namespace TaskListV2.UI
 
     private void RefreshAddNewTaskFields()
     {
+      ToDoTextBox.Text = "";
       TaskCategoryComboBox.SelectedIndex = 0;
       ReminderComboBox.SelectedIndex = 0;
       RepetitionComboBox.SelectedIndex = 0;
@@ -64,7 +65,8 @@ namespace TaskListV2.UI
     {
       SlideGridAddTask.Width = 1100;
       PopUpOpenButton.Visibility = Visibility.Hidden;
-
+      ListViewTaskList.SelectedValue = null;
+      RefreshAddNewTaskFields();
     }
 
     private void CreateTaskButton_Click(object sender, RoutedEventArgs e)
@@ -80,6 +82,8 @@ namespace TaskListV2.UI
     {
       SlideGridAddTask.Width = 0;
       PopUpOpenButton.Visibility = Visibility.Visible;
+      ListViewTaskList.SelectedValue = null;
+
     }
 
 
@@ -94,6 +98,8 @@ namespace TaskListV2.UI
     {
       SlideGridEditTask.Width = 0;
       PopUpOpenButton.Visibility = Visibility.Visible;
+      ListViewTaskList.SelectedValue = null;
+
     }
 
     private void EditTaskButton_Click(object sender, RoutedEventArgs e)
@@ -108,23 +114,18 @@ namespace TaskListV2.UI
     {
       SlideGridEditTask.Width = 0;
       PopUpOpenButton.Visibility = Visibility.Visible;
+      ListViewTaskList.SelectedValue = null;
+
     }
 
     private void GrayCreateArea_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
     {
       SlideGridAddTask.Width = 0;
       PopUpOpenButton.Visibility = Visibility.Visible;
+      ListViewTaskList.SelectedValue = null;
     }
 
 
 
-
-    //ToDo: Popup change tasks
-    //private void ScrollViewer_MouseDown(object sender, MouseButtonEventArgs e)
-    //{
-    //    SlideGridAddTask.Width = 400;
-    //    PopUpOpenButton.Visibility = Visibility.Hidden;
-    //    ToDoTextBox.Text = _viewModel.Name;
-    //}
   }
 }

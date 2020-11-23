@@ -80,12 +80,17 @@
                                 </Style>
                             </ListView.ItemContainerStyle>-->
                         <ListView.View>
+
+
+
                             <GridView>
                                 <GridViewColumn >
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
 
-                                                                       <CheckBox VerticalAlignment="Top" Margin="15 0 10 0" Background="#FF0f4c75" Foreground="White" Height="30" Width="30" IsChecked="{Binding TaskComplete, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MaterialDesignActionAccentToggleButton}" Command="{Binding completeTaskCommand}" CommandParameter="{Binding}"/>
+                                                                       <CheckBox VerticalAlignment="Top" Margin="15 0 10 0" Background="#FF0f4c75" Foreground="White" Height="30" Width="30" IsChecked="{Binding TaskComplete, Mode=TwoWay}"  Style="{StaticResource MaterialDesignActionAccentToggleButton}" 
+                                      
+                                                                                 />
 
                                                 
                                             
@@ -233,15 +238,19 @@
             <StackPanel Margin="0 15"   
                             VerticalAlignment="Bottom" >
 
-                <Button Width="30" Height="30" Grid.Column="0" HorizontalAlignment="Left"     x:Name="SlideGridEditBackButton"   Command="{Binding createTaskCommand}" CommandParameter="{Binding}"
-                             Margin="8 20" Click="SlideGridEditBackButton_Click"
+                <Button Width="30" Height="30" Grid.Column="0" HorizontalAlignment="Left"     x:Name="SlideGridEditBackButton"   
+                             Margin="8 50 0 20" Click="SlideGridEditBackButton_Click"
                                     Style="{StaticResource MaterialDesignIconButton}"
                             Cursor="Hand">
                     <materialDesign:PackIcon Width="20" Height="20"
                                 Kind="ArrowRight"/>
                 </Button>
 
-                <StackPanel Orientation="Horizontal">
+                    <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 10">
+                        <CheckBox Margin="15 5 10 0" Background="AliceBlue" Height="25" Width="25" Style="{StaticResource MaterialDesignActionAccentToggleButton}" IsChecked="{Binding Complete}" Cursor="Hand"/>
+                        <Label HorizontalAlignment="Right" Content="Fertig"  Foreground="AntiqueWhite"/>
+                    </StackPanel>-->
+                    <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Margin="15 0" VerticalAlignment="Center" Kind="ToDo" Foreground="{DynamicResource MaterialDesignPaper}"/>
                     <Label Content="ToDo" Margin="0 5 15 0" Foreground="AntiqueWhite"/>
                 </StackPanel>
@@ -302,7 +311,7 @@
                                     Style="{StaticResource MaterialDesignIconButton}"
                             ToolTip="ToDo hinzufügen" Cursor="Hand">
                         <materialDesign:PackIcon
-                                Kind="Plus"/>
+                                Kind="Update"/>
 
                     </Button>
                 </Grid>
