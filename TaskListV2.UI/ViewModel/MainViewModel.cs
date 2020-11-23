@@ -117,6 +117,7 @@ namespace TaskListV2.UI.ViewModel
       Repetition = _selectedTask.TaskRepetition;
       Important = _selectedTask.IsImportant;
       //SlideGridAddTask.Width = 400;
+      TaskId = _selectedTask.TaskId;
     }
     public IList<Category> TaskCategories
     {
@@ -126,7 +127,7 @@ namespace TaskListV2.UI.ViewModel
       }
       set { }
     }
-
+    public int TaskId { get; set; }
     private Category _category = 0;
     public Category Category
     {
@@ -201,7 +202,7 @@ namespace TaskListV2.UI.ViewModel
       {
         _complete = value;
         //OnPropertyChanged();
-        _taskDataService.IsComplete(Name, Complete);
+        //_taskDataService.IsComplete(Name, Complete);
       }
     }
 

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:system="clr-namespace:System;assembly=System.Runtime"
         mc:Ignorable="d"
-        Title="ToDoList" ResizeMode="NoResize"  Height="600" Width="1000" MinHeight="600" MinWidth="900" FontSize="20"         WindowStyle="None" WindowStartupLocation="CenterScreen"
+        Title="ToDoList" ResizeMode="NoResize"  Height="600" Width="970" MinHeight="600" MinWidth="900" FontSize="20"         WindowStyle="None" WindowStartupLocation="CenterScreen"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
          TextElement.Foreground="{DynamicResource MaterialDesignBody}"
          TextElement.FontWeight="Regular"
@@ -126,7 +126,7 @@
 
 
                     <Button VerticalAlignment="Bottom" HorizontalAlignment="Right"      x:Name="PopUpOpenButton" Background="#FF363636"  Grid.Column="6" 
-                         Margin="0 0 25 15" Click="PopUpOpenButton_Click" 
+                         Margin="0 0 30 15" Click="PopUpOpenButton_Click" 
                                 Style="{StaticResource MaterialDesignIconButton}"
                         ToolTip="ToDo hinzufügen" Cursor="Hand" >
                         <materialDesign:PackIcon
@@ -306,7 +306,7 @@
 
                     </Grid.ColumnDefinitions>
 
-                    <Button Grid.Column="1" VerticalAlignment="Bottom"      x:Name="EditTaskButton" Background="DimGray"  Command="{Binding createTaskCommand}" CommandParameter="{Binding}"
+                    <Button Grid.Column="1" VerticalAlignment="Bottom"      x:Name="EditTaskButton" Background="DimGray"  Command="{Binding completeTaskCommand}" CommandParameter="{Binding}"
                              Margin="25" Click="EditTaskButton_Click"
                                     Style="{StaticResource MaterialDesignIconButton}"
                             ToolTip="ToDo hinzufügen" Cursor="Hand">

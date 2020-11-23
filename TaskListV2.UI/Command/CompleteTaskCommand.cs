@@ -29,7 +29,7 @@ namespace TaskListV2.UI.Command
         {
             if (parameter is MainViewModel mainViewModel)
             {
-                _taskDataService.IsComplete(mainViewModel.Name, mainViewModel.Complete);
+                _taskDataService.EditTask(mainViewModel.TaskId, mainViewModel.Name, mainViewModel.Category, mainViewModel.Due, mainViewModel.Reminder, mainViewModel.Repetition, mainViewModel.Important, mainViewModel.Complete);
                 
                 mainViewModel.RefreshTasks();
 

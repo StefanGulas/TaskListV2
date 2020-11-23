@@ -58,9 +58,9 @@ namespace TaskListV2.UI.Data
         {
             _dataAccessV2.CreateTask(name, Complete, Important, Due, Reminder, Category, Repetition);
         }
-        public void IsComplete(string name, bool complete)
+        public void EditTask(int taskId, string name, Category category, DateTime due, Reminder reminder, Repetition repetition, bool important, bool complete)
         {
-            _dataAccessV2.IsComplete(name, complete);
+            _dataAccessV2.EditTask(taskId, name, category, due, reminder, repetition, important, complete);
         }
 
 

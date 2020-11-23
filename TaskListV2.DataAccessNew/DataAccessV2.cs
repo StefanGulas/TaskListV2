@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Data.SqlClient;
 using System.Linq;
 using TaskListV2.Model;
 
@@ -33,7 +32,7 @@ namespace TaskListV2.DataAccessNew
 
     public IEnumerable<Task> Important()
     {
-      string getTasks = "SELECT * FROM Tasks WHERE IsImportant = 'true'";
+      string getTasks = "SELECT * FROM Tasks WHERE IsImportant = 'true' ORDER BY DueDate ASC";
 
       return Connect(getTasks);
     }
@@ -51,7 +50,7 @@ namespace TaskListV2.DataAccessNew
       DateTime beforeTime = DateTime.Now.Date.AddDays(7);
       string startTime = beforeTime.ToString("dd.MM.yyyy");
       var parameters = new { StartTime = startTime, EndTime = endTime };
-      string getTasks = "SELECT * FROM Tasks WHERE DueDate BETWEEN '" + startTime +"' AND '" + endTime + "'";
+      string getTasks = "SELECT * FROM Tasks WHERE DueDate BETWEEN '" + endTime + "' AND '" + startTime + "' ORDER BY DueDate ASC";
 
       return Connect(getTasks);
     }
@@ -69,15 +68,23 @@ namespace TaskListV2.DataAccessNew
 
       con.Close();
     }
-    public void IsComplete(string name, bool complete)
+    public void EditTask(int taskId, string name, Category category, DateTime due, Reminder reminder, Repetition repetition, bool important, bool complete)
     {
       using var con = HelperDataAccess.Conn();
 
       con.Open();
 
-      String dapperChecked = "UPDATE Tasks SET Complete = @Complete WHERE TaskName = @TaskName";
+      //String dapperChecked = "UPDATE Tasks SET TaskName = '"+name+"', TaskCategory = '"+category+"', DueDate = '"+due+"', Reminder = '"+reminder+"', TaskRepetition = '"+repetition+"', IsImportant = '"+important+"' TaskComplete='"+complete+"' WHERE TaskId = '"+taskId+"'";
 
-      var affectedRows = con.Execute(dapperChecked, new { TaskComplete = complete, TaskName = name });
+      //var affectedRows = con.Execute(dapperChecked, new { TaskName = name, TaskComplete = complete, IsImportant = important, TaskCategory = category, DueDate = due, Reminder = reminder, TaskRepetition = repetition });
+      
+      String dapperChecked = "UPDATE Tasks SET TaskName = '"+name+"', TaskCategory = '"+(int)category+"', DueDate = '"+due+"', Reminder = '"+(int)reminder+"', TaskRepetition = '"+(int)repetition+"', IsImportant = '"+important+"' WHERE TaskId = '"+taskId+"'";
+
+      var affectedRows = con.Execute(dapperChecked, new { TaskName = name, IsImportant = important, TaskCategory = (int)category, DueDate = due, Reminder = (int)reminder, TaskRepetition = (int)repetition });      
+      
+      //String dapperChecked = "UPDATE Tasks SET TaskName = 'Golf Spielen' WHERE TaskId = '"+taskId+"'";
+
+      //var affectedRows = con.Execute(dapperChecked, new { TaskName = "Golf Spielen" });
     }
   }
 }
