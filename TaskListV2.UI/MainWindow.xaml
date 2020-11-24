@@ -74,11 +74,6 @@
                     <ListView MouseDoubleClick="ListViewTaskList_MouseLeftButtonDown" x:Name="ListViewTaskList" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="White" Grid.Row="0"  Margin="10 0 0 0" FontSize="14" ItemsSource="{Binding Tasks}"
                   SelectedItem="{Binding SelectedTask, UpdateSourceTrigger=PropertyChanged}"  >
 
-                            <!--<ListView.ItemContainerStyle>
-                                <Style TargetType="ListViewItem">
-                                    <Setter Property="Margin" Value="0 0 20 0"/>
-                                </Style>
-                            </ListView.ItemContainerStyle>-->
                         <ListView.View>
 
 
@@ -88,12 +83,13 @@
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
 
-                                                                       <CheckBox VerticalAlignment="Top" Margin="15 0 10 0" Background="#FF0f4c75" Foreground="White" Height="30" Width="30" IsChecked="{Binding TaskComplete, Mode=TwoWay}"  Style="{StaticResource MaterialDesignActionAccentToggleButton}" 
+                                                                       <CheckBox VerticalAlignment="Top" Margin="15 0 10 0" Background="#FF0f4c75" Foreground="White" Height="30" Width="30" IsChecked="{Binding TaskComplete, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Style="{StaticResource MaterialDesignActionAccentToggleButton}" 
                                       
                                                                                  />
 
-                                                
-                                            
+                                            <!--<Button x:Name="ButtonFechar" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray" Click="ButtonFechar_Click">
+                                                <materialDesign:PackIcon Kind="Power" Foreground="{DynamicResource MaterialDesignPaper}"/>
+                                             </Button>-->
                                         </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>

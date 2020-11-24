@@ -9,11 +9,11 @@ using TaskListV2.UI.ViewModel;
 
 namespace TaskListV2.UI.Command
 {
-    public class CompleteTaskCommand : ICommand
+    public class EditTaskCommand : ICommand
     {
         private readonly ITaskListV2DataService _taskDataService;
 
-        public CompleteTaskCommand(ITaskListV2DataService taskDataService)
+        public EditTaskCommand(ITaskListV2DataService taskDataService)
         {
             _taskDataService = taskDataService;
         }

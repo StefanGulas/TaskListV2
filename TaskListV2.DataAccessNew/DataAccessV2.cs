@@ -85,5 +85,14 @@ namespace TaskListV2.DataAccessNew
 
       //var affectedRows = con.Execute(dapperChecked, new { TaskName = "Golf Spielen" });
     }
+    public void TaskIsComplete(bool complete, int taskId)
+    {
+      using var con = HelperDataAccess.Conn();
+
+      con.Open();
+      String dapperChecked = "UPDATE Tasks SET TaskComplete = '" + complete + "' WHERE TaskId = '" + taskId + "'";
+
+      var affectedRows = con.Execute(dapperChecked, new { TaskComplete = complete });
+    }
   }
 }

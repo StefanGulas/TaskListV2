@@ -17,6 +17,9 @@ namespace TaskListV2.UI.ViewModel
     private Task _selectedTask;
     private string _selectedItem;
     private string _name;
+    private ObservableCollection<Task> _tasks;
+    private Reminder _reminder = 0;
+
 
     public MainViewModel(ITaskListV2DataService taskDataService)
     {
@@ -42,7 +45,6 @@ namespace TaskListV2.UI.ViewModel
 
     public IEnumerable<string> MenuItems { get; set; }
 
-    private ObservableCollection<Task> _tasks;
 
 
 
@@ -83,6 +85,7 @@ namespace TaskListV2.UI.ViewModel
       {
         _tasks = value;
         OnPropertyChanged();
+
       }
     }
 
@@ -138,7 +141,6 @@ namespace TaskListV2.UI.ViewModel
       set { }
     }
 
-    private Reminder _reminder = 0;
     public Reminder Reminder
     {
       get { return _reminder; }
@@ -190,8 +192,8 @@ namespace TaskListV2.UI.ViewModel
       set
       {
         _complete = value;
-        //OnPropertyChanged();
-        //_taskDataService.IsComplete(Name, Complete);
+        OnPropertyChanged();
+        //_taskDataService.TaskIsComplete(_complete, TaskId);
       }
     }
 
@@ -230,7 +232,7 @@ namespace TaskListV2.UI.ViewModel
 
 
     public ICommand CreateTaskCommand { get { return new CreateTaskCommand(_taskDataService); } }
-    public ICommand CompleteTaskCommand { get { return new CompleteTaskCommand(_taskDataService); } }
+    public ICommand CompleteTaskCommand { get { return new EditTaskCommand(_taskDataService); } }
 
     //public DateTime DisplayTaskDateStart
     //{

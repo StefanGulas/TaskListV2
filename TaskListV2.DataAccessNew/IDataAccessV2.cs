@@ -12,6 +12,6 @@ namespace TaskListV2.DataAccessNew
         IEnumerable<Task> Today();
         void CreateTask(string name, bool Complete, bool Important, DateTime Due, Reminder Reminder, Category Category, Repetition Repetition);
         void EditTask(int taskId, string name, Category category, DateTime due, Reminder reminder, Repetition repetition, bool important, bool complete);
-
+        void TaskIsComplete(bool complete, int TaskId);
     }
 }
