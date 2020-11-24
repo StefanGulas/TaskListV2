@@ -83,7 +83,7 @@
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
 
-                                                                       <CheckBox VerticalAlignment="Top" Margin="15 0 10 0" Background="#FF0f4c75" Foreground="White" Height="30" Width="30" IsChecked="{Binding TaskComplete, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Style="{StaticResource MaterialDesignActionAccentToggleButton}" 
+                                                                       <CheckBox VerticalAlignment="Top" Margin="15 0 10 0" Background="#FF0f4c75" Foreground="White" Height="30" Width="30" Command="{Binding TaskCompleteCommand, Mode=TwoWay}" CommandParameter="{Binding}"  Style="{StaticResource MaterialDesignActionAccentToggleButton}" 
                                       
                                                                                  />
 
@@ -303,7 +303,7 @@
 
                     </Grid.ColumnDefinitions>
 
-                    <Button Grid.Column="1" VerticalAlignment="Bottom"      x:Name="EditTaskButton" Background="DimGray"  Command="{Binding CompleteTaskCommand}" CommandParameter="{Binding}"
+                    <Button Grid.Column="1" VerticalAlignment="Bottom"      x:Name="EditTaskButton" Background="DimGray"  Command="{Binding EditTaskCommand}" CommandParameter="{Binding}"
                              Margin="25" Click="EditTaskButton_Click"
                                     Style="{StaticResource MaterialDesignIconButton}"
                             ToolTip="ToDo hinzufügen" Cursor="Hand">

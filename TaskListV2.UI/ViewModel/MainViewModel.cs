@@ -232,7 +232,8 @@ namespace TaskListV2.UI.ViewModel
 
 
     public ICommand CreateTaskCommand { get { return new CreateTaskCommand(_taskDataService); } }
-    public ICommand CompleteTaskCommand { get { return new EditTaskCommand(_taskDataService); } }
+    public ICommand EditTaskCommand { get { return new EditTaskCommand(_taskDataService); } }
+    public ICommand TaskCompleteCommand { get { return new TaskCompleteCommand(_taskDataService); } }
 
     //public DateTime DisplayTaskDateStart
     //{
