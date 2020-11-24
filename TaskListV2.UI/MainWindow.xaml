@@ -203,7 +203,7 @@
 
                 </ComboBox>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 10">
-                    <CheckBox Margin="15 5 10 0" Background="AliceBlue" Height="25" Width="25" Style="{StaticResource MaterialDesignActionAccentToggleButton}" IsChecked="{Binding Important, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Cursor="Hand"/>
+                        <CheckBox x:Name="ImportantCheckBoxCreate" Margin="15 5 10 0" Background="AliceBlue" Height="25" Width="25" Style="{StaticResource MaterialDesignActionAccentToggleButton}" IsChecked="{Binding Important, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Cursor="Hand"/>
                     <Label HorizontalAlignment="Right" Content="Wichtig"  Foreground="AntiqueWhite"/>
                 </StackPanel>
 
@@ -296,7 +296,7 @@
 
                 </ComboBox>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 10">
-                    <CheckBox Margin="15 5 10 0" Background="AliceBlue" Height="25" Width="25" Style="{StaticResource MaterialDesignActionAccentToggleButton}" IsChecked="{Binding Important, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Cursor="Hand"/>
+                    <CheckBox x:Name="ImportantCheckBoxEdit" Margin="15 5 10 0" Background="AliceBlue" Height="25" Width="25" Style="{StaticResource MaterialDesignActionAccentToggleButton}" IsChecked="{Binding Important, Mode=TwoWay}" Cursor="Hand"/>
                     <Label HorizontalAlignment="Right" Content="Wichtig"  Foreground="AntiqueWhite"/>
                 </StackPanel>
 

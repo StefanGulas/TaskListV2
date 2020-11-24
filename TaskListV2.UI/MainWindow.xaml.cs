@@ -31,6 +31,7 @@ namespace TaskListV2.UI
       TaskCategoryComboBox.SelectedIndex = 0;
       ReminderComboBox.SelectedIndex = 0;
       RepetitionComboBox.SelectedIndex = 0;
+      ImportantCheckBoxCreate.IsChecked = false;
       dt_StartDateFrom.SelectedDate = DateTime.Today;
 
     }
@@ -91,6 +92,8 @@ namespace TaskListV2.UI
     {
       SlideGridEditTask.Width = 1100;
       PopUpOpenButton.Visibility = Visibility.Hidden;
+      ImportantCheckBoxEdit.IsChecked = false;
+
 
     }
 

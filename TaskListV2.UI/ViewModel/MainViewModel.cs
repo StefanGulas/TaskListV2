@@ -195,7 +195,14 @@ namespace TaskListV2.UI.ViewModel
       }
     }
 
-    public bool Important { get; set; }
+    private bool _important;
+
+    public bool Important
+    {
+      get { return _important; }
+      set { _important = value; }
+    }
+
 
     private DateTime _due = DateTime.Now;
     public DateTime Due
