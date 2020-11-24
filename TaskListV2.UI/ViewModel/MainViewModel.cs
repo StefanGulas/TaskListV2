@@ -200,7 +200,11 @@ namespace TaskListV2.UI.ViewModel
     public bool Important
     {
       get { return _important; }
-      set { _important = value; }
+      set 
+      {
+        _important = value;
+        OnPropertyChanged();
+      }
     }
 
 

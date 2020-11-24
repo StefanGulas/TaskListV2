@@ -92,7 +92,7 @@ namespace TaskListV2.UI
     {
       SlideGridEditTask.Width = 1100;
       PopUpOpenButton.Visibility = Visibility.Hidden;
-      ImportantCheckBoxEdit.IsChecked = false;
+      //ImportantCheckBoxEdit.IsChecked = false;
 
 
     }
