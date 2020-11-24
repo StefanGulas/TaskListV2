@@ -13,7 +13,7 @@ namespace TaskListV2.UI.ViewModel
 {
   public class MainViewModel : ViewModelBase
   {
-    private ITaskListV2DataService _taskDataService;
+    private readonly ITaskListV2DataService _taskDataService;
     private Task _selectedTask;
     private string _selectedItem;
     private string _name;
@@ -58,25 +58,14 @@ namespace TaskListV2.UI.ViewModel
     }
     public void RefreshTasks()
     {
-      IEnumerable<Task> tasks;
-      switch (SelectedItem)
+      IEnumerable<Task> tasks = SelectedItem switch
       {
-        case "Wichtig":
-          tasks = _taskDataService.Important();
-          break;
-        case "Aufgaben":
-          tasks = _taskDataService.GetAll();
-          break;
-        case "Mein Tag":
-          tasks = _taskDataService.Today();
-          break;
-        case "Geplant":
-          tasks = _taskDataService.Planned();
-          break;
-        default:
-          tasks = _taskDataService.GetAll();
-          break;
-      }
+        "Wichtig" => _taskDataService.Important(),
+        "Aufgaben" => _taskDataService.GetAll(),
+        "Mein Tag" => _taskDataService.Today(),
+        "Geplant" => _taskDataService.Planned(),
+        _ => _taskDataService.GetAll(),
+      };
       Tasks.Clear();
       foreach (var task in tasks)
       {
@@ -229,8 +218,8 @@ namespace TaskListV2.UI.ViewModel
     }
 
 
-    public ICommand createTaskCommand { get { return new CreateTaskCommand(_taskDataService); } }
-    public ICommand completeTaskCommand { get { return new CompleteTaskCommand(_taskDataService); } }
+    public ICommand CreateTaskCommand { get { return new CreateTaskCommand(_taskDataService); } }
+    public ICommand CompleteTaskCommand { get { return new CompleteTaskCommand(_taskDataService); } }
 
     //public DateTime DisplayTaskDateStart
     //{

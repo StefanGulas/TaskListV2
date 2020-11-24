@@ -49,7 +49,6 @@ namespace TaskListV2.DataAccessNew
       string endTime = nowTime.ToString("dd.MM.yyyy");
       DateTime beforeTime = DateTime.Now.Date.AddDays(7);
       string startTime = beforeTime.ToString("dd.MM.yyyy");
-      var parameters = new { StartTime = startTime, EndTime = endTime };
       string getTasks = "SELECT * FROM Tasks WHERE DueDate BETWEEN '" + endTime + "' AND '" + startTime + "' ORDER BY DueDate ASC";
 
       return Connect(getTasks);
@@ -64,7 +63,7 @@ namespace TaskListV2.DataAccessNew
       string insertTask = "INSERT INTO dbo.[Tasks] (TaskName, TaskComplete, IsImportant, TaskCategory, DueDate, Reminder, TaskRepetition) VALUES" +
           "(@TaskName, @TaskComplete, @IsImportant, @TaskCategory, @DueDate, @Reminder, @TaskRepetition)";
 
-      var affectedRows = con.Execute(insertTask, new { TaskName = name, TaskComplete = Complete, IsImportant = Important, TaskCategory = Category, DueDate = Due, Reminder = Reminder, TaskRepetition = Repetition });
+      var affectedRows = con.Execute(insertTask, new { TaskName = name, TaskComplete = Complete, IsImportant = Important, TaskCategory = Category, DueDate = Due, Reminder, TaskRepetition = Repetition });
 
       con.Close();
     }

@@ -8,7 +8,7 @@ namespace TaskListV2.UI.Data
 {
     class TaskListV2DataService : ITaskListV2DataService
     {
-        private IDataAccessV2 _dataAccessV2;
+        private readonly IDataAccessV2 _dataAccessV2;
 
         public TaskListV2DataService(IDataAccessV2 dataAccessV2)
         {

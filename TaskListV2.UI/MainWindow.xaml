@@ -137,6 +137,7 @@
                 </Grid>
             </Grid>
         </Grid>
+        <!-- ToDo: Refactoring DRY Principle: make one sliding window out of the two! -->
         <Grid x:Name="SlideGridAddTask" HorizontalAlignment="Right">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="700"/>
@@ -189,7 +190,7 @@
                 </StackPanel>
                 <ComboBox Background="AliceBlue" Height="30" Margin="10 0"  Padding="10 0" VerticalContentAlignment="Center" FontSize="16"  Name="ReminderComboBox" SelectedValue="{Binding Reminder, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding ReminderList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           Style="{StaticResource MaterialDesignComboBox}"
-                        ToolTip="Wann erinnern?">
+                        ToolTip="Erinnerungsfunktion aktivieren">
                 </ComboBox>
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Margin="15 0" VerticalAlignment="Center" Kind="Repeat" Foreground="{DynamicResource MaterialDesignPaper}"/>
@@ -198,7 +199,7 @@
                 </StackPanel>
                 <ComboBox Background="AliceBlue" Height="30" Margin="10 0"  Padding="10 0" VerticalContentAlignment="Center" FontSize="16" Name="RepetitionComboBox" SelectedValue="{Binding Repetition, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding RepetitionList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           Style="{StaticResource MaterialDesignComboBox}"
-                        ToolTip="Wiederholung auswählen">
+                        ToolTip="Wiederholungfunktion aktivieren">
 
                 </ComboBox>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 10">
@@ -213,7 +214,7 @@
 
                     </Grid.ColumnDefinitions>
 
-                    <Button Grid.Column="1" VerticalAlignment="Bottom"      x:Name="CreateTaskButton" Background="DimGray"  Command="{Binding createTaskCommand}" CommandParameter="{Binding}"
+                    <Button Grid.Column="1" VerticalAlignment="Bottom"      x:Name="CreateTaskButton" Background="DimGray"  Command="{Binding CreateTaskCommand}" CommandParameter="{Binding}"
                              Margin="25" Click="CreateTaskButton_Click"
                                     Style="{StaticResource MaterialDesignIconButton}"
                             ToolTip="ToDo hinzufügen" Cursor="Hand">
@@ -282,7 +283,7 @@
                 </StackPanel>
                 <ComboBox Background="AliceBlue" Height="30" Margin="10 0"  Padding="10 0" VerticalContentAlignment="Center" FontSize="16"  Name="ReminderEditComboBox" SelectedValue="{Binding Reminder, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding ReminderList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           Style="{StaticResource MaterialDesignComboBox}"
-                        ToolTip="Wann erinnern?">
+                        ToolTip="Erinnerungsfunktion aktivieren">
                 </ComboBox>
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Margin="15 0" VerticalAlignment="Center" Kind="Repeat" Foreground="{DynamicResource MaterialDesignPaper}"/>
@@ -291,7 +292,7 @@
                 </StackPanel>
                 <ComboBox Background="AliceBlue" Height="30" Margin="10 0"  Padding="10 0" VerticalContentAlignment="Center" FontSize="16" Name="RepetitionEditComboBox" SelectedValue="{Binding Repetition, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding RepetitionList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           Style="{StaticResource MaterialDesignComboBox}"
-                        ToolTip="Wiederholung auswählen">
+                        ToolTip="Wiederholungfunktion aktivieren">
 
                 </ComboBox>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 10">
@@ -306,7 +307,7 @@
 
                     </Grid.ColumnDefinitions>
 
-                    <Button Grid.Column="1" VerticalAlignment="Bottom"      x:Name="EditTaskButton" Background="DimGray"  Command="{Binding completeTaskCommand}" CommandParameter="{Binding}"
+                    <Button Grid.Column="1" VerticalAlignment="Bottom"      x:Name="EditTaskButton" Background="DimGray"  Command="{Binding CompleteTaskCommand}" CommandParameter="{Binding}"
                              Margin="25" Click="EditTaskButton_Click"
                                     Style="{StaticResource MaterialDesignIconButton}"
                             ToolTip="ToDo hinzufügen" Cursor="Hand">

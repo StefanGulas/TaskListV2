@@ -12,16 +12,6 @@ namespace TaskListV2.UI.Command
     public class CreateTaskCommand : ICommand
     {
         private readonly ITaskListV2DataService _taskDataService;
-        private Task _task;
-        private Action<Task> _execute;
-        public CreateTaskCommand(Action<Task> tasks)
-        {
-            tasks = _execute;
-        }
-        public CreateTaskCommand()
-        {
-            
-        }
 
 
         public CreateTaskCommand(ITaskListV2DataService taskDataService)
@@ -40,7 +30,6 @@ namespace TaskListV2.UI.Command
         {
             if (parameter is MainViewModel mainViewModel && mainViewModel.Name != null && mainViewModel.Name != "")
             {
-                _execute?.Invoke(parameter as Task);
                 
                 mainViewModel.Tasks.Add(new Task() { TaskName = mainViewModel.Name, TaskComplete = mainViewModel.Complete, IsImportant = mainViewModel.Important, DueDate = mainViewModel.Due, Reminder = mainViewModel.Reminder, TaskCategory = mainViewModel.Category, TaskRepetition = mainViewModel.Repetition});
                 _taskDataService.CreateTask(mainViewModel.Name, mainViewModel.Complete, mainViewModel.Important, mainViewModel.Due, mainViewModel.Reminder, mainViewModel.Category, mainViewModel.Repetition);

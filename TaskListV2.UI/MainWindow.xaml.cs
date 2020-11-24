@@ -11,7 +11,7 @@ namespace TaskListV2.UI
   /// </summary>
   public partial class MainWindow : Window
   {
-    private MainViewModel _viewModel;
+    private readonly MainViewModel _viewModel;
 
     public MainWindow(MainViewModel viewModel)
     {
