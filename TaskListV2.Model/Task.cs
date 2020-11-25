@@ -1,6 +1,8 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
-namespace TaskListV2.Model
+namespace TaskListV2.Model 
 {
   public enum Category
   {
@@ -39,7 +41,16 @@ namespace TaskListV2.Model
 
     public string TaskName { get; set; }
 
-    public bool TaskComplete { get; set; }
+    public bool TaskComplete
+    {
+      get => taskComplete;
+      set
+      {
+        taskComplete = value;
+        OnPropertyChanged();
+        
+      }
+    }
 
     private bool _isImportant;
     public bool IsImportant
@@ -51,6 +62,8 @@ namespace TaskListV2.Model
     public Category TaskCategory { get; set; }
 
     private DateTime _dueDate;
+    private bool taskComplete;
+
     public DateTime DueDate
     {
       get { return _dueDate.Date; }
@@ -70,7 +83,12 @@ namespace TaskListV2.Model
     public string ImportantStar { get; set; }
 
 
+    public event PropertyChangedEventHandler PropertyChanged;
 
+    protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+    {
+      PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
 
   }
 }

@@ -128,7 +128,9 @@ namespace TaskListV2.UI
       ListViewTaskList.SelectedValue = null;
     }
 
+    private void CheckBox_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+    {
 
-
+    }
   }
 }

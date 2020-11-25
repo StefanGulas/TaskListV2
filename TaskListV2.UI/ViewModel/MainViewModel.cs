@@ -71,7 +71,7 @@ namespace TaskListV2.UI.ViewModel
       Tasks.Clear();
       foreach (var task in tasks)
       {
-        Tasks.Add(task);
+        if(!task.TaskComplete)Tasks.Add(task);
         if (task.IsImportant) task.ImportantStar = "Visible";
         else task.ImportantStar = "Hidden";
       }
@@ -85,7 +85,7 @@ namespace TaskListV2.UI.ViewModel
       {
         _tasks = value;
         OnPropertyChanged();
-
+        
       }
     }
 

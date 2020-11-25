@@ -25,7 +25,7 @@ namespace TaskListV2.DataAccessNew
 
     public IEnumerable<Task> GetTasks()
     {
-      string getTasks = "SELECT * FROM Tasks ORDER BY DueDate ASC";
+      string getTasks = "SELECT * FROM Tasks WHERE TaskComplete = 'false' ORDER BY DueDate ASC";
 
       return Connect(getTasks);
     }
