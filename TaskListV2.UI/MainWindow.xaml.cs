@@ -128,8 +128,32 @@ namespace TaskListV2.UI
       ListViewTaskList.SelectedValue = null;
     }
 
+    private void CheckBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+    {
+      _viewModel.RefreshTasksAfterComplete();
+    }
+
+    private void CheckBox_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+      _viewModel.RefreshTasksAfterComplete();
+
+    }
+
+    private void CheckBox_MouseWheel(object sender, MouseWheelEventArgs e)
+    {
+      _viewModel.RefreshTasksAfterComplete();
+
+    }
+
     private void CheckBox_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
     {
+      _viewModel.RefreshTasksAfterComplete();
+
+    }
+
+    private void CheckBox_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+    {
+      _viewModel.RefreshTasksAfterComplete();
 
     }
   }

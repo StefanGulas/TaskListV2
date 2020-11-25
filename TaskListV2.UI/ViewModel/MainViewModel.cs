@@ -25,6 +25,8 @@ namespace TaskListV2.UI.ViewModel
     {
       MenuItems = TaskListV2DataService.LeftMenuItems;
       Tasks = new ObservableCollection<Task>();
+      NewTasks = new ObservableCollection<Task>();
+      
       _taskDataService = taskDataService;
       //createTaskCommand = new CreateTaskCommand();
     }
@@ -33,10 +35,10 @@ namespace TaskListV2.UI.ViewModel
     {
       var tasks = _taskDataService.GetAll();
       Tasks.Clear();
-  
+
       foreach (var task in tasks)
       {
-        Tasks.Add(task);
+        if (!task.TaskComplete) Tasks.Add(task);
         if (task.IsImportant) task.ImportantStar = "Visible";
         else task.ImportantStar = "Hidden";
       }
@@ -71,23 +73,34 @@ namespace TaskListV2.UI.ViewModel
       Tasks.Clear();
       foreach (var task in tasks)
       {
-        if(!task.TaskComplete)Tasks.Add(task);
+        if (!task.TaskComplete) Tasks.Add(task);
         if (task.IsImportant) task.ImportantStar = "Visible";
         else task.ImportantStar = "Hidden";
       }
     }
 
-    public ObservableCollection<Task> Tasks
 
+    public void RefreshTasksAfterComplete()
+    {
+      foreach (var task in this.Tasks)
+      {
+        if (task.TaskComplete) _taskDataService.TaskIsComplete(task.TaskComplete, task.TaskId);
+      }
+      RefreshTasks();
+    }
+
+    public ObservableCollection<Task> Tasks
     {
       get { return _tasks; }
       set
       {
         _tasks = value;
         OnPropertyChanged();
-        
+
       }
     }
+
+    public ObservableCollection<Task> NewTasks { get; private set; }
 
     public Task SelectedTask
     {
@@ -96,7 +109,7 @@ namespace TaskListV2.UI.ViewModel
       {
         _selectedTask = value;
         OnPropertyChanged();
-        if(_selectedTask != null) LoadTaskEdit();
+        if (_selectedTask != null) LoadTaskEdit();
       }
     }
 
@@ -202,7 +215,7 @@ namespace TaskListV2.UI.ViewModel
     public bool Important
     {
       get { return _important; }
-      set 
+      set
       {
         _important = value;
         OnPropertyChanged();
@@ -223,6 +236,7 @@ namespace TaskListV2.UI.ViewModel
     }
 
     private string _isVisible;
+    private ObservableCollection<Task> newTasks;
 
     public string IsVisible
     {

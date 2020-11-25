@@ -72,18 +72,11 @@ namespace TaskListV2.DataAccessNew
       using var con = HelperDataAccess.Conn();
 
       con.Open();
-
-      //String dapperChecked = "UPDATE Tasks SET TaskName = '"+name+"', TaskCategory = '"+category+"', DueDate = '"+due+"', Reminder = '"+reminder+"', TaskRepetition = '"+repetition+"', IsImportant = '"+important+"' TaskComplete='"+complete+"' WHERE TaskId = '"+taskId+"'";
-
-      //var affectedRows = con.Execute(dapperChecked, new { TaskName = name, TaskComplete = complete, IsImportant = important, TaskCategory = category, DueDate = due, Reminder = reminder, TaskRepetition = repetition });
       
       String dapperChecked = "UPDATE Tasks SET TaskName = '"+name+"', TaskCategory = '"+(int)category+"', DueDate = '"+due+"', Reminder = '"+(int)reminder+"', TaskRepetition = '"+(int)repetition+"', IsImportant = '"+important+"' WHERE TaskId = '"+taskId+"'";
 
       var affectedRows = con.Execute(dapperChecked, new { TaskName = name, IsImportant = important, TaskCategory = (int)category, DueDate = due, Reminder = (int)reminder, TaskRepetition = (int)repetition });      
       
-      //String dapperChecked = "UPDATE Tasks SET TaskName = 'Golf Spielen' WHERE TaskId = '"+taskId+"'";
-
-      //var affectedRows = con.Execute(dapperChecked, new { TaskName = "Golf Spielen" });
     }
     public void TaskIsComplete(bool complete, int taskId)
     {
