@@ -156,5 +156,11 @@ namespace TaskListV2.UI
       _viewModel.RefreshTasksAfterComplete();
 
     }
+
+    private void CheckBox_Checked(object sender, RoutedEventArgs e)
+    {
+      _viewModel.RefreshTasksAfterComplete();
+
+    }
   }
 }
